@@ -17,7 +17,7 @@ const UserHomePage = () => {
     // where do I input the userId from rootLayout and update the setCurrentTrips
     const handleCreateTrip = (e) => {
         e.preventDefault();
-        return navigate('/NewTripPage');
+        return navigate('/new_trip');
     }
 
     const handleSettings = (e) => {
