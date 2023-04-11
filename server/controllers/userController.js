@@ -17,12 +17,12 @@ const userController = {};
 userController.createUser = (req, res, next) => {
   console.log('---We are in createUser in userController.js--');
 
-  const { username, password } = req.body; // verification will hash the password in DB
+  const { username, password, displayName } = req.body; // verification will hash the password in DB
   // leaving it as user object in hopes that we add a nickname, and then put that in the object too
   // otherwise we could just send back res.locals.username = username
   res.locals.user = { username };
 
-  const newUser = new User({ username, password });
+  const newUser = new User({ username, password, displayName });
 
   newUser.save()
     .then(savedUser => {
@@ -58,7 +58,6 @@ userController.createUser = (req, res, next) => {
 };
 
 // Thinking of switching to findOne using username for security purposes. They're unique anyways
-// Sounds reasonable to me!
 // GET USER
 userController.getUser = (req, res, next) => {
   console.log('---We are in getUser in userController.js--');
