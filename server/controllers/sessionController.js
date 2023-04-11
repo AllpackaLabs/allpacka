@@ -1,4 +1,4 @@
-const { Session } = require('../models');
+const { Session } = require('../models/models');
 
 const createErr = (errInfo) => {
   const { method, type, err } = errInfo;

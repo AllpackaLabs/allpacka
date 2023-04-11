@@ -1,5 +1,5 @@
 
-const { User, Trip, Session } = require('../models.js');
+const { User, Trip, Session } = require('../models/models.js');
 
 // helper function to create fileController error objects
 // return value will be the object we pass into next, invoking global error handler
