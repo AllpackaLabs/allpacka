@@ -1,5 +1,7 @@
+const { User } = require('../models/userModel.js');
+const { Trip } = require('../models/tripModel.js');
+const { Session } = require('../models/sessionModel.js');
 
-const { User, Trip, Session } = require('../models/models.js');
 
 // helper function to create fileController error objects
 // return value will be the object we pass into next, invoking global error handler
@@ -74,8 +76,8 @@ userController.getUser = (req, res, next) => {
         }));
       }
 
-      const { username, displayName, trips } = foundUser;
-      res.locals.user = { username, displayName, trips };
+      const { username, trips } = foundUser;
+      res.locals.user = { username, trips };
       return next();
     })
     .catch((err) => {
@@ -111,7 +113,7 @@ userController.verifyUser = async (req, res, next) => {
       console.log('nomatch')
     } else {
       res.locals.verified = true;
-      const { username, displayName, trips } = foundUser;
+      const { username, trips } = foundUser;
       res.locals.user = { username, trips };
     }
       

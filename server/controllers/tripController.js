@@ -1,6 +1,6 @@
-
-const { Trip, Item, User } = require('../models/models.js');
-
+const { User } = require('../models/userModel.js');
+const { Trip } = require('../models/tripModel.js');
+const { Session } = require('../models/sessionModel.js');
 
 // helper function to create fileController error objects
 // return value will be the object we pass into next, invoking global error handler
@@ -88,6 +88,14 @@ tripController.createTrip = (req, res, next) => {
       });
   // return next();
 };
+
+// Add Categories into Trip
+
+
+
+
+
+
 
 // Stretch Feature
 // Only the current user that is logged in can join a trip.
