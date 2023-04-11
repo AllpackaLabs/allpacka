@@ -182,28 +182,28 @@ userController.updateUserTrips = async (req, res, next) => {
 
 // DELETE USER
 
-userController.deleteUser = (req, res, next) => {
-  console.log('---We are in deleteUser in userController.js----');
+// userController.deleteUser = (req, res, next) => {
+//   console.log('---We are in deleteUser in userController.js----');
 
-  const { _id } = req.params; 
-  console.log(_id);
+//   const { _id } = req.params; 
+//   console.log(_id);
 
-  User.findByIdAndDelete(_id)
-    .then(student => {
-      console.log(student);
-      const { firstName, lastName, age } = student;
-      res.locals.student = { firstName, lastName, age };
-      return next();
-    })
-    .catch((err) => {
-      return next(createErr({
-        method: 'deleteUser',
-        type: 'retrieving mongoDB data',
-        err,
-        err,
-      }));
-    });
-};
+//   User.findByIdAndDelete(_id)
+//     .then(student => {
+//       console.log(student);
+//       const { } = student;
+//       res.locals.student = {  };
+//       return next();
+//     })
+//     .catch((err) => {
+//       return next(createErr({
+//         method: 'deleteUser',
+//         type: 'retrieving mongoDB data',
+//         err,
+//         err,
+//       }));
+//     });
+// };
 
 
 // EXPORT THE Controllers!!!

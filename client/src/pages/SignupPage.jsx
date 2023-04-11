@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate, Form } from 'react-router-dom';
+import { userContext } from '../context';
+import '../scss/SignupPage.scss';
+
 
 const SignUpPage = () => {
 
@@ -41,7 +44,6 @@ const SignUpPage = () => {
 	return (
 		<main className='signup-page'>
 			<div className='signup-div'>
-			<p className='signup-header'>All Aboard the AllPacka!</p>
 			<Form className='form' onSubmit ={handleSubmit}>
 				<div className='username-box'>
 					<span>What will your username be?</span>
@@ -65,7 +67,7 @@ const SignUpPage = () => {
 					/>
 				</div>
 				<div id='signup-btn' className='button-div'>
-					<button type='submit'>Create Your AllPacka Account!</button>
+					<button type='submit'>Create Account</button>
 				</div>
 			</Form>
 			</div>
