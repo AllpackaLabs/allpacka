@@ -4,7 +4,6 @@ import React, {useState} from "react";
 import CategoryComponent from "./CategoryComponent";
 
 
-
 const MainItemsComponent = () => {
 
     const currentTrip = {

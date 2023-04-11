@@ -1,8 +1,9 @@
 // *****************************    SB edits   *****************************
 import React, {useState} from "react";
 import { redirect, BrowserRouter, Router, Link, Route } from "react-router-dom";
-import MainItemsComponent from "./MainItemsComponent";
+import MainItemsComponent from "./MainItemsComponent.jsx";
 import CategoryComponent from "./CategoryComponent";
+
 // import 
 //QUESTIONS: are className "simpe-sections" labeled that way on purpose? I edited some
 
@@ -83,8 +84,6 @@ const TripHomePage = ({ currentTrips }) => {
       <div className='mainItemsDisplay'>
         <MainItemsComponent/>
       </div>
-
-
 
 
     {/* div branch 3 -  share button copy link in clipboard -------------------------------------------------*/}
