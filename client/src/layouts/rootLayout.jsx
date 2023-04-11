@@ -13,11 +13,11 @@ const RootLayout = () => {
         {/* <h1>Root Layout</h1> */}
         <nav id='main-nav'>
           {/* <h1>I'm for testing page navigation</h1> */}
-          <NavLink to='/' className='nav-link'> Login Page </NavLink>
-          <NavLink to='/SignUpPage'className='nav-link'> Sign-up Page </NavLink>
-          <NavLink to='/UserHomePage'className='nav-link'> User Home Page </NavLink>
-          <NavLink to='/NewTripPage'className='nav-link'> New TripPage </NavLink>
-          <NavLink to='/TripHomePage'className='nav-link'> Trip Home Page </NavLink>
+          <NavLink to='/' className='nav-link'> Login </NavLink>
+          <NavLink to='/signup'className='nav-link'> Sign-up </NavLink>
+          <NavLink to='/user'className='nav-link'> Home </NavLink>
+          {/* <NavLink to='/new_trip'className='nav-link'> New Trip </NavLink>
+          <NavLink to='/trip_home'className='nav-link'> Trip Home Page </NavLink> */}
         </nav>
       </header>
       <main>

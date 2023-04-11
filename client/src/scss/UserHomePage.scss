@@ -18,10 +18,10 @@ $primary-font-color: rgb(78, 76, 76);
 	justify-content: center;
 	margin: 0.5rem auto;
     height: 100vh;
-    background-image: url('https://hips.hearstapps.com/hmg-prod/images/large-group-of-happy-friends-in-mountains-area-royalty-free-image-1653422631.jpg?crop=0.668xw:1.00xh;0.0609xw,0&resize=1200:*');
+    background-image: url('https://cdn-media-1.freecodecamp.org/images/1*kwaAOW_ja_raNVgV3VgZ2g.jpeg');
 	background-position: center;
     background-repeat: no-repeat;
-    background-size: 60rem;
+    background-size: 70rem;
 
 	color: $primary-font-color;
 	font-family: $primary-font-stack;
@@ -36,13 +36,23 @@ $primary-font-color: rgb(78, 76, 76);
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: rgba(255, 255, 255, 0.415);
+	background-color: rgba(255, 255, 255, 0.759);
 	border-radius: 2rem;
 	width: 65%;
 	height: 100%;
 	padding: 2rem 0;
 }
+.settings {
+	position:static;
+	margin: 1rem 0 0 52rem;
+	float: left !important;
+	width: 10%;
+}
 
+.settings-btn{
+	// display: contents;
+	background-color: white;
+}
 
 .past-trips {
 	border-radius: 6rem;

@@ -14,24 +14,24 @@ import RootLayout from './layouts/rootLayout';
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<RootLayout/>}>
-      <Route index element={<LoginPage key='LoginPage'/>} />
+      <Route index element={<LoginPage key='login'/>} />
       <Route
-        path='/SignupPage'
+        path='/signup'
         element={<SignupPage key='SignupPage' />}
         // loader={puzzleTestLoader}
       />
       <Route
-        path='/UserHomePage'
+        path='/user'
         element={<UserHomePage key='UserHomePage' />}
         // loader={puzzleLoader}
       />
       <Route
-        path='/NewTripPage'
+        path='/new_trip'
         element={<NewTripPage key='NewTripPage' />}
         // loader={puzzleLoader}
       />
       <Route
-        path='/TripHomePage'
+        path='/trip_home' //possibly :_id
         element={<TripHomePage key='TripHomePage' />}
         // loader={puzzleLoader}
       />
