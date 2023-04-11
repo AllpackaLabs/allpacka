@@ -66,21 +66,23 @@ const newTripPage = () => {
                 <Form onSubmit={handleSubmit}>
                     <label>
                         <span className='question'>Where are you going?</span>
-                        <input className='new-trip-text' type="text" value={location} name="location" onChange={handleLocation}/>
+                        <input className='new-trip-text' type="text" value={location} name="location" onChange={handleLocation} placeholder='destination'/>
                     </label>
                     <label>
                         <span className='question'>When are you going?</span>
-                        <input className='new-trip-text' type="text" value={date} name="date" onChange={handleDate}/>
+                        <input className='new-trip-text' type="text" value={date} name="date" onChange={handleDate} placeholder='date'/>
                     </label>
                     <label>
                         <span className='question'>What are you planning for?</span>
-                        <input className='new-trip-text' type="text" value={tripType} name="tripType" onChange={handleTripType}/>
+                        <input className='new-trip-text' type="text" value={tripType} name="tripType" onChange={handleTripType} placeholder='tell us about it!'/>
                     </label>
                     <label>
                         <span className='question'>What will you call this Epic Adventure?</span>
-                        <input className='new-trip-text' type="text" value={tripName} name="tripName" onChange={handleTripName}/>
+                        <input className='new-trip-text' type="text" value={tripName} name="tripName" onChange={handleTripName} placeholder='get creative!'/>
                     </label>
-                    <button type="submit">Create Trip!</button>
+                    <div className="trip-button">
+                        <button type="submit">Create Trip!</button>
+                    </div>
                 </Form>
             </div>
 
