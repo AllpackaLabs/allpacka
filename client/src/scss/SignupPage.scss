@@ -18,43 +18,43 @@ $primary-font-color: rgb(78, 76, 76);
 	justify-content: center;
 	margin: 0.5rem auto;
     height: 100vh;
-    // background-image: url('https://hips.hearstapps.com/hmg-prod/images/large-group-of-happy-friends-in-mountains-area-royalty-free-image-1653422631.jpg?crop=0.668xw:1.00xh;0.0609xw,0&resize=1200:*');
-	// background-position: center;
-    // background-repeat: no-repeat;
-	background: linear-gradient(-55deg, #e19b85, #e182a6, #80bdd4, #80c9b8);
-    background-size: 100rem;
-	animation: gradient 30s ease infinite;
+    background-image: url('https://cdn.packhacker.com/2022/06/d78f3bdf-vpl-flatlay.jpg?auto=compress&auto=format');
+	background-position: center;
+    background-repeat: no-repeat;
+	// background: linear-gradient(-55deg, #e19b85, #e182a6, #80bdd4, #80c9b8);
+    background-size: 60rem;
+// 	animation: gradient 30s ease infinite;
 
-	color: $primary-font-color;
-	font-family: $primary-font-stack;
-	font-weight: 800;
-	font-size: 1rem;
-	line-height: 1rem;
-	letter-spacing: 0.015rem;
+// 	color: $primary-font-color;
+// 	font-family: $primary-font-stack;
+// 	font-weight: 800;
+// 	font-size: 1rem;
+// 	line-height: 1rem;
+// 	letter-spacing: 0.015rem;
 }
 
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
+// @keyframes gradient {
+// 	0% {
+// 		background-position: 0% 50%;
+// 	}
+// 	50% {
+// 		background-position: 100% 50%;
+// 	}
+// 	100% {
+// 		background-position: 0% 50%;
+// 	}
+// }
 
 .signup-div {
-	background-color: rgba(255, 255, 255, 0.609);
+	background-color: rgba(255, 255, 255, 0.808);
 	border-radius: 6rem;
 	display: flex;
     flex-direction: column;
     align-items:center;
     justify-content: center;
-	margin: 0 auto 10rem ;
-	width: 50%;
-	height: 50%;
+	margin: auto;
+	width: 40%;
+	height: 40%;
 	padding: auto;
 }
 
@@ -76,8 +76,9 @@ $primary-font-color: rgb(78, 76, 76);
 	align-items: center;
 	align-content: center;
 	margin: 1rem auto;
-
 }
+
+
 .form {
 	display: flex;
 	flex-direction: column;
@@ -85,6 +86,9 @@ $primary-font-color: rgb(78, 76, 76);
 	align-items: center;
 	align-content: center;
 	margin: 1rem auto;
+	font-size: 1.25rem;
+	font-family: $primary-font-stack;
+	color: $primary-font-color;
 }
 
 input {
