@@ -22,7 +22,7 @@ Happy Hacking!
 
 ## current file structure 
 
-
+````
 .
 ├── client
 │   ├── index.html
@@ -75,3 +75,4 @@ Happy Hacking!
     │   ├── tripRouter.js
     │   └── userRouter.js
     └── server.js
+   ````
