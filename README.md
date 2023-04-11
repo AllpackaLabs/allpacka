@@ -4,7 +4,7 @@ A planning app for any and every event!
 Note the server and client have their own package.json
 to install the dependencies, run
 
-    npmp install
+    npm install
     
 in both "/client" and "/server"
 
