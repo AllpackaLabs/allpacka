@@ -1,0 +1,16 @@
+{
+  "name": "AllPaca",
+  "version": "1.0.0",
+  "description": "An app to help your friends pack for any and every trip",
+  "main": "server.js",
+  "scripts": {
+    "start": " node ."
+  },
+  "authors": "William Murphy",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.3",
+    "bcryptjs": "^2.3.0"
+  }
+}
