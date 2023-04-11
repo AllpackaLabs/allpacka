@@ -56,8 +56,6 @@ $primary-font-color: rgb(78, 76, 76);
 	width: 50%;
 	height: 50%;
 	padding: auto;
-	z-index: 3;
-	filter: blur(0) !important;
 }
 
 .signup-header {
@@ -71,6 +69,15 @@ $primary-font-color: rgb(78, 76, 76);
 }
 
 //////////// Input and buttons /////////
+.form-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	align-content: center;
+	margin: 1rem auto;
+
+}
 .form {
 	display: flex;
 	flex-direction: column;
@@ -80,17 +87,8 @@ $primary-font-color: rgb(78, 76, 76);
 	margin: 1rem auto;
 }
 
-.username-section {
-	margin: 1rem auto;
-	width: 50%;
-}
-
-.password-section {
-	margin: 1rem auto;
-	width: 50%;
-}
-
 input {
+	text-align: center;
 	height: 2rem;
 	display: flex;
 	align-content: center;

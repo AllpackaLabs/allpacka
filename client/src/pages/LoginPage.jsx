@@ -67,49 +67,47 @@ const LoginPage = () => {
 	return (
 		<main className='login-page'>
 			<div className='login-div'>
-        <p className='login-header'>
-          Welcome to AllPacka!
-        </p>
-        {/* IMAGE OF AN ALPACA */}
         <img
           src={alpaca}
           alt={'alpaca'}
           className="alpaca-image"
         />
         <p id='name-label' className='username-subhead'>
-          Log into AllPacka!
+          Welcome
         </p>
-        <Form className='form' onSubmit ={handleSubmit}>
-          <div className='username-section'>
-            <input 
-              type='text'
-              placeholder='username'
-              // placeholder="What's a good nickname?..." 
-              value = {username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </div>
-          <div className='password-section'>
-            <input 
-              type='text'
-              placeholder="password" 
-              value = {password}     
-              onChange={(e) => setPassword(e.target.value)}
-              onKeyDown={(e) => {
-                  if (e.key === 'Enter') handleSubmit();
-              }}
-            />
-          </div>
-          <div className='outer-btn-div'>
-            <div className='button-div'>
-              <button type='submit'>Login!</button>
+        <div className='form-div'>
+          <Form className='form' onSubmit ={handleSubmit}>
+            <div className='username-section'>
+              <input 
+                type='text'
+                placeholder='username'
+                // placeholder="What's a good nickname?..." 
+                value = {username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
             </div>
-            {/* redirect to sign up page with the this button */}
-            <div className='button-div'>
-              <button onClick={redirectToSignupPage}>Sign-Up!</button>
+            <div className='password-section'>
+              <input 
+                type='text'
+                placeholder="password" 
+                value = {password}     
+                onChange={(e) => setPassword(e.target.value)}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter') handleSubmit();
+                }}
+              />
             </div>
-          </div>
-        </Form>
+            <div className='outer-btn-div'>
+              <div className='button-div'>
+                <button type='submit'>Login!</button>
+              </div>
+              {/* redirect to sign up page with the this button */}
+              <div className='button-div'>
+                <button onClick={redirectToSignupPage}>Sign-Up!</button>
+              </div>
+            </div>
+          </Form>
+        </div>
       </div>
 		</main>
 	);

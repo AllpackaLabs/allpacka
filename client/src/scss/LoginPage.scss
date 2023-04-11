@@ -7,6 +7,7 @@ $primary-font-stack: 'Merriweather Sans', system-ui, -apple-system, BlinkMacSyst
 // Secondary font stack (also sans-serif), for headings, buttons, and labels
 $secondary-font-stack: Poppins, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
 	Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
 $primary-font-color: rgb(78, 76, 76);
 
 .login-page {
@@ -30,13 +31,13 @@ $primary-font-color: rgb(78, 76, 76);
 }
 
 .login-div {
-	position: relative;
+	border-radius: 6rem;
 	display: flex;
     flex-direction: column;
-    align-items:center;
-    justify-content: center;
+    align-items: center;
 	margin: 0 auto 12rem;
 	width: 50%;
+	height: 50%;
 	padding: auto;
 }
 
@@ -44,15 +45,15 @@ $primary-font-color: rgb(78, 76, 76);
 	display: flex;
     font-size: 2.25rem;
     font-weight: bold;
-	margin: 1rem auto;
 }
 
 .alpaca-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 17vh;
 	border-radius: 2rem;
+}
+
+#name-label {
+	margin: 0 auto;
 }
 
 .username-subhead{
@@ -61,47 +62,47 @@ $primary-font-color: rgb(78, 76, 76);
 }
 
 //////////// Input and buttons /////////
-.form {
+.form-div {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	align-content: center;
-	margin: 1rem auto;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto 1rem;
 }
 
 .username-section {
-	margin: 0 auto;
-	width: 50%;
+	margin: 0;
+	padding: 0; 
 }
 
 .password-section {
-	margin: 1rem auto;
-	width: 50%;
+	margin: 0;
+	padding: 0; 
 }
 
 input {
+	text-align: center;
 	height: 2rem;
 	display: flex;
-	text-align: center;
 	align-content: center;
 	align-items: center;
 	align-content: center;
-	margin: 0 auto;
+	margin: 0;
 	border-radius: 0.5rem;
 	border: 1px solid #ccc;
 	font-size: 1rem;
 	width: 100%;
   }
 
-  /////////////////////
-
 #outer-btn-div {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: center;
-	width: 30rem;
+	// width: 30rem;
 }
+
 #button-div {
 	display: flex;
 	flex-direction: row;
@@ -116,10 +117,10 @@ button {
 	background: white;
 	color: $primary-font-color;
 	cursor: pointer;
-	width: 100%;
+	width: 200%;
 	margin: 0.25rem auto;
 	line-height: 1rem;
-	letter-spacing: 0.05em;
+	letter-spacing: 0.05rem;
 	transition: filter 100ms linear;
 
 	&.icon-button {
@@ -130,7 +131,6 @@ button {
 		justify-content: center;
 		align-items: center;
 	}
-
 	&:hover,
 	&:focus {
 		filter: brightness(0.9);
