@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate, Form } from 'react-router-dom';
 import { tripContext, userContext } from '../../context';
-
+import '../../scss/UserHomePage.scss';
 // Child Components
 import UserTripsDisplay from './userTripsDisplay';
 
@@ -30,20 +30,26 @@ const UserHomePage = () => {
 
     return (
         <div className="user-home-page">
-            <div className='create-trip'>
-                <button onClick={handleCreateTrip}>Create New Trip</button>
-            </div>
-            <div className='join-trip'>
-                <input type="text" value={joinTripCode} onChange={(e) => setJoinTripCode(e.target.value)} />
-                <button onClick={handleJoinTrip}>Join Trip</button>
-            </div>
-            <div className='current-trips'>
-                <h2>Currently Planning</h2>
-                {JSON.stringify(user.trips)}
-            </div>
-            <div className='past-trips'>
-                <h2>Past Trips</h2>
-          {/* <UserTripsDisplay userobj={ user } /> */}
+            <div className="user-display">
+                <div className='join-trip'>
+                    <input  type="text" 
+                            value={joinTripCode} 
+                            onChange={(e) => setJoinTripCode(e.target.value)}
+                            placeholder='Add trip code here...'
+                            />
+                    <button onClick={handleJoinTrip}>Add Trip</button>
+                    <div className='create-trip'>
+                        <button onClick={handleCreateTrip}>Create New Trip</button>
+                    </div>
+                </div>
+                <div className='trips'>
+                    <h2>Currently Planning</h2>
+                    {/* {JSON.stringify(user.trips)} */}
+                </div>
+                <div className='trips'>
+                    <h2>Past Trips</h2>
+                    {/* <UserTripsDisplay userobj={ user } /> */}
+                </div>
             </div>
         </div>
     )
