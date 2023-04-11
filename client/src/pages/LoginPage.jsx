@@ -100,12 +100,14 @@ const LoginPage = () => {
               }}
             />
           </div>
-          <div className='button-div'>
+          <div className='outer-btn-div'>
+            <div className='button-div'>
               <button type='submit'>Login!</button>
-          </div>
-          {/* redirect to sign up page with the this button */}
-          <div className='button-div'>
-            <button onClick={redirectToSignupPage}>Sign-Up!</button>
+            </div>
+            {/* redirect to sign up page with the this button */}
+            <div className='button-div'>
+              <button onClick={redirectToSignupPage}>Sign-Up!</button>
+            </div>
           </div>
         </Form>
       </div>
