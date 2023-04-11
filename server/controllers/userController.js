@@ -22,7 +22,7 @@ userController.createUser = (req, res, next) => {
   // otherwise we could just send back res.locals.username = username
   res.locals.user = { username };
 
-  const newUser = new User({ username, password, displayName });
+  const newUser = new User({ username, displayName, password });
 
   newUser.save()
     .then(savedUser => {
@@ -57,17 +57,15 @@ userController.createUser = (req, res, next) => {
     });
 };
 
-// Thinking of switching to findOne using username for security purposes. They're unique anyways
 // GET USER
 userController.getUser = (req, res, next) => {
   console.log('---We are in getUser in userController.js--');
 
   const { username } = req.body;
-  // const { _id } = req.params; // 
+  // const { _id } = req.params;
   User.findOne({username: username})
   // User.findOneById(_id)
     .then(foundUser => {
-
       if (foundUser === null) {
         return next(createErr({
             method: 'addUser',
@@ -76,8 +74,8 @@ userController.getUser = (req, res, next) => {
         }));
       }
 
-      const { username, trips } = foundUser;
-      res.locals.user = { username, trips };
+      const { username, displayName, trips } = foundUser;
+      res.locals.user = { username, displayName, trips };
       return next();
     })
     .catch((err) => {
@@ -89,7 +87,7 @@ userController.getUser = (req, res, next) => {
     });
 }
 
-// Verify User
+// VERIFY USER
 userController.verifyUser = async (req, res, next) => {
   console.log('---We are in getUser in userController.js--');
 
@@ -108,13 +106,12 @@ userController.verifyUser = async (req, res, next) => {
 
   try {
     const foundUser = await User.findOne({ username, password }).exec();
-
     if (foundUser === null) {
       res.locals.verified = false;
       console.log('nomatch')
     } else {
       res.locals.verified = true;
-      const { username, trips } = foundUser;
+      const { username, displayName, trips } = foundUser;
       res.locals.user = { username, trips };
     }
       
@@ -129,7 +126,7 @@ userController.verifyUser = async (req, res, next) => {
   }
 }
 
-
+//UPDATE USER TRIPS
 userController.updateUserTrips = async (req, res, next) => {
   console.log('---We are in updateUserTrips in userController.js--');
 
@@ -156,7 +153,7 @@ userController.updateUserTrips = async (req, res, next) => {
       }));
     }
 
-    foundUser.trips.push({ tripName: tripName, date: date, trip_id: trip_id})
+    foundUser.trips.push({ tripName, date, trip_id})
     const updatedUser = await foundUser.save();
 
     if (updatedUser === null) {
@@ -180,7 +177,6 @@ userController.updateUserTrips = async (req, res, next) => {
 }
 
 // DELETE USER
-
 userController.deleteUser = (req, res, next) => {
   console.log('---We are in deleteUser in userController.js----');
 
@@ -198,7 +194,6 @@ userController.deleteUser = (req, res, next) => {
       return next(createErr({
         method: 'deleteUser',
         type: 'retrieving mongoDB data',
-        err,
         err,
       }));
     });
