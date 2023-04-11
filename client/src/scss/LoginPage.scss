@@ -35,7 +35,7 @@ $primary-font-color: rgb(78, 76, 76);
 	display: flex;
     flex-direction: column;
     align-items: center;
-	margin: 0 auto 12rem;
+	margin: 0 auto 15rem;
 	width: 50%;
 	height: 50%;
 	padding: auto;
@@ -53,7 +53,7 @@ $primary-font-color: rgb(78, 76, 76);
 }
 
 #name-label {
-	margin: 0 auto;
+	margin: 1rem auto 0;
 }
 
 .username-subhead{
@@ -67,19 +67,19 @@ $primary-font-color: rgb(78, 76, 76);
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
+	background-color: rgba(255, 255, 255, 0.415);
+	border-radius: 2rem;
+	width: 50%;
 	height: 100%;
-	margin: 0 auto 1rem;
 }
 
 .username-section {
-	margin: 0;
+	margin: 0.5rem auto;
 	padding: 0; 
 }
 
 .password-section {
-	margin: 0;
-	padding: 0; 
+	margin: 0.5rem auto;
 }
 
 input {
@@ -89,7 +89,6 @@ input {
 	align-content: center;
 	align-items: center;
 	align-content: center;
-	margin: 0;
 	border-radius: 0.5rem;
 	border: 1px solid #ccc;
 	font-size: 1rem;
@@ -100,7 +99,6 @@ input {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	// width: 30rem;
 }
 
 #button-div {
@@ -117,7 +115,7 @@ button {
 	background: white;
 	color: $primary-font-color;
 	cursor: pointer;
-	width: 200%;
+	width: 100%;
 	margin: 0.25rem auto;
 	line-height: 1rem;
 	letter-spacing: 0.05rem;

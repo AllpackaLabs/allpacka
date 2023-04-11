@@ -76,7 +76,7 @@ const LoginPage = () => {
           Welcome
         </p>
         <div className='form-div'>
-          <Form className='form' onSubmit ={handleSubmit}>
+          <Form onSubmit ={handleSubmit}>
             <div className='username-section'>
               <input 
                 type='text'
