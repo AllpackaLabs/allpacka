@@ -17,7 +17,7 @@ const app = express();
 app.use(express.json()); 
 app.use(express.urlencoded({extended: true})); // important for forms!!
 
-const MONGO_URI ='mongodb+srv://olsoninoslo:Iamnedtito@cluster0.bslfwul.mongodb.net/?retryWrites=true&w=majority';
+const MONGO_URI = 'mongodb+srv://olsoninoslo:snakeCat@cluster0.bslfwul.mongodb.net/?retryWrites=true&w=majority';
 // const MONGO_URI ="mongodb+srv://markteets:YpbIlMkXeLofYQrV@allpackadb.79xwnq2.mongodb.net/?retryWrites=true&w=majority"
 // const MONGO_URI = process.env.MARK_ALLPACKADB_MONGO_URL;
 // const MONGO_URI = 'error maker'
