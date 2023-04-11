@@ -17,12 +17,12 @@ const userController = {};
 userController.createUser = (req, res, next) => {
   console.log('---We are in createUser in userController.js--');
 
-  const { username, password, displayName } = req.body; // verification will hash the password in DB
+  const { username, password } = req.body; // verification will hash the password in DB
   // leaving it as user object in hopes that we add a nickname, and then put that in the object too
   // otherwise we could just send back res.locals.username = username
   res.locals.user = { username };
 
-  const newUser = new User({ username, displayName, password });
+  const newUser = new User({ username, password });
 
   newUser.save()
     .then(savedUser => {

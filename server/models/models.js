@@ -10,7 +10,6 @@ const Schema = mongoose.Schema;
 // Stretch thought: User documents should include nicknames. That way if Mark is already in database, my name doesn't need to be "Mark6" on website
 const userSchema = new Schema({
   username: {type: String, required: true, unique: true},
-	displayName: {type: String, required: true},
   password: {type: String, required: true},
   trips: [{
     date: Date,
