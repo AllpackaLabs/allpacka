@@ -42,7 +42,7 @@ const LoginPage = () => {
         setUser(res.user);
         console.log(res.user.trips)
         // return redirect(`/UserHomePage/${res.user_id}`); //!!! either user_id or username
-        return navigate(`/user`);
+        return navigate(`/user_home`);
       } else {
         console.log(res.verified)
         alert('Invalid Credentials');
