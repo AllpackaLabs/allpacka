@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from "react-router-dom";
 import { tripContext, userContext } from './context.js';
 
@@ -22,9 +22,9 @@ const router = createBrowserRouter(
       <Route
         path='/signup'
         element={<SignupPage key='signup' />}
+        // loader={puzzleTestLoader}
       />
       <Route
-        // path='id' // This is the user's id in the DB
         path='/user_home'
         element={<UserHomePage key='user' />}
         loader={userLoader}
@@ -32,15 +32,17 @@ const router = createBrowserRouter(
       <Route
         path='/user_settings'
         element={<UserSettingsPage key='user_settings' />}
+        // loader={puzzleLoader}
       />
       <Route
         path='/new_trip'
         element={<NewTripPage key='new_trip' />}
+        // loader={puzzleLoader}
       />
       <Route
-      // path=':id' // This is the trip's id in the DB
         path='/trip_home'
         element={<TripHomePage key='trip_home' />}
+        // loader={puzzleLoader}
       />
     </Route>
   )
