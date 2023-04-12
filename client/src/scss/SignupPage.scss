@@ -21,29 +21,8 @@ $primary-font-color: rgb(78, 76, 76);
     background-image: url('https://cdn.packhacker.com/2022/06/d78f3bdf-vpl-flatlay.jpg?auto=compress&auto=format');
 	background-position: center;
     background-repeat: no-repeat;
-	// background: linear-gradient(-55deg, #e19b85, #e182a6, #80bdd4, #80c9b8);
     background-size: 60rem;
-// 	animation: gradient 30s ease infinite;
-
-// 	color: $primary-font-color;
-// 	font-family: $primary-font-stack;
-// 	font-weight: 800;
-// 	font-size: 1rem;
-// 	line-height: 1rem;
-// 	letter-spacing: 0.015rem;
 }
-
-// @keyframes gradient {
-// 	0% {
-// 		background-position: 0% 50%;
-// 	}
-// 	50% {
-// 		background-position: 100% 50%;
-// 	}
-// 	100% {
-// 		background-position: 0% 50%;
-// 	}
-// }
 
 .signup-div {
 	background-color: rgba(255, 255, 255, 0.808);
@@ -58,46 +37,27 @@ $primary-font-color: rgb(78, 76, 76);
 	padding: auto;
 }
 
-// .signup-header {
-//     font-size: 2rem;
-//     font-weight: bold;
-// }
-
-// .username-subhead{
-//     font-size: 1.75rem;
-//     font-weight: bold;
-// }
 
 //////////// Input and buttons /////////
-// .form-div {
+// .form {
 // 	display: flex;
 // 	flex-direction: column;
 // 	justify-content: space-around;
 // 	align-items: center;
 // 	align-content: center;
 // 	margin: 1rem auto;
+// 	font-size: 1.25rem;
+// 	font-family: $primary-font-stack;
+// 	color: $primary-font-color;
 // }
-
-
-.form {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
-	align-content: center;
-	margin: 1rem auto;
-	font-size: 1.25rem;
-	font-family: $primary-font-stack;
-	color: $primary-font-color;
-}
 
 input {
 	text-align: center;
-	height: 2rem;
+	// height: 2rem;
 	display: flex;
-	align-content: center;
-	align-items: center;
-	align-content: center;
+	// align-content: center;
+	// align-items: center;
+	// align-content: center;
 	margin: 1rem auto;
 	border-radius: 0.5rem;
 	border: 1px solid #ccc;
@@ -108,18 +68,22 @@ input {
   /////////////////////
 
 #button-div {
-	height: auto;
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
-	margin: 1rem auto;
-	padding: auto;
-	width: 250%;
+	// justify-content: center;
+	// align-items: center;
+	// align-content: center;
+	// margin: 1rem auto;
+	// padding: auto;
+	// width: 250%;
+	// height: 3rem;
 
-	border-radius: 6rem;
+	// border-radius: 6rem;
 	border: none;
 	outline: none;
+}
+
+#signup-btn {
+	height: 3rem;
 }
 
 // button {

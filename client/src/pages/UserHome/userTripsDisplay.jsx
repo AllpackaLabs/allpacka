@@ -11,9 +11,9 @@ const UserTripsDisplay = ({ userobj }) => {
         )
     }) : null;
 
-return(
+    return(
 		<div>
-			    { trips }
+			{ trips }
 		</div>
     )
 }

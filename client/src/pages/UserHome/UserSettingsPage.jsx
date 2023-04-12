@@ -14,17 +14,32 @@ const testArray = [
 const UserSettingsPage = () => {
 
     const { user, setUser } = useContext(userContext);
+    const navigate = useNavigate();
+    const [newUsername, setNewUsername] = useState('');
+    const [newTripsArr, setNewTripsArr] = useState(testUser.trips)
+    const [body, setBody] = useState({});
 
     function handleSubmit(e) {
         e.preventDefault()
         console.log('user? ', user)
-        // fetch('/users/:_id', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: {}
-        // })
+        fetch('/users/:_id', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: {body}
+        })
+        .then(data => data.json())
+        .then(data => {
+            navigate(`/user/${user.id}`)
+        })
+        .catch(err => {
+            alert('something...')
+        })
+    }
+
+    function createBody() {
+
     }
 
     function handleDelete() {
@@ -37,7 +52,7 @@ const UserSettingsPage = () => {
             <div className='user-settings'>
                 <div className="update-username">
                     <h2>Update Username</h2>
-                    <input type='text' placeholder='new username' onChange={(e) => setNewUsername(e.target.value)}/>
+                    <input type='text' placeholder='new username' value={newUsername} onChange={(e) => setNewUsername(e.target.value)}/>
                     <button className='user-update' onClick={handleSubmit}>update username</button>
                 </div>
                 <div className="update-password">
