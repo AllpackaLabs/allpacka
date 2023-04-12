@@ -15,34 +15,13 @@ $primary-font-color: rgb(78, 76, 76);
     display: flex;
     flex-direction: column;
 	align-content: center;
-	justify-content: center;
+	justify-content: space-around;
     height: 100vh;
-    background-image: url('https://cdn.packhacker.com/2022/06/d78f3bdf-vpl-flatlay.jpg?auto=compress&auto=format');
+    background-image: url('https://images.pexels.com/photos/896673/pexels-photo-896673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
 	background-position: center;
     background-repeat: no-repeat;
-	// background: linear-gradient(-55deg, #e19b85, #e182a6, #80bdd4, #80c9b8);
-    background-size: 60rem;
-// 	animation: gradient 30s ease infinite;
-
-// 	color: $primary-font-color;
-// 	font-family: $primary-font-stack;
-// 	font-weight: 800;
-// 	font-size: 1rem;
-// 	line-height: 1rem;
-// 	letter-spacing: 0.015rem;
+    background-size: 80rem;
 }
-
-// @keyframes gradient {
-// 	0% {
-// 		background-position: 0% 50%;
-// 	}
-// 	50% {
-// 		background-position: 100% 50%;
-// 	}
-// 	100% {
-// 		background-position: 0% 50%;
-// 	}
-// }
 
 .header {
 	background-color: rgba(255, 255, 255, 0.808);
@@ -50,23 +29,21 @@ $primary-font-color: rgb(78, 76, 76);
 	display: flex;
     flex-direction: row;
     align-items:center;
-    justify-content: space-between;
-	// margin: 0 auto 20rem;
+    justify-content: space-evenly;
+	margin: 0 auto;
 	width: 100%;
-	padding: auto;
 }
-
 
 //////////// Input and buttons /////////
 .main-display{
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
+	justify-content: space-between;
 	align-content: center;
 	background-color: rgba(255, 255, 255, 0.47);
-	border-radius: 2rem;
-	
+	border-radius: 1rem;
+	width: 90%;
+	margin: 0 auto;
 }
 
 

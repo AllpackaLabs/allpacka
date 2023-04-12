@@ -16,4 +16,4 @@ return(
     )
 }
 
-export default UserTripsDisplay
+export default UserTripsDisplay;

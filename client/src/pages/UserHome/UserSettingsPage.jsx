@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Form, Navigate } from 'react-router-dom';
+import UserTripsDisplay from './UserTripsDisplay.jsx'
 
 const testArray = [
     {date: Date.now(), name: 'Rainbow Kitty Adventure'},
@@ -46,7 +47,7 @@ const UserSettingsPage = () => {
             </div>
             <div className='past-trips'>
                 <h2>Past Trips</h2>
-                <UserTripsDisplay tripArr={ testArray } />
+                {/* <UserTripsDisplay tripArr={ testArray } /> */}
             </div>
         </div>
     </main>

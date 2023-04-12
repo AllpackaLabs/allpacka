@@ -8,16 +8,73 @@ $primary-font-stack: 'Merriweather Sans', system-ui, -apple-system, BlinkMacSyst
 .item-row{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    height: 2rem;
 }
 
-.item {
+// This is the items legend
+.item-btn-div {
     display: flex;
     text-align: center;
-    border: solid;
-    border-radius: 1rem;
+
+    border: 1px solid;
+    border-radius: 0.5rem;
     border-color: black;
-    width:25%;
+    margin: 0.1rem 0.5rem;
+
+    width: 10%;
+    font-family: $primary-font-stack;
+}
+.item-btn{
+    border: 1px solid;
+    border-radius: 0.5rem;
+    border-color: black;
+
+}
+
+.item-num {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    border: 1px solid;
+    border-radius: 0.5rem;
+    border-color: black;
+    margin: 0.1rem 1rem;
+    width:10%;
+    height: 1.75rem;
+    font-family: $primary-font-stack;
+}
+
+.item-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    border: 1px solid;
+    border-radius: 0.5rem;
+    border-color: black;
+    width:80%;
+    height: 1.75rem;
+    margin: 0.1rem 0.25rem;
+    font-family: $primary-font-stack;
+}
+
+.item-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    border: 1px solid;
+    border-radius: 0.5rem;
+    border-color: black;
+    width:80%;
+    height: 1.75rem;
+    margin: 0.1rem 0.25rem;
     font-family: $primary-font-stack;
 }

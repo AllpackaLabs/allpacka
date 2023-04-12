@@ -7,16 +7,16 @@ const ItemsDisplayComponent = ({ item }) => {
     console.log(item.name)
     return (
       <div className='item-row'>
-        <div className='item'>
-          <button>√</button>
+        <div className='item-btn-div'>
+          <button className='item-btn'>√</button>
         </div>
-        <div className='item'>
+        <div className='item-num'>
           {item.number}
         </div>
-        <div className='item'>
+        <div className='item-name'>
           {item.name}
         </div>
-        <div className='item'>
+        <div className='item-user'>
           {item.user}
         </div>
       </div>

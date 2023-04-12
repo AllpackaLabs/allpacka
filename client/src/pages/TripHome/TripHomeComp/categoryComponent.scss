@@ -7,3 +7,23 @@
     background-color: rgba(240, 255, 255, 0.598);
     border-radius: 2rem;
 }
+
+.category-label {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    margin: 0 0.75rem;
+    background-color: rgba(255, 255, 255, 0.765);
+    border-radius: 1rem;
+}
+
+.category-name {
+    margin: 0 0.75rem
+}
+
+.add-item-btn {
+    margin: 0 0.75rem;
+    width: 10%;
+    background-color: rgb(24, 77, 200);
+}

@@ -22,11 +22,15 @@ const CategoryComponent = ({ items, category }) => {
 
    return (
     <div className='category'>
-      <span className='categoryLabel'> {category} </span>
-      <div>
+      <div className='category-label'>
+        <div className='category-name'>
+        {category}
+        </div>
+        <div className='add-item'>
         {/* add items to category by pressing " + " button */}
-        <button onClick={handleAddItem}>+</button>
-    </div>
+          <button classNamed='add-item-btn' onClick={handleAddItem}>+</button>
+        </div>
+      </div>
       <div>
         {itemsArray}
       </div>

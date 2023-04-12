@@ -1,7 +1,7 @@
 // *****************************    SB edits   *****************************
 import React, {useState} from "react";
 import { redirect, BrowserRouter, Router, Link, Route } from "react-router-dom";
-import MainItemsComponent from "./TripHomeComp/mainItemsComponent.jsx";
+import MainItemsComponent from "./TripHomeComp/MainItemsComponent.jsx";
 import CategoryComponent from "./TripHomeComp/categoryComponent.jsx";
 import './TripHome.scss';
 // import 
@@ -58,33 +58,30 @@ const TripHomePage = ({ currentTrips }) => {
 
     // main div
     <main className='trip-home-page'> 
-    <header className='header'>
-      <div className='left-btns'>
-        <div>
+      <header className='header'>
+        <div className='left-btns'>
+          <div>
             <button onClick={handleAddItemCategory}>Add Item Category</button>
-        </div>
-        <div>
+          </div>
+          <div>
             <button onClick={handleShowUserCards}>Show User Cards</button>
+          </div>
         </div>
-
-      </div>
-      <div className='Trip-details'>
-        <h1>DISPLAY TRIP NAME</h1>
-      </div>
-      <div className='right-btns'>
-        <div>
-            <button onClick={handleAllItemsChecked}>All Items Checked</button>
+        <div className='Trip-details'>
+          <h1>DISPLAY TRIP NAME</h1>
         </div>
-        <div>
-            <button onClick={handleEditTrip}>Edit Trip</button>
+        <div className='right-btns'>
+          <div>
+              <button onClick={handleAllItemsChecked}>All Items Checked</button>
+          </div>
+          <div>
+              <button onClick={handleEditTrip}>Edit Trip</button>
+          </div>
         </div>
-      </div>
-    </header>
-      {/* div branch 2 - ALL ITEMS CONTAINER component of components -------------------------------------------------*/}
+      </header>
       <div className='main-display'>
         <MainItemsComponent/>
       </div>
-      {/* div branch 3 -  share button copy link in clipboard -------------------------------------------------*/}
       <div>
         <div className='share-trip-link'>
             <button onClick={copyTrip}>Share trip with this link</button>
