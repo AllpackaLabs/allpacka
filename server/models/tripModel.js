@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { schema } = require('./userModel');
 const Schema = mongoose.Schema;
 
 // Users could also have a ninkname per trip? Food for thought.
