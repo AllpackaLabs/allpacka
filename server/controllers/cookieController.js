@@ -6,7 +6,8 @@ const cookieController = {};
 
 //setSSIDCookie - store the user's databasse _id in a cookie and seesion db
 cookieController.setSSIDCookie = (req, res, next) => {
-  // console.log(res.locals._id);
+	console.log('---We are in setSSIDCookie in cookieController.js----');
+	// Create a JWT token
 	const payload = {
 		_id: res.locals._id,
 	}
