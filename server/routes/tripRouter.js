@@ -10,6 +10,7 @@ const tripRouter = express.Router();
 
 // get a trip's info
 tripRouter.get('/:trip_id',
+		sessionController.isLoggedIn, //Protect route
     tripController.getTrip,
     (req, res) => {
     console.log('--Sending data from tripRouter.GET\'s anonymous func--');
@@ -20,6 +21,7 @@ tripRouter.get('/:trip_id',
 // save a new trip
 // this :_id is the user's _id
 tripRouter.post('/create-trip/:user_id',
+	sessionController.isLoggedIn, //Protect route
   tripController.createTrip,
   userController.updateUserTrips,
   (req, res) => {
@@ -36,6 +38,7 @@ tripRouter.post('/create-trip/:user_id',
 //Takes a trip_id and a trip in body params. This trip is the current state of the trip from the frontend
 // This route will replace the trip in the database with the trip provided in the params
 tripRouter.patch('/update',
+	sessionController.isLoggedIn, //Protect route
   tripController.updateTripDetails,
   (req, res) => {
     console.log('--Sending data from tripRouter.PATCH\'s anonymous func--');
@@ -59,6 +62,7 @@ tripRouter.patch('/:trip_id',
 
 // delete a trip : (
 tripRouter.delete('/:trip_id',
+sessionController.isLoggedIn, //Protect route
 tripController.deleteTrip,
   (req, res) => {
     console.log('--Sending data from tripRouter.DELETE\'s anonymous func--');
