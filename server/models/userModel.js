@@ -41,6 +41,14 @@ const userSchema = new Schema({
     }
     }]
 });
+/*
+const userSchema = new Schema({
+  username: {type: String, required: true, unique: true},
+  password: {type: String, required: true},
+  trips: [trip_id1, trip_id2, trip_id3];
+});
+*/
+
 
 const User = mongoose.model('User', userSchema);
 
