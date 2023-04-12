@@ -5,34 +5,40 @@ import { tripContext, userContext } from './context.js';
 // Pages to render
 import LoginPage from './pages/LoginPage.jsx';
 import SignupPage from './pages/SignupPage.jsx';
-import NewTripPage from './pages/TripHome/NewTripPage.jsx';
+import NewTripPage from './pages/NewTripPage.jsx';
 import TripHomePage from './pages/TripHome/TripHomePage.jsx';
 import UserHomePage from './pages/UserHome/UserHomePage.jsx';
+import UserSettingsPage from './pages/UserHome/UserSettingsPage.jsx';
 import RootLayout from './layouts/rootLayout';
 
 // ROUTE PROVIDER Component to 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<RootLayout/>}>
-      <Route index element={<LoginPage key='LoginPage'/>} />
+      <Route index element={<LoginPage key='login'/>} />
       <Route
-        path='/SignupPage'
-        element={<SignupPage key='SignupPage' />}
+        path='/signup'
+        element={<SignupPage key='signup' />}
         // loader={puzzleTestLoader}
       />
       <Route
-        path='/UserHomePage'
-        element={<UserHomePage key='UserHomePage' />}
+        path='/user'
+        element={<UserHomePage key='user' />}
         // loader={puzzleLoader}
       />
       <Route
-        path='/NewTripPage'
-        element={<NewTripPage key='NewTripPage' />}
+        path='/user_settings'
+        element={<UserSettingsPage key='user_settings' />}
         // loader={puzzleLoader}
       />
       <Route
-        path='/TripHomePage'
-        element={<TripHomePage key='TripHomePage' />}
+        path='/new_trip'
+        element={<NewTripPage key='new_trip' />}
+        // loader={puzzleLoader}
+      />
+      <Route
+        path='/trip_home'
+        element={<TripHomePage key='trip_home' />}
         // loader={puzzleLoader}
       />
     </Route>

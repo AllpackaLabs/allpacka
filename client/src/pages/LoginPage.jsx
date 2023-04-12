@@ -42,10 +42,11 @@ const LoginPage = () => {
         setUser(res.user);
         console.log(res.user.trips)
         // return redirect(`/UserHomePage/${res.user_id}`); //!!! either user_id or username
-        return navigate(`/UserHomePage`);
+        return navigate(`/user`);
       } else {
         console.log(res.verified)
-        alert('Invalid username or password');
+        alert('Invalid Credentials');
+        return <Navigate to='/' replace={true} />
       }
 			// return redirect(`/SignUpPage`); // TOD redirect
     } else {
@@ -60,7 +61,7 @@ const LoginPage = () => {
 
     //do we need fetch for this as well?
     const redirectToSignupPage = () => {
-	    return navigate(`/SignUpPage`);
+	    return navigate(`/signup`);
 	}
 
 

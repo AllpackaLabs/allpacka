@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Poppins:wght@300;500;600;700;800&display=swap');
+
+// Primary font stack (sans-serif-based), for most UI elements
+$primary-font-stack: 'Merriweather Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+	Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+// Secondary font stack (also sans-serif), for headings, buttons, and labels
+$secondary-font-stack: Poppins, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+	Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+$primary-font-color: rgb(78, 76, 76);
+
+.settings-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: 0.5rem auto;
+    height: 100vh;
+    background-image: url('https://images.unsplash.com/photo-1504697570352-47c3bbc09af9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2944&q=80');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 75rem;
+}
+
+.user-settings {
+    background-color: rgb(255, 255, 255, 0.8);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    border-radius: 3.4rem;
+    width: 50%;
+    // padding: 1rem 15rem;
+}
+
+.update-username,
+.delete-account {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // margin: 0 6.5rem;
+}
+
+.update-username input,
+.delete-account input {
+    border-radius: 6rem;
+    width: 35%;
+}
+
+.update-username button,
+.delete-account button {
+    width: 35%;
+}
+
+.user-update {
+    padding: 0.6rem;
+    // border: rgba(88, 83, 83, 0.4);
+}
+
+.update-trips {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.trip-log {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.trip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.6rem;
+    font-size: 16px;
+    width: 70%;
+}
+
+.trip:hover {
+    background-color: rgba(219, 12, 12, 0.6);
+}
+
+.trip-delete {
+    width: 20%;
+}

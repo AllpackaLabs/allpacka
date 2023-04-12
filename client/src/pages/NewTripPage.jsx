@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { redirect, Form } from "react-router-dom";
-import '../../scss/NewTripPage.scss';
+import '../scss/NewTripPage.scss';
 //Will have access to userId
 const newTripPage = () => {
     const [date, setDate] = useState('');
