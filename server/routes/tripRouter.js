@@ -12,7 +12,7 @@ const tripRouter = express.Router();
 tripRouter.get('/:trip_id',
     tripController.getTrip,
     (req, res) => {
-    console.log('--Sending data from tripRouter.GET\'s aynonmouns func--');
+    console.log('--Sending data from tripRouter.GET\'s anonymous func--');
     return res.status(200).json(res.locals); //
     }
 );
@@ -23,7 +23,7 @@ tripRouter.post('/create-trip/:user_id',
   tripController.createTrip,
   userController.updateUserTrips,
   (req, res) => {
-    console.log('--Sending data from tripRouter.POST\'s aynonmouns func--');
+    console.log('--Sending data from tripRouter.POST\'s anonymous func--');
     //res.locals keys
     //  -trip -> trip data from createTripPage (for loading on tripHomePage details)
     //  -updatedUser -> with updated user trips array
@@ -38,7 +38,7 @@ tripRouter.post('/create-trip/:user_id',
 tripRouter.patch('/update',
   tripController.updateTripDetails,
   (req, res) => {
-    console.log('--Sending data from tripRouter.PATCH\'s aynonmouns func--');
+    console.log('--Sending data from tripRouter.PATCH\'s anonymous func--');
     return res.status(200).json(res.locals.replacedTrip);
   }
 );
@@ -56,11 +56,35 @@ tripRouter.patch('/:trip_id',
 );
 */
 
+//ADD CATEGORY
+tripRouter.patch('/add-category/:trip_id',
+	tripController.addCategories,
+	(req, res) => {
+		console.log('--Sending data from tripRouter.PATCH\'s anonymous func--');
+		return res.status(200).json(res.locals.updatedTrip);
+	}
+)
+
+//DELETE CATEGORY
+tripRouter.patch('/delete-category/:trip_id',
+	tripController.deleteCategories,
+	(req, res) => {
+		console.log('--Sending data from tripRouter.PATCH\'s anonymous func--');
+		return res.status(200).json(res.locals.updatedTrip);
+	}
+)
+
+//ADD ITEMS
+
+
+//DELETE ITEMS
+
+
 // delete a trip : (
 tripRouter.delete('/:trip_id',
 tripController.deleteTrip,
   (req, res) => {
-    console.log('--Sending data from tripRouter.DELETE\'s aynonmouns func--');
+    console.log('--Sending data from tripRouter.DELETE\'s anonymous func--');
     return res.status(200).json(); // 
   }
 );
