@@ -59,10 +59,16 @@ const MainItemsComponent = () => {
 
     return (
         <div className='mainItemDisplay'>
-            <div className='item legend'>
-                <span>Item Number</span>
-                <span>Item Name</span>
-                <span>Assigned To...</span>
+            <div className='items-legend'>
+                <div id='item-legend-number'>
+                    How Many
+                </div>
+                <div id='item-legend-name'>
+                    Name
+                </div>
+                <div id='item-legend-who'>
+                    Who's Responsible
+                </div>
             </div>
             <div className='displayedItems'>
                {categories}
