@@ -36,7 +36,7 @@ const UserSettingsPage = () => {
                     <input 
                         type='text'
                         placeholder='username'
-                        value = {username}
+                        // value = {username}
                         onChange={(e) => setUsername(e.target.value)}
                     />
                 </div>
