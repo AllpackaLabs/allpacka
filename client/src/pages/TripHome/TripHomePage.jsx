@@ -2,7 +2,6 @@
 import React, {useState} from "react";
 import { redirect, BrowserRouter, Router, Link, Route } from "react-router-dom";
 import MainItemsComponent from "./TripHomeComp/MainItemsComponent.jsx";
-import CategoryComponent from "./TripHomeComp/categoryComponent.jsx";
 import './TripHome.scss';
 // import 
 //QUESTIONS: are className "simpe-sections" labeled that way on purpose? I edited some
@@ -29,18 +28,9 @@ const TripHomePage = ({ currentTrips }) => {
   const handleAddItemCategory = (e) => {
     e.preventDefault();
     // add item schema
-    return newItemSchema //component
+    // return newItemSchema //component
   }
 
-  const handleShowUserCards = (e) => {
-    e.preventDefault();
-    // return users and what they are bringing // unmounting 
-        return 
-  }
-  const handleAllItemsChecked = (e) => {
-    e.preventDefault();
-    // list of checked items
-  }
   const handleEditTrip = (e) => {
     e.preventDefault();
   }
@@ -59,23 +49,23 @@ const TripHomePage = ({ currentTrips }) => {
     // main div
     <main className='trip-home-page'> 
       <header className='header'>
-        <div className='left-btns'>
+        <div>
           <div>
-            <button onClick={handleAddItemCategory}>Add Item Category</button>
+            <button className='header-btns' onClick={handleAddItemCategory}>Add Item Category</button>
           </div>
-          <div>
+          {/* <div>
             <button onClick={handleShowUserCards}>Show User Cards</button>
-          </div>
+          </div> */}
         </div>
         <div className='Trip-details'>
           <h1>DISPLAY TRIP NAME</h1>
         </div>
-        <div className='right-btns'>
-          <div>
+        <div>
+          {/* <div>
               <button onClick={handleAllItemsChecked}>All Items Checked</button>
-          </div>
+          </div> */}
           <div>
-              <button onClick={handleEditTrip}>Edit Trip</button>
+              <button className='header-btns' onClick={handleEditTrip}>Edit Trip</button>
           </div>
         </div>
       </header>
@@ -84,7 +74,7 @@ const TripHomePage = ({ currentTrips }) => {
       </div>
       <div>
         <div className='share-trip-link'>
-            <button onClick={copyTrip}>Share trip with this link</button>
+          <button onClick={copyTrip}>Share trip with this link</button>
         </div>
       </div> 
     </main>

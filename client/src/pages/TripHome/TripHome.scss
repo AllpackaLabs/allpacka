@@ -14,7 +14,7 @@ $primary-background-color: rgba(255, 255, 255, 0.808);
 
 * {
 	font-family: $primary-font-stack;
-	color: $primary-font-color;
+	// color: $primary-font-color;
 }
 
 .trip-home-page {
@@ -30,15 +30,33 @@ $primary-background-color: rgba(255, 255, 255, 0.808);
 }
 
 .header {
-	background-color: $primary-background-color;
+	// background-color: $primary-background-color;
+	font-size: larger;
 	border-radius: 1rem;
 	display: flex;
     flex-direction: row;
     align-items:center;
     justify-content: space-evenly;
 	margin: 0 auto;
-	width: 100%;
+	width: 90%;
 }
+
+.header-btns {
+	height: 3rem;
+	padding: 1rem;
+	font-size: medium;
+	font-weight: bold;
+
+	&:hover,
+	&:focus {
+		background-color: lightgreen;
+		filter: brightness(0.9);
+	}
+	&:active {
+		filter: brightness(0.8);
+	}
+}
+
 
 //////////// Input and buttons /////////
 .main-display{
@@ -69,49 +87,5 @@ $primary-background-color: rgba(255, 255, 255, 0.808);
 
   /////////////////////
 
-// #button-div {
-// 	height: auto;
-// 	display: flex;
-// 	justify-content: center;
-// 	align-items: center;
-// 	align-content: center;
-// 	margin: 1rem auto;
-// 	padding: auto;
-// 	width: 250%;
 
-// 	border-radius: 6rem;
-// 	border: none;
-// 	outline: none;
-// }
-
-// button {
-// 	border-radius: 6rem;
-// 	border: none;
-// 	outline: none;
-// 	background: white;
-// 	color: rgba(22, 21, 21, 0.8);
-// 	cursor: pointer;
-
-// 	line-height: 1rem;
-// 	letter-spacing: 0.05em;
-
-// 	transition: filter 100ms linear;
-
-// 	&.icon-button {
-// 		display: inline-flex;
-
-// 		padding: 0;
-
-// 		justify-content: center;
-// 		align-items: center;
-// 	}
-
-// 	&:hover,
-// 	&:focus {
-// 		filter: brightness(0.9);
-// 	}
-// 	&:active {
-// 		filter: brightness(0.8);
-// 	}
-// }
 

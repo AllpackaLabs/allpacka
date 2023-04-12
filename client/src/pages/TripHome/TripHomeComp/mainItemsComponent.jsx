@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './MainItemsComponent.scss'
 // child component of mainItemsComponent && parent componet of itemsDisplayComponet
-import CategoryComponent from "./categoryComponent";
+import CategoryComponent from "./CategoryComponent";
 
 
 const MainItemsComponent = () => {

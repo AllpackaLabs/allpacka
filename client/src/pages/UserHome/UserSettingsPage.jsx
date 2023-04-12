@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate, Form, Navigate } from 'react-router-dom';
+import { userContext } from '../../context.js';
 import '../../scss/UserSettingsPage.scss'
 
 const testArray = [
@@ -12,41 +13,47 @@ const testArray = [
 
 const UserSettingsPage = () => {
 
-    // const { user, setUser } = useContext(userContext);
+    const { user, setUser } = useContext(userContext);
 
-    // Only for sending to server
-    const handleSubmit = () => {
-        fetch('/users/:_id', {
-            Method:'POST',
-            Body: { /**complicated mess of state... */}
-        })
-        .then(data => data.json)
-        .then(data => {
-
-        })
-    // POST request for updating user info
+    function handleSubmit(e) {
+        e.preventDefault()
+        console.log('user? ', user)
+        // fetch('/users/:_id', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: {}
+        // })
     }
 
-
+    function handleDelete() {
+        window.confirm('Are you sure you want to delete your account?')
+    }
     // Helper function that delete trips from tripsArray
 
     return (
         <main className='settings-page'>
             <div className='user-settings'>
+                <div className="update-username">
+                    <h2>Update Username</h2>
+                    <input type='text' placeholder='new username' onChange={(e) => setNewUsername(e.target.value)}/>
+                    <button className='user-update' onClick={handleSubmit}>update username</button>
+                </div>
+                <div className="update-password">
+                    <h2>Update Password</h2>
+                    <input type='password' placeholder='new password' onChange={(e) => setNewPassword(e.target.value)}/>
+                    <button className='user-update' onClick={handleSubmit}>update password</button>
+                </div>
                 <div className="update-trips">
                     <h2>Past Trips</h2>
                     <div className="trip-log">
-                        {testArray.map(trip => <button className='trip'>{trip.date} {trip.name}</button>)}
+                        {testArray.map((trip, i) => <button key={i} className='trip'>{trip.date} {trip.name}</button>)}
                     </div>
-                    {/* <button className='trip-delete'>Delete</button> */}
-                </div>
-                <div className="update-username">
-                    <input type='text' placeholder='new username'/>
-                    <button className='user-update' onClick={handleSubmit}>update username</button>
                 </div>
                 <div className="delete-account">
-                    <input type='text' placeholder='enter user to delete'/>
-                    <button className='user-update' onClick={handleSubmit}>delete account</button>
+                    <h3>Delete Account</h3>
+                    <button className='user-update' onClick={handleDelete}>delete account</button>
                 </div>
             </div>
         </main>
