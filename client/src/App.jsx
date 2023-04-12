@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route, Routes } from "react-router-dom";
+import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from "react-router-dom";
 import { tripContext, userContext } from './context.js';
 
 // Pages to render
@@ -10,10 +10,6 @@ import TripHomePage from './pages/TripHome/TripHomePage.jsx';
 import UserHomePage from './pages/UserHome/UserHomePage.jsx';
 import RootLayout from './layouts/rootLayout';
 
-// import "./scss/index.js"
-
-
-
 // ROUTE PROVIDER Component to 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,22 +17,27 @@ const router = createBrowserRouter(
       <Route index element={<LoginPage key='login'/>} />
       <Route
         path='/signup'
-        element={<SignupPage key='SignupPage' />}
+        element={<SignupPage key='signup' />}
         // loader={puzzleTestLoader}
       />
       <Route
-        path='/user/' //possibly :_id
-        element={<UserHomePage key='UserHomePage' />}
+        path='/user'
+        element={<UserHomePage key='user' />}
+        // loader={puzzleLoader}
+      />
+      <Route
+        path='/user_settings'
+        element={<UserSettingsPage key='user_settings' />}
         // loader={puzzleLoader}
       />
       <Route
         path='/new_trip'
-        element={<NewTripPage key='NewTripPage' />}
+        element={<NewTripPage key='new_trip' />}
         // loader={puzzleLoader}
       />
       <Route
-        path='/trip_home' //possibly :_id
-        element={<TripHomePage key='TripHomePage' />}
+        path='/trip'
+        element={<TripHomePage key='trip' />}
         // loader={puzzleLoader}
       />
     </Route>
