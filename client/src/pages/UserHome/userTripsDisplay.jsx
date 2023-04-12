@@ -2,18 +2,19 @@ import React, { useState } from 'react';
 
 const UserTripsDisplay = ({ userobj }) => {
 
-  const tripsArray = userobj.trips
-   console.log('tripsarray',tripsArray)
 
-    const trips = tripsArray.map(trip => {
-       return <div className='userTrip'>
-            <span>`${trip.tripName} ${trip.date}`</span>
-        </div>
+    const trips = userObj.trips.map(trip => {
+    return (
+    <div className='userTrips'>
+        {trip.tripName} ${trip.date}
+    </div>
+        )
     })
 
 return(
-    <tripsArray/ >
+
+    {trips}
     )
 }
 
-export default UserTripsDisplay
+export default UserTripsDisplay;
