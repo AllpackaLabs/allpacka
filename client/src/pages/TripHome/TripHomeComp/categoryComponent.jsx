@@ -1,7 +1,7 @@
 import React, { useState, Suspence, Suspense } from "react";
 import ItemsDisplayComponent from "./itemsDisplayComponent.jsx";
-import './CategoryComponent.scss'
-import AddItemsComponent from './AddItemsComponent.jsx'
+import AddItemsComp from './AddItemsComp.jsx'
+import './CategoryComponent.scss';
 
 
 
@@ -19,8 +19,6 @@ const CategoryComponent = ({ items, category }) => {
     
   }
 
-
-  // let item = items[0]   
   // each catagory will render ismt's associated items will be rendered 
   let i = 0
   const itemsArray = items.map((it) => {
@@ -40,7 +38,11 @@ const CategoryComponent = ({ items, category }) => {
       </div>
       <div>
         {itemsArray}
-        {showComponent && <AddItemsComponent list={items} show={showComponent}/>}
+        {showComponent && <AddItemsComp list={itemsArray} 
+                                        show={setShowComponent}
+                                        category={category}
+                                        
+                          />}
       </div>
     </div>
    )
@@ -48,24 +50,3 @@ const CategoryComponent = ({ items, category }) => {
 
 
 export default CategoryComponent
-
-
-
-
-    //   {/* FOR REFERENCE - TO MOVE EACH CATEGORY COMPONENT*/
-    //     /* <div
-    //   draggable={true}
-    //   onDragStart={e => console.log('onDragStart')}
-    //   onDragEnd={e => console.log('onDragEnd')}
-    //   >
-    //   Drag source
-    //   </div>
-
-    //   <div
-    //   onDragEnter={e => console.log('onDragEnter')}
-    //   onDragLeave={e => console.log('onDragLeave')}
-    //   onDragOver={e => { e.preventDefault(); console.log('onDragOver'); }}
-    //   onDrop={e => console.log('onDrop')}
-    //   >
-    //   Drop target
-    //   </div> */}
