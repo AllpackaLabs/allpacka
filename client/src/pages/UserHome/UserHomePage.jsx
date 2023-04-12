@@ -73,10 +73,8 @@ const userLoader = async () => {
     try {
         const res = await fetch('user/:_id')
         
-
-
     } catch (err) {
-
+        alert('Something...')
     }
 }
 
