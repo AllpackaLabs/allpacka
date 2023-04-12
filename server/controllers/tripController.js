@@ -89,93 +89,93 @@ tripController.createTrip = (req, res, next) => {
   // return next();
 };
 
-// ADD CATEGORIES TO TRIP
-tripController.addCategories = (req, res, next) => {
-	console.log('---We are in addCategories in tripController.js--');
-	const { trip_id } = req.params;
-	const { categoryName } = req.body;
-	Trip.findById(trip_id)
-		.then(foundTrip => {
-			//error handler for if the trip doesn't exist
-			if (foundTrip === null) {
-				return next(createErr({
-          method: 'addCategories',
-          type: 'retrieving Trip before updated mongoDB data',
-          err: `findById(${trip_id}) returned null`
-				}));
-			}
-			//error handler in case the category already exists
-			if (foundTrip.categories.categoryName) {
-				return next(createErr({
-					method: 'addCategories',
-					type: 'categoryName already exists',
-					err: `the category ${categoryName} already exists`
-				}))
-			}
 
-			//if the category doesn't exist, add it to the categories object with value of empty array
-			foundTrip.categories.categoryName = [];
-			const updatedTrip = foundTrip.save();
+// // ADD CATEGORIES TO TRIP
+// tripController.addCategories = async (req, res, next) => {
+// 	console.log('---We are in addCategories in tripController.js--');
+// 	const { trip_id } = req.params;
+// 	const { categoryName } = req.body;
+// 	Trip.findById(trip_id)
+// 		try {
+// 			(foundTrip => {
+// 			//error handler for if the trip doesn't exist
+// 			if (foundTrip === null) {
+// 				return next(createErr({
+//           method: 'addCategories',
+//           type: 'retrieving Trip before updated mongoDB data',
+//           err: `findById(${trip_id}) returned null`
+// 				}));
+// 			}
+// 			//error handler in case the category already exists
+// 			if (foundTrip.categories.categoryName) {
+// 				return next(createErr({
+// 					method: 'addCategories',
+// 					type: 'categoryName already exists',
+// 					err: `the category ${categoryName} already exists`
+// 				}))
+// 			}
 
-			if (updatedTrip === null) {
-				return next(createErr({
-          method: 'addCategories',
-          type: 'retrieving updatedTrip before updated mongoDB data',
-          err: `updatedTrip returned null`
-				}));
-			}
-			res.locals.updatedTrip = updatedTrip;
-			return next();
-		})
-		.catch((err) => {
-      return next(createErr({
-        method: 'createCategory',
-        type: 'creatingCategory error',
-        err,
-      }));
-    });
-}
+// 			//if the category doesn't exist, add it to the categories object with value of empty array
+// 			foundTrip.categories.categoryName = [];
+// 			const updatedTrip = await foundTrip.save();
 
-// DELETE CATEGORY (in the front end, please add a warning that all items in the category will be deleted as well)
-tripController.deleteCategory = (req, res, next) => {
-	console.log('---We are in deleteCategory in tripController.js--');
-	const { trip_id } = req.params;
-	const { categoryName } = req.body;
-	Trip.findbyId(trip_id)
-		.then(foundTrip => {
-			//error handler for if the trip doesn't exist
-			if (foundTrip === null) {
-				return next(createErr({
-					method: 'addCategories',
-					type: 'retrieving Trip before updated mongoDB data',
-					err: `findById(${trip_id}) returned null`
-				}));
-			}
+// 			if (updatedTrip === null) {
+// 				return next(createErr({
+//           method: 'addCategories',
+//           type: 'retrieving updatedTrip before updated mongoDB data',
+//           err: `updatedTrip returned null`
+// 				}));
+// 			}
+// 			res.locals.updatedTrip = updatedTrip;
+// 			return next();
+// 		})
+// 		.catch((err) => {
+//       return next(createErr({
+//         method: 'createCategory',
+//         type: 'creatingCategory error',
+//         err,
+//       }));
+//     });
+// }
+
+// // DELETE CATEGORY (in the front end, please add a warning that all items in the category will be deleted as well)
+// tripController.deleteCategory = async (req, res, next) => {
+// 	console.log('---We are in deleteCategory in tripController.js--');
+// 	const { trip_id } = req.params;
+// 	const { categoryName } = req.body;
+// 	Trip.findbyId(trip_id)
+// 		.then(foundTrip => {
+// 			//error handler for if the trip doesn't exist
+// 			if (foundTrip === null) {
+// 				return next(createErr({
+// 					method: 'addCategories',
+// 					type: 'retrieving Trip before updated mongoDB data',
+// 					err: `findById(${trip_id}) returned null`
+// 				}));
+// 			}
 			
-			delete foundTrip.categories.categoryName;
-			const updatedTrip = foundTrip.save();
+// 			delete foundTrip.categories.categoryName;
+// 			const updatedTrip = await foundTrip.save();
 
-			if (updatedTrip === null) {
-				return next(createErr({
-          method: 'addCategories',
-          type: 'retrieving updatedTrip before updated mongoDB data',
-          err: `updatedTrip returned null`
-				}));
-			}
-			res.locals.updatedTrip = updatedTrip;
-			return next();
-		})
-		.catch((err) => {
-      return next(createErr({
-        method: 'createCategory',
-        type: 'creatingCategory error',
-        err,
-      }));
+// 			if (updatedTrip === null) {
+// 				return next(createErr({
+//           method: 'addCategories',
+//           type: 'retrieving updatedTrip before updated mongoDB data',
+//           err: `updatedTrip returned null`
+// 				}));
+// 			}
+// 			res.locals.updatedTrip = updatedTrip;
+// 			return next();
+// 		})
+// 		.catch((err) => {
+//       return next(createErr({
+//         method: 'createCategory',
+//         type: 'creatingCategory error',
+//         err,
+//       }));
 			
-		})
-
-	
-}
+// 		})
+// }
 
 
 
@@ -188,8 +188,8 @@ tripController.updateTripUsers = async (req, res, next) => {
 
   const { user_id } = req.body;
 
-  if (res.body.updateUser) {
-    const { trip_id } = res.params;  // grab the trip
+  if (req.body.updateUser) {
+    const { trip_id } = req.params;  // grab the trip
     const filter = trip_id;
 
     try {
@@ -258,7 +258,7 @@ tripController.updateTripDetails = async (req, res, next) => {
       return next(createErr({
         method: 'updateTripDetails',
         type: 'retrieving and updating Trip mongoDB data',
-        err: `ffindOneAndReplace(${trip_id}) returned null`
+        err: `findOneAndReplace(${trip_id}) returned null`
     }));
     }
     
