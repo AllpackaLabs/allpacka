@@ -1,4 +1,5 @@
-const { Session } = require('../models');
+const Session = require('../models/sessionModel.js');
+const jwt = require('jsonwebtoken');
 
 const createErr = (errInfo) => {
   const { method, type, err } = errInfo;
@@ -8,57 +9,31 @@ const createErr = (errInfo) => {
   };
 };
 
+const secretKey = 'this-is-a-secret-key';
 const sessionController = {};
 
-/**
-* isLoggedIn - find the appropriate session for this request in the database, then
-* verify whether or not the session is still valid.
-*/
-
-
+//Verify whether or not the JWT token is valid
 sessionController.isLoggedIn = (req, res, next) => {
-  
-  const { ssid } = req.cookies; 
-  // console.log(req.cookies)
-  Session.findOne({cookieId: ssid})
-    .then(data => {
-      // console.log('isLoggedIn data: ',data)
-      // const time = Date.now() - data.createdAt;
-      // if (time < 30)
-      if (data) {
-        return next()
-      } else {
-        res.redirect('/signup')
-      }
-    })
-    .catch((err) => {
-      return next(createErr({
-        method: 'isLoggedIn',
-        type: 'ERROR staying logged in',
-        err,
-      }));
-    });
-};
-
-/**
-* startSession - create and save a new Session into the database.
-*/
-sessionController.startSession = (req, res, next) => {
-  //write code here
-  const currSession = new Session({cookieId: res.locals._id})
-  currSession.save()
-    .then(data => { 
-      // console.log('Session Saved: ', data)
-      res.locals.sesh = data;
-      return next();
-    })
-    .catch((err) => {
-      return next(createErr({
-        method: 'startSession',
-        type: 'adding new session to mongoDB data',
-        err,
-      }));
-    });
+	//Check if the req.cookies and req.cookies.ssid exists
+	if (req.cookies && req.cookies.ssid) {
+		const { ssid } = req.cookies; 
+		// Verify JWT token
+		jwt.verify(ssid, secretKey, (err, decoded) => {
+			// If JWT token is invalid or expired
+			if (err) {
+				console.log('Error verifying JWT token:', err);
+				res.redirect('/login');
+				return next();
+			} else { //if JWT verification is successful
+				return next();
+			}
+		});
+	} else {
+		//redirect to login page if there are no cookies
+		res.redirect('/login');
+	}
 };
 
 module.exports = sessionController;
+
+

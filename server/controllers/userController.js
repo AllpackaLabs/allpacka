@@ -1,5 +1,7 @@
+const User = require('../models/userModel.js');
+const bcrypt = require('bcryptjs');
 
-const { User, Trip, Session } = require('../models.js');
+
 
 // helper function to create fileController error objects
 // return value will be the object we pass into next, invoking global error handler
@@ -37,6 +39,10 @@ userController.createUser = (req, res, next) => {
       // Non-unique usernames will return promise status rejected and the error.name will match this string. 
       // This is important information for the user, so the middleware should continue. Frontend should
       // check verfied boolean in every /user/signup fetch respsonse and proceed accordingly
+			console.log('Error object:', err);
+  		console.log('Error name:', err.name);
+  		console.log('Error message:', err.message);
+
       if (err.name === "MongoServerError") {
         //Just in case this error was thrown for another reason, we want to be able to read it.
         console.log(JSON.stringify(err));
@@ -57,18 +63,15 @@ userController.createUser = (req, res, next) => {
     });
 };
 
-// Thinking of switching to findOne using username for security purposes. They're unique anyways
-// Sounds reasonable to me!
 // GET USER
 userController.getUser = (req, res, next) => {
   console.log('---We are in getUser in userController.js--');
 
   const { username } = req.body;
-  // const { _id } = req.params; // 
+  // const { _id } = req.params;
   User.findOne({username: username})
   // User.findOneById(_id)
     .then(foundUser => {
-
       if (foundUser === null) {
         return next(createErr({
             method: 'addUser',
@@ -90,7 +93,7 @@ userController.getUser = (req, res, next) => {
     });
 }
 
-// Verify User
+// VERIFY USER
 userController.verifyUser = async (req, res, next) => {
   console.log('---We are in getUser in userController.js--');
 
@@ -109,14 +112,19 @@ userController.verifyUser = async (req, res, next) => {
 
   try {
     const foundUser = await User.findOne({ username, password }).exec();
-
     if (foundUser === null) {
       res.locals.verified = false;
       console.log('nomatch')
     } else {
-      res.locals.verified = true;
-      const { username, trips } = foundUser;
-      res.locals.user = { username, trips };
+			// Compare the request password with stored hashed password
+			const match = await bycrypt.compare(password, foundUser.password);
+			if (match) {
+				res.locals.verified = true;
+				const { username, trips } = foundUser;
+				res.locals.user = { username, trips };
+			} else {
+				res.locals.verified = false;
+			}
     }
       
     return next();
@@ -130,7 +138,7 @@ userController.verifyUser = async (req, res, next) => {
   }
 }
 
-
+//UPDATE USER TRIPS
 userController.updateUserTrips = async (req, res, next) => {
   console.log('---We are in updateUserTrips in userController.js--');
 
@@ -157,7 +165,7 @@ userController.updateUserTrips = async (req, res, next) => {
       }));
     }
 
-    foundUser.trips.push({ tripName: tripName, date: date, trip_id: trip_id})
+    foundUser.trips.push({ tripName, date, trip_id})
     const updatedUser = await foundUser.save();
 
     if (updatedUser === null) {
@@ -181,29 +189,27 @@ userController.updateUserTrips = async (req, res, next) => {
 }
 
 // DELETE USER
-
-// userController.deleteUser = (req, res, next) => {
-//   console.log('---We are in deleteUser in userController.js----');
+userController.deleteUser = (req, res, next) => {
+  console.log('---We are in deleteUser in userController.js----');
 
 //   const { _id } = req.params; 
 //   console.log(_id);
 
-//   User.findByIdAndDelete(_id)
-//     .then(student => {
-//       console.log(student);
-//       const { } = student;
-//       res.locals.student = {  };
-//       return next();
-//     })
-//     .catch((err) => {
-//       return next(createErr({
-//         method: 'deleteUser',
-//         type: 'retrieving mongoDB data',
-//         err,
-//         err,
-//       }));
-//     });
-// };
+  User.findByIdAndDelete(_id)
+    .then(student => {
+      console.log(student);
+      const { firstName, lastName, age } = student;
+      res.locals.student = { firstName, lastName, age };
+      return next();
+    })
+    .catch((err) => {
+      return next(createErr({
+        method: 'deleteUser',
+        type: 'retrieving mongoDB data',
+        err,
+      }));
+    });
+};
 
 
 // EXPORT THE Controllers!!!
