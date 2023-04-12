@@ -1,6 +1,4 @@
-const { User } = require('../models/userModel.js');
-const { Trip } = require('../models/tripModel.js');
-const { Session } = require('../models/sessionModel.js');
+const User = require('../models/userModel.js');
 
 
 // helper function to create fileController error objects
@@ -23,7 +21,6 @@ userController.createUser = (req, res, next) => {
   // leaving it as user object in hopes that we add a nickname, and then put that in the object too
   // otherwise we could just send back res.locals.username = username
   res.locals.user = { username };
-	console.log(res.locals.user)
 
   const newUser = new User({ username, password });
 
