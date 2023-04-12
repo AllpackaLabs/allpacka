@@ -123,8 +123,8 @@ userController.verifyUser = async (req, res, next) => {
 			// console.log('match: ', match);
 			if (match) {
 				res.locals.verified = true;
-				const { username, trips } = foundUser;
-				res.locals.user = { username, trips };
+				const { username, trips, _id } = foundUser;
+				res.locals.user = { username, trips, _id };
 				console.log('THIS IS RES>LOCALS>USER', res.locals.user);
 				// Set JWT token for logged-in users
 				const payload = {
