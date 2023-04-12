@@ -10,12 +10,10 @@ const TripHomePage = ({ currentTrips }) => {
 
   // const tripData = useBroswerLoader();
 
-
   // const tripLoader = () => {
   //   //fetch trip data from trip collection
   //   //retrun data.json
   // }
-
 
   // copy to clipboard
   const copyTrip = async () => {

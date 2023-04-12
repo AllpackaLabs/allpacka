@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate, Form } from 'react-router-dom';
 import { userContext } from '../context';
+import '../scss/SignUpPage.scss'
 
 const SignUpPage = () => {
 

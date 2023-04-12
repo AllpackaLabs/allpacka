@@ -33,14 +33,9 @@ mongoose.connect(MONGO_URI, {
 })
   .then(() => console.log('Connected to Mongo DB.'))
   .catch(err => console.log(err)); // super nice for de-bugging
-
-  // app.use(express.static(path.resolve(__dirname, 'App.jsx')))
   
 // define route handlers 
-
-
-
-app.use('/api/user', userRouter) // Access to trips from here
+app.use('/api/user', (req, res) => {console.log(req.url)}, userRouter) // Access to trips from here
 
 app.use('/api/trip', tripRouter); // The main infographic page
 
