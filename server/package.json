@@ -9,8 +9,9 @@
   "authors": "William Murphy",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.3.0",
     "express": "^4.18.2",
-    "mongoose": "^7.0.3",
-    "bcryptjs": "^2.3.0"
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.3"
   }
 }
