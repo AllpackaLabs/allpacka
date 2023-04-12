@@ -5,7 +5,7 @@ import { tripContext, userContext } from './context.js';
 // Pages to render
 import LoginPage from './pages/LoginPage.jsx';
 import SignupPage from './pages/SignupPage.jsx';
-import NewTripPage from './pages/TripHome/NewTripPage.jsx';
+import NewTripPage from './pages/NewTripPage.jsx';
 import TripHomePage from './pages/TripHome/TripHomePage.jsx';
 import UserHomePage from './pages/UserHome/UserHomePage.jsx';
 import UserSettingsPage from './pages/UserHome/UserSettingsPage.jsx';

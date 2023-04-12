@@ -1,9 +1,9 @@
 // *****************************    SB edits   *****************************
 import React, {useState} from "react";
 import { redirect, BrowserRouter, Router, Link, Route } from "react-router-dom";
-import MainItemsComponent from "./MainItemsComponent.jsx";
-import CategoryComponent from "./CategoryComponent";
-
+import MainItemsComponent from "./TripHomeComp/mainItemsComponent.jsx";
+import CategoryComponent from "./TripHomeComp/categoryComponent.jsx";
+import './TripHome.scss';
 // import 
 //QUESTIONS: are className "simpe-sections" labeled that way on purpose? I edited some
 
@@ -56,43 +56,41 @@ const TripHomePage = ({ currentTrips }) => {
     //      will include multiple components, 
     // * div branch 3 = small button for "share trip with friends with this link"
 
-
-
     // main div
-    <div className= 'trip-home-page'> 
-      <header>
-        <h1>Trip Home Page</h1>
-        {/* <h3>{'EDIT ME: trip name and date GO OVER WITH MARK & BILLY. THIS IS STATIC'}</h3>  */}
-      </header>
-      {/* div branch 1 ------------------------------------------------------------------------------*/}
-      <div className='trip-page-info-options'>
-        {/* buttons within div branch 1 (separated so we can implement different positions on the page) */}
-        <div className='add-item-category'>
+    <main className='trip-home-page'> 
+    <header className='header'>
+      <div className='left-btns'>
+        <div>
             <button onClick={handleAddItemCategory}>Add Item Category</button>
         </div>
-        <div className='show-user-cards'>
+        <div>
             <button onClick={handleShowUserCards}>Show User Cards</button>
         </div>
-        <div className='all-items-checked'>
+
+      </div>
+      <div className='Trip-details'>
+        <h1>DISPLAY TRIP NAME</h1>
+      </div>
+      <div className='right-btns'>
+        <div>
             <button onClick={handleAllItemsChecked}>All Items Checked</button>
         </div>
-        <div className='edit-trip'>
+        <div>
             <button onClick={handleEditTrip}>Edit Trip</button>
         </div>
       </div>
+    </header>
       {/* div branch 2 - ALL ITEMS CONTAINER component of components -------------------------------------------------*/}
-      <div className='mainItemsDisplay'>
+      <div className='main-display'>
         <MainItemsComponent/>
       </div>
-
-
-    {/* div branch 3 -  share button copy link in clipboard -------------------------------------------------*/}
+      {/* div branch 3 -  share button copy link in clipboard -------------------------------------------------*/}
       <div>
         <div className='share-trip-link'>
             <button onClick={copyTrip}>Share trip with this link</button>
         </div>
       </div> 
-    </div>
+    </main>
   
   )
 }

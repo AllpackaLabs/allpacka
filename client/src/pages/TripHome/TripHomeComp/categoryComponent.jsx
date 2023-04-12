@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import addItemsComponent from "./addItemsComponent";
-import ItemsDisplayComponent from "./ItemsDisplayComponent.jsx";
-// import './categoryComponent.scss'
+import ItemsDisplayComponent from "./itemsDisplayComponent.jsx";
+import './categoryComponent.scss'
 
 // items display is the child Component
 // should display each category and its items component inside
