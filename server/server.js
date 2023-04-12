@@ -40,7 +40,7 @@ mongoose.connect(MONGO_URI, {
 
 
 
-app.use('/api/user', (req, res) => {console.log(req.url)}, userRouter) // Access to trips from here
+app.use('/api/user', userRouter) // Access to trips from here
 
 app.use('/api/trip', tripRouter); // The main infographic page
 
