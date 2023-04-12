@@ -12,6 +12,13 @@ const UserHomePage = () => {
     const [tripsArray, setTripsArray] = useState(null)
     const navigate = useNavigate();
     const { user, setUser } = useContext(userContext);
+
+    ////////////////////////////////////////////////////////////////
+    // TEST HARD CODED USER DATA
+
+    const testUser = {/** DATA */}
+
+    ////////////////////////////////////////////////////////////////
      
 
     // where do I input the userId from rootLayout and update the setCurrentTrips
@@ -22,7 +29,7 @@ const UserHomePage = () => {
 
     const handleSettings = (e) => {
         e.preventDefault();
-        // return navigate('/UserSettings');
+        return navigate('/user_settings');
     }
 
     // NOT built yet
@@ -53,17 +60,26 @@ const UserHomePage = () => {
                     </div>
                 </div>
                 <div className='trips'>
-                    <h2>Currently Planning</h2>
-                    {/* {JSON.stringify(user.trips)} */}
-                </div>
-                <div className='trips'>
-                    <h2>Past Trips</h2>
-                    {/* <UserTripsDisplay userobj={ user } /> */}
+                    <h2>Trips</h2>
+                    <UserTripsDisplay userobj={ testUser } />
                 </div>
             </div>
         </div>
     )
 }
+
+/// User Data Loader
+const userLoader = async () => {
+    try {
+        const res = await fetch('user/:_id')
+        
+
+
+    } catch (err) {
+
+    }
+}
+
 
 
 export default UserHomePage;

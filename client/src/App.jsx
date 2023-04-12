@@ -22,7 +22,7 @@ const router = createBrowserRouter(
         // loader={puzzleTestLoader}
       />
       <Route
-        path='/user'
+        path='/user_home'
         element={<UserHomePage key='user' />}
         // loader={puzzleLoader}
       />

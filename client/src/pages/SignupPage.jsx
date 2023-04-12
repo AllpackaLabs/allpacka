@@ -17,7 +17,7 @@ const SignUpPage = () => {
 	try {
         e.preventDefault();
 
-		const res = await fetch('/users/signup', {
+		const res = await fetch('/api/users/signup', {
 			method: 'POST',
 			headers: {
 			'Content-Type': 'application/json'
@@ -28,8 +28,9 @@ const SignUpPage = () => {
 		console.log(res)
 		if (res.status) { 
 			console.log('Signup successful!');
+			const id = 1234
 			// return navigate(`/LoginPage`);  //where do you guys want to redirect this to
-			return navigate('/UserHomePage');
+			return navigate(`/user_home`);
 		  	
 		} else {
 			alert('Username already taken or server error');
