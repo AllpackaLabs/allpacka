@@ -96,17 +96,17 @@ input {
 
 #signup-btn {
 	border-radius: 6rem;
-	height: 2.25rem;
-	width: 8rem;
 	border: none;
 	outline: none;
-	background: lightgreen;
-	color: rgba(22, 21, 21, 0.8);
+	
+	height: 2rem;
+	background: white;
+	color: $primary-font-color;
 	cursor: pointer;
-
+	width: 100%;
+	margin: 0.25rem auto;
 	line-height: 1rem;
-	letter-spacing: 0.05em;
-
+	letter-spacing: 0.05rem;
 	transition: filter 100ms linear;
 
 	&.icon-button {
@@ -117,10 +117,10 @@ input {
 		justify-content: center;
 		align-items: center;
 	}
-
 	&:hover,
 	&:focus {
 		filter: brightness(0.9);
+		background: lightgreen;
 	}
 	&:active {
 		filter: brightness(0.8);

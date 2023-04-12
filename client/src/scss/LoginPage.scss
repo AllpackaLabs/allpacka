@@ -71,6 +71,8 @@ $primary-font-color: rgb(78, 76, 76);
 	background-color: rgba(255, 255, 255, 0.415);
 	border-radius: 2rem;
 	width: 50%;
+	min-width: 16rem;
+	max-width: 18rem;
 	height: 100%;
 	padding: 2rem 0;
 }
@@ -109,11 +111,12 @@ input {
 	justify-content: space-around;
 }
 
-button {
+#login-btn {
 	border-radius: 6rem;
 	border: none;
 	outline: none;
 	
+	height: 2rem;
 	background: white;
 	color: $primary-font-color;
 	cursor: pointer;
@@ -134,6 +137,7 @@ button {
 	&:hover,
 	&:focus {
 		filter: brightness(0.9);
+		background: lightgreen
 	}
 	&:active {
 		filter: brightness(0.8);
