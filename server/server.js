@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 // const dotenv = require('dotenv');
 // dotenv.config();
 
@@ -11,6 +12,7 @@ const userRouter = require('./routes/userRouter');
 
 const PORT = 8080;
 const app = express();
+app.use(cookieParser()); // important for cookies!!
 
 
 // Parse all requests

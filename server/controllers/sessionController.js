@@ -14,16 +14,26 @@ const sessionController = {};
 
 //Verify whether or not the JWT token is valid
 sessionController.isLoggedIn = (req, res, next) => {
-  const { ssid } = req.cookies; 
-	// Verify JWT token
-	jwt.verify(ssid, secretKey, (err, decoded) => {
-		// If JWT token is invalid or expired
-		if (err) {
-			console.log('Error verifying JWT token:', err);
-			res.redirect('/login');
-			return next();
-		} else return next();
-	});
+	//Check if the req.cookies and req.cookies.ssid exists
+	if (req.cookies && req.cookies.ssid) {
+		const { ssid } = req.cookies; 
+		// Verify JWT token
+		jwt.verify(ssid, secretKey, (err, decoded) => {
+			// If JWT token is invalid or expired
+			if (err) {
+				console.log('Error verifying JWT token:', err);
+				res.redirect('/login');
+				return next();
+			} else { //if JWT verification is successful
+				return next();
+			}
+		});
+	} else {
+		//redirect to login page if there are no cookies
+		res.redirect('/login');
+	}
 };
 
 module.exports = sessionController;
+
+
