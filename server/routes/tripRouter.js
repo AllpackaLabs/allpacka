@@ -56,29 +56,6 @@ tripRouter.patch('/:trip_id',
 );
 */
 
-//ADD CATEGORY
-tripRouter.patch('/add-category/:trip_id',
-	tripController.addCategories,
-	(req, res) => {
-		console.log('--Sending data from tripRouter.PATCH\'s anonymous func--');
-		return res.status(200).json(res.locals.updatedTrip);
-	}
-)
-
-//DELETE CATEGORY
-tripRouter.patch('/delete-category/:trip_id',
-	tripController.deleteCategories,
-	(req, res) => {
-		console.log('--Sending data from tripRouter.PATCH\'s anonymous func--');
-		return res.status(200).json(res.locals.updatedTrip);
-	}
-)
-
-//ADD ITEMS
-
-
-//DELETE ITEMS
-
 
 // delete a trip : (
 tripRouter.delete('/:trip_id',
