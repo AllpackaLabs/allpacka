@@ -1,7 +1,7 @@
 // *****************************    SB edits   *****************************
 import React, {useState} from "react";
 import { redirect, BrowserRouter, Router, Link, Route } from "react-router-dom";
-import MainItemsComponent from "./TripHomeComp/MainItemsComponent.jsx";
+// import MainItemsComponent from "./TripHomeComp/MainItemsComponent.jsx";
 import './TripHome.scss';
 // import 
 //QUESTIONS: are className "simpe-sections" labeled that way on purpose? I edited some
