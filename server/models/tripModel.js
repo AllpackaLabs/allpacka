@@ -15,23 +15,26 @@ const tripSchema = new Schema({
         ref: 'user'
       }
     }], // this is an array of use _id's refrencing the user schema
-    catagories: Array,
+    categories: Object,
     review: String, // Could be comments. Possibly an array 
     photos: Array, // urls of photos stretch feature
   });
-	/*
-	categories [
-		category 1: [item 1 {stuff inside} item 2]
-		item 1 {
 
-		}
-		item 2 {
+	/* SOFT ITEM SCHEMA THIS IS ESTABLISHED THROUGH THE FRONT END FORM
+	categories {
+		food: [item 1 {stuff inside} item 2],
+    misc: [{
+			name: speaker
+			number: 2
+			priority: 1-3,
+			user: [sam, jackie],
+		}, {}, {}, {}]
+	}
+adding category just inserts into categories object
+	key: []
 
-		}
-		item 3 {
+adding items just pushes soft item stuff into the relevant key
 
-		}
-	]
 
 	const currentUser= user ex Sam
 	if (item.user.includes(currentUser)) prioritize
@@ -53,7 +56,7 @@ const itemSchema = new Schema({
   name: String, // name of the item
   number: Number, // how many we are bringing
   priority: Boolean, // stretch feature (how needed is the item)
-  catagory: String, // This will be used to parse the DB data for displaying against the trip's catagories Array
+  category: String, // This will be used to parse the DB data for displaying against the trip's catagories Array
   user: { // which user is bringing the item default 'null' until claimed
     username: String,
     id: {

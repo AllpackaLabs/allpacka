@@ -15,11 +15,11 @@ const createErr = (errInfo) => {
 
 const tripController = {};
 
-// Get a trip's data
+// GET A TRIP'S DATA
 tripController.getTrip = (req, res, next) => {
     console.log('---We are in getTrip in tripController.js--');
 
-    const { trip_id } = req.params; // 
+    const { trip_id } = req.params;
 
     Trip.findById(trip_id)
       .then(foundTrip => {
@@ -56,7 +56,7 @@ tripController.getTrip = (req, res, next) => {
       });
 }
 
-// create a new trip
+// CREATE A NEW TRIP
 tripController.createTrip = (req, res, next) => {
   console.log('---We are in tripCharacter in characterController.js--');
   const { user_id } = req.params
@@ -89,10 +89,93 @@ tripController.createTrip = (req, res, next) => {
   // return next();
 };
 
-// Add Categories into Trip
+// ADD CATEGORIES TO TRIP
+tripController.addCategories = (req, res, next) => {
+	console.log('---We are in addCategories in tripController.js--');
+	const { trip_id } = req.params;
+	const { categoryName } = req.body;
+	Trip.findById(trip_id)
+		.then(foundTrip => {
+			//error handler for if the trip doesn't exist
+			if (foundTrip === null) {
+				return next(createErr({
+          method: 'addCategories',
+          type: 'retrieving Trip before updated mongoDB data',
+          err: `findById(${trip_id}) returned null`
+				}));
+			}
+			//error handler in case the category already exists
+			if (foundTrip.categories.categoryName) {
+				return next(createErr({
+					method: 'addCategories',
+					type: 'categoryName already exists',
+					err: `the category ${categoryName} already exists`
+				}))
+			}
 
+			//if the category doesn't exist, add it to the categories object with value of empty array
+			foundTrip.categories.categoryName = [];
+			const updatedTrip = foundTrip.save();
 
+			if (updatedTrip === null) {
+				return next(createErr({
+          method: 'addCategories',
+          type: 'retrieving updatedTrip before updated mongoDB data',
+          err: `updatedTrip returned null`
+				}));
+			}
+			res.locals.updatedTrip = updatedTrip;
+			return next();
+		})
+		.catch((err) => {
+      return next(createErr({
+        method: 'createCategory',
+        type: 'creatingCategory error',
+        err,
+      }));
+    });
+}
 
+// DELETE CATEGORY (in the front end, please add a warning that all items in the category will be deleted as well)
+tripController.deleteCategory = (req, res, next) => {
+	console.log('---We are in deleteCategory in tripController.js--');
+	const { trip_id } = req.params;
+	const { categoryName } = req.body;
+	Trip.findbyId(trip_id)
+		.then(foundTrip => {
+			//error handler for if the trip doesn't exist
+			if (foundTrip === null) {
+				return next(createErr({
+					method: 'addCategories',
+					type: 'retrieving Trip before updated mongoDB data',
+					err: `findById(${trip_id}) returned null`
+				}));
+			}
+			
+			delete foundTrip.categories.categoryName;
+			const updatedTrip = foundTrip.save();
+
+			if (updatedTrip === null) {
+				return next(createErr({
+          method: 'addCategories',
+          type: 'retrieving updatedTrip before updated mongoDB data',
+          err: `updatedTrip returned null`
+				}));
+			}
+			res.locals.updatedTrip = updatedTrip;
+			return next();
+		})
+		.catch((err) => {
+      return next(createErr({
+        method: 'createCategory',
+        type: 'creatingCategory error',
+        err,
+      }));
+			
+		})
+
+	
+}
 
 
 
