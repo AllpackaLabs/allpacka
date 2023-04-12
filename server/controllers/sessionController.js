@@ -14,6 +14,7 @@ const sessionController = {};
 
 //Verify whether or not the JWT token is valid
 sessionController.isLoggedIn = (req, res, next) => {
+	console.log('---We are in isLoggedIn in sessionController.js----');
 	//Check if the req.cookies and req.cookies.ssid exists
 	if (req.cookies && req.cookies.ssid) {
 		const { ssid } = req.cookies; 
@@ -25,6 +26,7 @@ sessionController.isLoggedIn = (req, res, next) => {
 				res.redirect('/login');
 				return next();
 			} else { //if JWT verification is successful
+				res.locals.decoded = decoded;
 				return next();
 			}
 		});

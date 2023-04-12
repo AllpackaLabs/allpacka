@@ -1,7 +1,9 @@
 const User = require('../models/userModel.js');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 
+const secretKey='This-is-a-secret-key';
 
 // helper function to create fileController error objects
 // return value will be the object we pass into next, invoking global error handler
@@ -95,10 +97,8 @@ userController.getUser = (req, res, next) => {
 
 // VERIFY USER
 userController.verifyUser = async (req, res, next) => {
-  console.log('---We are in getUser in userController.js--');
-
+  console.log('---We are in verifyUser in userController.js--');
   const { username, password } = req.body;
-  console.log(username, password);
   // Frontend POST body information inclusion error check. Passing undefined into either field will 
   // result the findOne method returning null, resulting in returning verified = false but this
   // check provides info to us that we messed up the POST body
@@ -111,22 +111,34 @@ userController.verifyUser = async (req, res, next) => {
   }
 
   try {
-    const foundUser = await User.findOne({ username, password }).exec();
+    const foundUser = await User.findOne({ username });
+		console.log('userdata', foundUser);
+		//if no user found with that username
     if (foundUser === null) {
       res.locals.verified = false;
-      console.log('nomatch')
+      console.log('no user found');
     } else {
 			// Compare the request password with stored hashed password
-			const match = await bycrypt.compare(password, foundUser.password);
+			const match = await bcrypt.compare(password, foundUser.password);
+			// console.log('match: ', match);
 			if (match) {
 				res.locals.verified = true;
 				const { username, trips } = foundUser;
 				res.locals.user = { username, trips };
+				console.log('THIS IS RES>LOCALS>USER', res.locals.user);
+				// Set JWT token for logged-in users
+				const payload = {
+					_id: foundUser._id,
+				}
+				console.log('payload', payload);
+				const token = jwt.sign(payload, secretKey, { expiresIn: '6h' });
+				console.log('token', token);
+				res.setHeader('Set-Cookie', `ssid=${token}; HttpOnly}`);
 			} else {
 				res.locals.verified = false;
+				console.log('matched not found')
 			}
     }
-      
     return next();
     
   } catch (err) {
@@ -213,4 +225,4 @@ userController.deleteUser = (req, res, next) => {
 
 
 // EXPORT THE Controllers!!!
-module.exports = userController;
+module.exports = userController; 
