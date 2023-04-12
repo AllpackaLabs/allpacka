@@ -10,9 +10,10 @@ const tripRouter = express.Router();
 
 // get a trip's info
 tripRouter.get('/:trip_id',
+		sessionController.isLoggedIn, //Protect route
     tripController.getTrip,
     (req, res) => {
-    console.log('--Sending data from tripRouter.GET\'s aynonmouns func--');
+    console.log('--Sending data from tripRouter.GET\'s anonymous func--');
     return res.status(200).json(res.locals); //
     }
 );
@@ -20,10 +21,11 @@ tripRouter.get('/:trip_id',
 // save a new trip
 // this :_id is the user's _id
 tripRouter.post('/create-trip/:user_id',
+	sessionController.isLoggedIn, //Protect route
   tripController.createTrip,
   userController.updateUserTrips,
   (req, res) => {
-    console.log('--Sending data from tripRouter.POST\'s aynonmouns func--');
+    console.log('--Sending data from tripRouter.POST\'s anonymous func--');
     //res.locals keys
     //  -trip -> trip data from createTripPage (for loading on tripHomePage details)
     //  -updatedUser -> with updated user trips array
@@ -36,9 +38,10 @@ tripRouter.post('/create-trip/:user_id',
 //Takes a trip_id and a trip in body params. This trip is the current state of the trip from the frontend
 // This route will replace the trip in the database with the trip provided in the params
 tripRouter.patch('/update',
+	sessionController.isLoggedIn, //Protect route
   tripController.updateTripDetails,
   (req, res) => {
-    console.log('--Sending data from tripRouter.PATCH\'s aynonmouns func--');
+    console.log('--Sending data from tripRouter.PATCH\'s anonymous func--');
     return res.status(200).json(res.locals.replacedTrip);
   }
 );
@@ -56,11 +59,13 @@ tripRouter.patch('/:trip_id',
 );
 */
 
+
 // delete a trip : (
 tripRouter.delete('/:trip_id',
+sessionController.isLoggedIn, //Protect route
 tripController.deleteTrip,
   (req, res) => {
-    console.log('--Sending data from tripRouter.DELETE\'s aynonmouns func--');
+    console.log('--Sending data from tripRouter.DELETE\'s anonymous func--');
     return res.status(200).json(); // 
   }
 );

@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 // const dotenv = require('dotenv');
 // dotenv.config();
 
@@ -11,13 +12,14 @@ const userRouter = require('./routes/userRouter');
 
 const PORT = 8080;
 const app = express();
+app.use(cookieParser()); // important for cookies!!
 
 
 // Parse all requests
 app.use(express.json()); 
 app.use(express.urlencoded({extended: true})); // important for forms!!
 
-const MONGO_URI ='mongodb+srv://olsoninoslo:Iamnedtito@cluster0.bslfwul.mongodb.net/?retryWrites=true&w=majority';
+const MONGO_URI = 'mongodb+srv://olsoninoslo:Iamnedtito@cluster0.bslfwul.mongodb.net/?retryWrites=true&w=majority';
 // const MONGO_URI ="mongodb+srv://markteets:YpbIlMkXeLofYQrV@allpackadb.79xwnq2.mongodb.net/?retryWrites=true&w=majority"
 // const MONGO_URI = process.env.MARK_ALLPACKADB_MONGO_URL;
 // const MONGO_URI = 'error maker'
