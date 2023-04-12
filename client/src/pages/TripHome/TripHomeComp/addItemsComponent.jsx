@@ -7,26 +7,43 @@ import React, {useState} from "react";
 // item with it's associated user who is bringing it
 
 
-const addItemsComponent = () => (
-  <div>
-            {/* check box if item is claimed */}
-    <label>
+const AddItemsComponent = ({ }) => {
+
+
+  return (
+    <div>
+      <div className='item-row'>
+        <div className='item-btn-div'>
+          <button className='item-btn'>+</button>
+        </div>
+        <div className='item-num'>
+          {item.number}
+        </div>
+        <div className='item-name'>
+          {item.name}
+        </div>
+        <div className='item-user'>
+          {item.user}
+      </div>
+    </div>
+    {/* <div>
       <input type="checkbox" name="myCheckbox" />
-    </label>
-            {/* item count box  */}
-    <label>
-      <input type="text" value={numOfItems} name="numOfItems" onChange={setNumOfItems(e.target.value)}/>
-    </label>
-              {/* item name */}
-    <label>
-      <input type="text" value={itemName} name="itemName" onChange={setItemName(e.target.value)}/>
-    </label>
-              {/* Claimed by */}
-    <label>
-      <input type="text" value={itemClaimedByName} name="itemClaimedByName" onChange={setItemClaimedByName(e.target.value)}/>
-    </label>
+    </div>
+      
+    <div>
+      <input type="text" value={''} name="numOfItems" onChange={setNumOfItems(e.target.value)}/>
+    </div>
+          
+    <div>
+      <input type="text" value={''} name="itemName" onChange={setItemName(e.target.value)}/>
+    </div>
+        
+    <div>
+      <input type="text" value={.} name="itemClaimedByName" onChange={setItemClaimedByName(e.target.value)}/>
+    </div> */}
   </div>
-)
+  )
+}
 
 
-export default addItemsComponent;
+export default AddItemsComponent;

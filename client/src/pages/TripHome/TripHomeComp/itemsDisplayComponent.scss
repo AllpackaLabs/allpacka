@@ -32,9 +32,21 @@ $primary-font-color: rgb(78, 76, 76);
     width: 10%;
 }
 .item-btn{
-    border: 1px solid;
+    // border: 0.1px solid;
     border-radius: 0.5rem;
     border-color: black;
+    font-size: small;
+    font-weight: bold;
+
+    &:hover,
+	&:focus {
+		background-color: lightgreen;
+		filter: brightness(0.9);
+	}
+	&:active {
+		filter: brightness(0.8);
+	}
+
 
 }
 
@@ -55,7 +67,7 @@ $primary-font-color: rgb(78, 76, 76);
     justify-content: center;
     text-align: center;
 
-    border: 1px solid;
+    border: 0.1px solid;
     border-radius: 0.5rem;
     border-color: black;
     width:80%;
@@ -69,7 +81,7 @@ $primary-font-color: rgb(78, 76, 76);
     justify-content: center;
     text-align: center;
 
-    border: 1px solid;
+    border: 0.1px solid;
     border-radius: 0.5rem;
     border-color: black;
     width:80%;
