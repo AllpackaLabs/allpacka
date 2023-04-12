@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { schema } = require('./userModel');
 const Schema = mongoose.Schema;
 
 // Users could also have a ninkname per trip? Food for thought.
@@ -8,7 +9,6 @@ const tripSchema = new Schema({
     location: String,
     tripType: String, // example: car camping backpacking, etc These can later be refactored to their own schema but int he interest in time... -|_:)_/-
     date: Date, // not sure if there is a date type, look into
-    items: Array, // This is an array of the objects with the item as the key and the person(s) bring it the value
     users: [{
       user_id: {
         type: Schema.Types.ObjectId,
@@ -19,8 +19,25 @@ const tripSchema = new Schema({
     review: String, // Could be comments. Possibly an array 
     photos: Array, // urls of photos stretch feature
   });
-  
-  const Trip = mongoose.model('trip', tripSchema);
+	/*
+	categories [
+		category 1: [item 1 {stuff inside} item 2]
+		item 1 {
+
+		}
+		item 2 {
+
+		}
+		item 3 {
+
+		}
+	]
+
+	const currentUser= user ex Sam
+	if (item.user.includes(currentUser)) prioritize
+  */
+
+const Trip = mongoose.model('trip', tripSchema);
 
 module.exports = Trip;
 
