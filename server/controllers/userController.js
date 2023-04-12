@@ -1,4 +1,6 @@
 const User = require('../models/userModel.js');
+const bcrypt = require('bcryptjs');
+
 
 
 // helper function to create fileController error objects
@@ -114,9 +116,15 @@ userController.verifyUser = async (req, res, next) => {
       res.locals.verified = false;
       console.log('nomatch')
     } else {
-      res.locals.verified = true;
-      const { username, trips } = foundUser;
-      res.locals.user = { username, trips };
+			// Compare the request password with stored hashed password
+			const match = await bycrypt.compare(password, foundUser.password);
+			if (match) {
+				res.locals.verified = true;
+				const { username, trips } = foundUser;
+				res.locals.user = { username, trips };
+			} else {
+				res.locals.verified = false;
+			}
     }
       
     return next();
