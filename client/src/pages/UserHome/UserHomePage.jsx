@@ -13,14 +13,6 @@ const UserHomePage = () => {
     const navigate = useNavigate();
     const { user, setUser } = useContext(userContext);
 
-    ////////////////////////////////////////////////////////////////
-    // TEST HARD CODED USER DATA
-
-    const testUser = {/** DATA */}
-
-    ////////////////////////////////////////////////////////////////
-     
-
     // where do I input the userId from rootLayout and update the setCurrentTrips
     const handleCreateTrip = (e) => {
         e.preventDefault();
