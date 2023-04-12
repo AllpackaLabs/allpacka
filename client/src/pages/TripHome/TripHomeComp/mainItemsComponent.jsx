@@ -61,7 +61,7 @@ const MainItemsComponent = () => {
         <div className='mainItemDisplay'>
             <div className='items-legend'>
                 <div id='item-legend-number'>
-                    How Many
+                    Checklist
                 </div>
                 <div id='item-legend-name'>
                     Name
