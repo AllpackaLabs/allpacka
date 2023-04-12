@@ -58,25 +58,25 @@ $primary-font-color: rgb(78, 76, 76);
 	padding: auto;
 }
 
-.signup-header {
-    font-size: 2rem;
-    font-weight: bold;
-}
+// .signup-header {
+//     font-size: 2rem;
+//     font-weight: bold;
+// }
 
-.username-subhead{
-    font-size: 1.75rem;
-    font-weight: bold;
-}
+// .username-subhead{
+//     font-size: 1.75rem;
+//     font-weight: bold;
+// }
 
 //////////// Input and buttons /////////
-.form-div {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
-	align-content: center;
-	margin: 1rem auto;
-}
+// .form-div {
+// 	display: flex;
+// 	flex-direction: column;
+// 	justify-content: space-around;
+// 	align-items: center;
+// 	align-content: center;
+// 	margin: 1rem auto;
+// }
 
 
 .form {
@@ -122,33 +122,33 @@ input {
 	outline: none;
 }
 
-button {
-	border-radius: 6rem;
-	border: none;
-	outline: none;
-	background: white;
-	color: rgba(22, 21, 21, 0.8);
-	cursor: pointer;
+// button {
+// 	border-radius: 6rem;
+// 	border: none;
+// 	outline: none;
+// 	background: white;
+// 	color: rgba(22, 21, 21, 0.8);
+// 	cursor: pointer;
 
-	line-height: 1rem;
-	letter-spacing: 0.05em;
+// 	line-height: 1rem;
+// 	letter-spacing: 0.05em;
 
-	transition: filter 100ms linear;
+// 	transition: filter 100ms linear;
 
-	&.icon-button {
-		display: inline-flex;
+// 	&.icon-button {
+// 		display: inline-flex;
 
-		padding: 0;
+// 		padding: 0;
 
-		justify-content: center;
-		align-items: center;
-	}
+// 		justify-content: center;
+// 		align-items: center;
+// 	}
 
-	&:hover,
-	&:focus {
-		filter: brightness(0.9);
-	}
-	&:active {
-		filter: brightness(0.8);
-	}
-}
+// 	&:hover,
+// 	&:focus {
+// 		filter: brightness(0.9);
+// 	}
+// 	&:active {
+// 		filter: brightness(0.8);
+// 	}
+// }

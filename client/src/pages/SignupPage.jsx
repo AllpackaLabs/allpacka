@@ -31,7 +31,6 @@ const SignUpPage = () => {
 			const id = 1234
 			// return navigate(`/LoginPage`);  //where do you guys want to redirect this to
 			return navigate(`/user_home`);
-		  	
 		} else {
 			alert('Username already taken or server error');
 		}
