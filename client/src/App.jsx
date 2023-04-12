@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from "react-router-dom";
+import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route, Routes } from "react-router-dom";
 import { tripContext, userContext } from './context.js';
 
 // Pages to render
@@ -9,6 +9,10 @@ import NewTripPage from './pages/TripHome/NewTripPage.jsx';
 import TripHomePage from './pages/TripHome/TripHomePage.jsx';
 import UserHomePage from './pages/UserHome/UserHomePage.jsx';
 import RootLayout from './layouts/rootLayout';
+
+// import "./scss/index.js"
+
+
 
 // ROUTE PROVIDER Component to 
 const router = createBrowserRouter(
@@ -21,7 +25,7 @@ const router = createBrowserRouter(
         // loader={puzzleTestLoader}
       />
       <Route
-        path='/user'
+        path='/user/' //possibly :_id
         element={<UserHomePage key='UserHomePage' />}
         // loader={puzzleLoader}
       />
