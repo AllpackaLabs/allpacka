@@ -23,6 +23,7 @@ userController.createUser = (req, res, next) => {
   // leaving it as user object in hopes that we add a nickname, and then put that in the object too
   // otherwise we could just send back res.locals.username = username
   res.locals.user = { username };
+	console.log(res.locals.user)
 
   const newUser = new User({ username, password });
 
@@ -39,6 +40,10 @@ userController.createUser = (req, res, next) => {
       // Non-unique usernames will return promise status rejected and the error.name will match this string. 
       // This is important information for the user, so the middleware should continue. Frontend should
       // check verfied boolean in every /user/signup fetch respsonse and proceed accordingly
+			console.log('Error object:', err);
+  		console.log('Error name:', err.name);
+  		console.log('Error message:', err.message);
+
       if (err.name === "MongoServerError") {
         //Just in case this error was thrown for another reason, we want to be able to read it.
         console.log(JSON.stringify(err));
