@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate, Form, Navigate } from 'react-router-dom';
-import UserTripsDisplay from './UserTripsDisplay.jsx'
+import '../../scss/UserSettingsPage.scss'
 
 const testArray = [
-    {date: Date.now(), name: 'Rainbow Kitty Adventure'},
-    {date: Date.now(), name: 'Rainbow Kitty Adventure'},
-    {date: Date.now(), name: 'Rainbow Kitty Adventure'},
-    {date: Date.now(), name: 'Rainbow Kitty Adventure'},
+    {date: '1/2/2022', name: 'Rainbow Kitty Adventure'},
+    {date: '5/7/2022', name: 'Rainbow Kitty Adventure'},
+    {date: '7/22/2022', name: 'Rainbow Kitty Adventure'},
+    {date: '3/14/2023', name: 'Rainbow Kitty Adventure'},
 ]
 
 
 const UserSettingsPage = () => {
+
+    // const { user, setUser } = useContext(userContext);
 
     // Only for sending to server
     const handleSubmit = () => {
@@ -29,28 +31,25 @@ const UserSettingsPage = () => {
     // Helper function that delete trips from tripsArray
 
     return (
-        <main className=''>
-        <div className=''>
-            <div className=''>
-                <div className=''>
-                    <span>{/** text */}</span>
-                    <input 
-                        type='text'
-                        placeholder='username'
-                        // value = {username}
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
+        <main className='settings-page'>
+            <div className='user-settings'>
+                <div className="update-trips">
+                    <h2>Past Trips</h2>
+                    <div className="trip-log">
+                        {testArray.map(trip => <button className='trip'>{trip.date} {trip.name}</button>)}
+                    </div>
+                    {/* <button className='trip-delete'>Delete</button> */}
                 </div>
-                <div id='update-btn' className='button-div'>
-                    <button onClick={handleSubmit}>{/** text */}</button>
+                <div className="update-username">
+                    <input type='text' placeholder='new username'/>
+                    <button className='user-update' onClick={handleSubmit}>update username</button>
+                </div>
+                <div className="delete-account">
+                    <input type='text' placeholder='enter user to delete'/>
+                    <button className='user-update' onClick={handleSubmit}>delete account</button>
                 </div>
             </div>
-            <div className='past-trips'>
-                <h2>Past Trips</h2>
-                {/* <UserTripsDisplay tripArr={ testArray } /> */}
-            </div>
-        </div>
-    </main>
+        </main>
     )
 }
 
