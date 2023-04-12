@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate, Form, Navigate } from 'react-router-dom';
 
-
+const testArray = [
+    {date: Date.now(), name: 'Rainbow Kitty Adventure'},
+    {date: Date.now(), name: 'Rainbow Kitty Adventure'},
+    {date: Date.now(), name: 'Rainbow Kitty Adventure'},
+    {date: Date.now(), name: 'Rainbow Kitty Adventure'},
+]
 
 
 const UserSettingsPage = () => {
@@ -41,7 +46,7 @@ const UserSettingsPage = () => {
             </div>
             <div className='past-trips'>
                 <h2>Past Trips</h2>
-          {/* <UserTripsDisplay userobj={ user } /> */}
+                <UserTripsDisplay tripArr={ testArray } />
             </div>
         </div>
     </main>
