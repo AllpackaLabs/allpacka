@@ -45,7 +45,8 @@ const LoginPage = () => {
         return navigate(`/user`);
       } else {
         console.log(res.verified)
-        alert('Invalid username or password');
+        alert('Invalid Credentials');
+        return <Navigate to='/' replace={true} />
       }
 			// return redirect(`/SignUpPage`); // TOD redirect
     } else {
