@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
-import { useNavigate, Form, useParams, useLoaderData } from 'react-router-dom';
-import { tripContext, userContext } from '../../context';
+import { useNavigate, useParams, useLoaderData } from 'react-router-dom';
+import { userContext } from '../../context';
 import './UserHomePage.scss';
 // Child Components
 import UserTripsDisplay from './UserTripsDisplay';
@@ -9,7 +9,10 @@ const svg = <svg fill="#000000" height="22px" width="25px" version="1.1" id="Cap
 
 const UserHomePage = () => {
     // data from use loader data
-    const user = useLoaderData()
+    const userData = useLoaderData()
+
+    // set userData to (IF WORKS!!)
+    // setUser(userData);
 
     // const [joinTripCode, setJoinTripCode] = useState('');
     // const [tripsArray, setTripsArray] = useState(null)
@@ -50,7 +53,7 @@ const UserHomePage = () => {
                 </div>
                 <div className='trips'>
                     <h2>Trips</h2>
-                    <UserTripsDisplay userobj={ user } />
+                    <UserTripsDisplay userobj={ userData } />
                 </div>
             </div>
         </div>

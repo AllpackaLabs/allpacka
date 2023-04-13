@@ -1,10 +1,8 @@
 // import React from "react";
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { NavLink, Outlet, useLoaderData, useParams } from "react-router-dom";
 
 const RootLayout = () => {
-  // const [username, setUsername] = useState(null);
-  const { id } = useParams();
-
+  
   // pass in trip obj
   // const [currentTrip, setCurrentTrip] = useState(null);
 

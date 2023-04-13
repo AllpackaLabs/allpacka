@@ -81,8 +81,8 @@ userController.getUser = (req, res, next) => {
         }));
       }
 
-      const { username, trips } = foundUser;
-      res.locals.user = { username, trips };
+      const { username, trips, _id } = foundUser;
+      res.locals.user = { username, trips, _id };
       return next();
     })
     .catch((err) => {

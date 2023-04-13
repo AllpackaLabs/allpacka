@@ -1,16 +1,27 @@
 // *****************************    SB edits   *****************************
-import React, {useState} from "react";
-import { useNavigate, BrowserRouter, Router, Link, Route, useLoaderData } from "react-router-dom";
+import React, {useState, useContext, useReducer} from "react";
+import { useNavigate, useLoaderData } from "react-router-dom";
 import MainItemsComponent from "./TripHomeComp/MainItemsComponent.jsx";
+import { tripContext } from '../../context.js';
+
 import './TripHome.scss';
-// import 
-//QUESTIONS: are className "simpe-sections" labeled that way on purpose? I edited some
+
 
 const TripHomePage = () => {
 
+  // trip data from Loader Function
   const tripData = useLoaderData();
-  // const tripsData = null;
 
+  // Setting the context
+  setCurrentTrip(tripData)
+
+  // State
+
+  // triggers rendering the a new Catagory Componenet 
+  const [showCatComponent, setShowCatComponent] = useState(false);
+  
+
+  // Stretch Feature
   // copy url for sharing... (for TODO)
   const copyTrip = async () => {
     await navigator.clipboard(URL);
@@ -49,7 +60,7 @@ const TripHomePage = () => {
         </div>
       </header>
       <div className='main-display'>
-        <MainItemsComponent trips={tripData}/>
+        <MainItemsComponent trips={tripData} showCat={showCatComponent} setShowCat={setShowCatComponent}/>
       </div>
       <div>
         {/* <div className='share-trip-link'>

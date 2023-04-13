@@ -17,7 +17,7 @@ import { userLoader } from './loaders.js';
 // ROUTE PROVIDER Component to 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<RootLayout/>}>
+    <Route path='/' element={<RootLayout />}>
       <Route index element={<LoginPage key='login'/>} />
       <Route
         path='/signup'
@@ -29,7 +29,7 @@ const router = createBrowserRouter(
         element={<UserHomePage key='user' />}
       />
       <Route
-        path='/user_settings'
+        path='/user_settings/'
         element={<UserSettingsPage key='user_settings' />}
         // loader={userLoader}
       />
