@@ -34,8 +34,7 @@ const newTripPage = () => {
     async function handleSubmit(e) {
         try {
 					e.preventDefault();
-					console.log('IS THIS EVEN WORKING?')
-					console.log('userhomepage id, trips, username', user_id, trips, username);
+					// console.log('userhomepage id, trips, username', user_id, trips, username);
 					// post request to server
 					const response = await fetch(`/api/trip/new_trip`, { //make sure we are getting this user._id
 							method: "POST",
