@@ -37,8 +37,8 @@ const LoginPage = () => {
         console.log('Authentication successful!');
             
         // Send the username and password to the server for authentication 
-        setUsername(''); // does this  match with the userSchema (the word User)
-        setPassword('');
+        // setUsername(''); // does this  match with the userSchema (the word User)
+        // setPassword('');
         setUser(res.user);
         console.log(res.user)
         // return redirect(`/UserHomePage/${res.user_id}`); //!!! either user_id or username
