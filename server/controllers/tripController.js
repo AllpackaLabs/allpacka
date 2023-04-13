@@ -68,14 +68,11 @@ tripController.createTrip = (req, res, next) => {
   res.locals.user_id = user_id
       
   const newTrip = new Trip({location, date, tripName, users: [user_id] });
-	console.log('new Trip from tripController.createTrip', newTrip);
+	// console.log('new Trip from tripController.createTrip', newTrip);
   newTrip.save()
       .then(savedTrip => {
         // res.locals.trip_id = savedTrip._id.toString(); // used for updating the user's trips array (next middleware)
-				console.log('AM I EVEN ALIVE? IS LIFE EVEN REAL?')
-				console.log(savedTrip);
         res.locals.trip = savedTrip; // grabs the _id and send to new URL
-				console.log('THIS IS THE RES LOCALS TRIP PLEASE SAVE AND WORK LOL', res.locals.trip)
         return next();
       })
       .catch((err) => {
