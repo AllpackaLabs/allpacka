@@ -56,18 +56,43 @@ $primary-font-color: rgb(78, 76, 76);
 .update-password button {
     width: 35%;
     padding: 0.6rem;
+    border-radius: 6rem;
+	border: none;
+	outline: none;
+	
+	background: white;
+	color: $primary-font-color;
+    font-size: medium;
+ 
+	cursor: pointer;
+	margin: 0.25rem auto;
+
+	transition: filter 100ms linear;
 }
 
-.update-username button:hover,
-.update-password button:hover {
+.update-username button:hover {
     background-color: rgba(6, 156, 11, 0.6);
 }
 
 .delete-account button {
-    padding: 0.6rem;
-    background-color: rgba(219, 12, 12, 0.6);
     width: 40%;
+    padding: 0.6rem;
+    border-radius: 6rem;
+	border: none;
+	outline: none;
+	
+    background-color: rgba(219, 12, 12, 0.6);
+	color: $primary-font-color;
+    font-size: medium;
+ 
+	cursor: pointer;
+	margin: 0.25rem auto;
+
+	transition: filter 100ms linear;
 }
+// .update-password button:hover {
+//     width: 45%
+// }
 
 .update-trips {
     display: flex;
