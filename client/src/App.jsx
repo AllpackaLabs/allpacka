@@ -11,6 +11,10 @@ import UserHomePage from './pages/UserHome/UserHomePage.jsx';
 import UserSettingsPage from './pages/UserHome/UserSettingsPage.jsx';
 import RootLayout from './layouts/rootLayout';
 
+// Loader functions
+import userLoader from './pages/UserHome/UserHomePage.jsx';
+import tripLoader from './pages/TripHome/TripHomePage.jsx';
+
 // ROUTE PROVIDER Component to 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,12 +28,12 @@ const router = createBrowserRouter(
       <Route
         path='/user_home'
         element={<UserHomePage key='user' />}
-        // loader={puzzleLoader}
+        loader={userLoader}
       />
       <Route
         path='/user_settings'
         element={<UserSettingsPage key='user_settings' />}
-        // loader={puzzleLoader}
+        loader={userLoader}
       />
       <Route
         path='/new_trip'
