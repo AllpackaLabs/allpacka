@@ -56,24 +56,22 @@ tripController.getTrip = (req, res, next) => {
 
 // CREATE A NEW TRIP
 tripController.createTrip = (req, res, next) => {
-  console.log('---We are in tripCharacter in characterController.js--');
-  const { user_id } = req.params
-
+  console.log('---We are in createTrip in tripController.js--');
   const {
     location,
-    type,
     date,
     tripName,
+		user_id
     } = req.body; 
   
   // to be used in next peice of middleware
   res.locals.user_id = user_id
       
-  const newTrip = new Trip({location, type, date, tripName, users: {user_id: user_id} });
-
+  const newTrip = new Trip({location, date, tripName, users: [user_id] });
+	// console.log('new Trip from tripController.createTrip', newTrip);
   newTrip.save()
       .then(savedTrip => {
-        res.locals.trip_id = savedTrip._id.toString(); // used for updating the user's trips array (next middleware)
+        // res.locals.trip_id = savedTrip._id.toString(); // used for updating the user's trips array (next middleware)
         res.locals.trip = savedTrip; // grabs the _id and send to new URL
         return next();
       })

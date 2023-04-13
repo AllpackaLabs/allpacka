@@ -20,10 +20,9 @@ tripRouter.get('/:trip_id',
 
 // save a new trip
 // this :_id is the user's _id
-tripRouter.post('/create-trip/:user_id',
-	sessionController.isLoggedIn, //Protect route
+tripRouter.post('/new_trip',
   tripController.createTrip,
-  userController.updateUserTrips,
+  // userController.updateUserTrips,
   (req, res) => {
     console.log('--Sending data from tripRouter.POST\'s anonymous func--');
     //res.locals keys

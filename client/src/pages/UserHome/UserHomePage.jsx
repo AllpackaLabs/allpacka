@@ -9,15 +9,13 @@ const svg = <svg fill="#000000" height="22px" width="25px" version="1.1" id="Cap
 
 const UserHomePage = () => {
     // data from use loader data
-    const userData = useLoaderData()
-
-    // set userData to (IF WORKS!!)
-    // setUser(userData);
-
+    const userData = useLoaderData();
+		const { user, setUser } = useContext(userContext);
+    setUser(userData);
+		
     // const [joinTripCode, setJoinTripCode] = useState('');
     // const [tripsArray, setTripsArray] = useState(null)
     const navigate = useNavigate();
-    // const { user, setUser } = useContext(userContext);
 
     // where do I input the userId from rootLayout and update the setCurrentTrips
     const handleCreateTrip = (e) => {
