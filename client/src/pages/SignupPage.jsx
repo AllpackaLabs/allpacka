@@ -31,7 +31,7 @@ const SignUpPage = () => {
 			if (res.verified) {
 				setUser(res.user);
 				console.log('Signup successful!');
-				return navigate(`/user_home/${res.user._id}`);
+				return navigate(`${res.user._id}`);
 			} else if (!res.verified) alert('Username already taken, please choose another username');
 	}
 		 catch (error) {
