@@ -2,9 +2,11 @@ import React, {useState} from "react";
 import './MainItemsComponent.scss'
 // child component of mainItemsComponent && parent componet of itemsDisplayComponet
 import CategoryComponent from "./CategoryComponent";
+import AddCategoryComp from "./AddCategoryComp.jsx";
 
 
-const MainItemsComponent = () => {
+const MainItemsComponent = ({ tripData, showCat, setShowCat }) => {
+    // State
 
     const currentTrip = {
         categories: [
@@ -55,6 +57,11 @@ const MainItemsComponent = () => {
     const categories = currentTrip.categories.map(category => {
         return <CategoryComponent items={category.items} category={category.name} key={category.name}/>
     })
+
+    // Parsing tripData
+    // const categories = tripData.categories.map(category => {
+    //     return <CategoryComponent items={category.items} category={category.name} key={category.name}/>
+    // })
     console.log(categories)
 
     return (
@@ -72,6 +79,7 @@ const MainItemsComponent = () => {
             </div>
             <div className='displayedItems'>
                {categories}
+               {showCat && <AddCategoryComp show={setShowCat} trip={tripData}/>}
             </div>
         </div>
     )

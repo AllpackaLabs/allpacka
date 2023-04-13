@@ -1,5 +1,8 @@
 import { useNavigate, useParams, json } from 'react-router-dom';
 
+// These Loaders are used to get the trip and user
+// data before rendering their respective home pages
+
 export const userLoader = async ({ params }) => {
     const { id } = params
     try {

@@ -29,7 +29,7 @@ const router = createBrowserRouter(
         element={<UserHomePage key='user' />}
       />
       <Route
-        path='/user_settings'
+        path='/user_settings/'
         element={<UserSettingsPage key='user_settings' />}
         // loader={userLoader}
       />
