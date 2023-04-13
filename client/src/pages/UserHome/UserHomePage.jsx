@@ -26,9 +26,8 @@ const UserHomePage = () => {
     }
 
     const handleSettings = (e) => {
-        // e.preventDefault();
-        // return navigate('/user_settings');
-        console.log(userData)
+        e.preventDefault();
+        return navigate('/user_settings');
     }
 
     // NOT built yet
