@@ -8,7 +8,8 @@ import "./AddItemsComp.scss";
 // item with it's associated user who is bringing it
 
 
-const AddItemsComp = ({ list, show, category}) => {
+
+const AddItemsComp = ({ list, show, category, setCurrentTrip, currentTrip }) => {
     // Getting use context into here is the next big challenge
 
     // this is the state of the component
@@ -16,26 +17,15 @@ const AddItemsComp = ({ list, show, category}) => {
     const [itemName, setItemName] = useState('');
     const [claimedBy, setClaimedBy] = useState('');
     
+    
 
-    const handleSetNumItem = (e) => {
-        setNumItem(e.target.value)
-    }
-    const handleSetItemName = (e) => {
-        setItemName(e.target.value)
-    }
-    const handleSetClaimedBy = (e) => {
-        setClaimedBy(e.target.value)
-    }
-
-
-    const handleSubmit = () => {
-        // unmount the input fields and reset 
+    const handleSubmit = (e) => {
+        e.preventDefault;
+    
+        console.log(list.push({name: itemName, user: claimedBy, number: numItem}))
+        // console.log(currentTrip)
         show(false);
-        setClaimedBy('');
-        setItemName('');
-        setNumItem('')
     }
-
 
     return (
     <div className='input-row'>
@@ -47,7 +37,7 @@ const AddItemsComp = ({ list, show, category}) => {
             <input  type="text" 
                     value={numItem} 
                     placeholder="#"
-                    onChange={handleSetNumItem}
+                    onChange={(e) => {setNumItem(e.target.value)}}
                     className="input-field"
                     />
         </div>
@@ -55,7 +45,7 @@ const AddItemsComp = ({ list, show, category}) => {
             <input  type="text" 
                     value={itemName} 
                     placeholder="Item"
-                    onChange={handleSetItemName}
+                    onChange={(e)=> {setItemName(e.target.value)}}
                     className="input-field"
                     />
         </div>
@@ -63,7 +53,7 @@ const AddItemsComp = ({ list, show, category}) => {
             <input  type="text" 
                     value={claimedBy} 
                     placeholder="Who's bringing it?"
-                    onChange={handleSetClaimedBy}
+                    onChange={(e)=> {setClaimedBy(e.target.value)}}
                     className="input-field"
                     />
         </div>

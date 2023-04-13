@@ -2,6 +2,10 @@ import React, { useState, useContext } from "react";
 import { useNavigate, Form } from "react-router-dom";
 import { tripContext } from "../context";
 import { userContext } from '../context';
+// import React, { useState, useContext } from "react";
+// import { useNavigate, Form } from "react-router-dom";
+// import { tripContext } from "../context";
+// import { userContext } from '../context';
 import '../scss/NewTripPage.scss';
 
 //Will have access to userId
@@ -9,18 +13,21 @@ const newTripPage = () => {
     const [date, setDate] = useState('');
     const [location, setLocation] = useState('');
     // const [tripType, setTripType] = useState('');
+    // const [tripType, setTripType] = useState('');
     const [tripName, setTripName] = useState('');
-		const { currentTrip, setCurrentTrip } = useContext(tripContext);
+    const { currentTrip, setCurrentTrip } = useContext(tripContext);
     const navigate = useNavigate();
-		const { user, setUser } = useContext(userContext);
-		const { _id, trips, username } = user;
-		const user_id = _id; //rename for middleware usage
+    const { user, setUser } = useContext(userContext);
+    const { _id, trips, username } = user;
+    const user_id = _id; //rename for middleware usage
 		// console.log('userhomepage id, trips, username', _id, trips, username);
 
     // handler function for the input fields
     const handleLocation = (e) => {
         setLocation(e.target.value);
     }
+    // const handleTripType = (e) => {
+    //     setTripType(e.target.value);}
     // const handleTripType = (e) => {
     //     setTripType(e.target.value);}
     const handleDate = (e) => {
@@ -62,13 +69,13 @@ const newTripPage = () => {
 						// console.log('THIS IS THE UPDATED USER AFTER MAKING A TRIP', user)
 						//BELOW IS MAYBE NOT IT?
 						// res.locals.id = res.trip._id;
-						return navigate(`/${res.trip._id}`);
+						return navigate(`/trip/${res.trip._id}`);
 					} else {
 						alert ('Failed To Create Trip');
 					}
 				} catch(err) {
-            console.log(err);
-            alert('Failed To Create Trip big error');
+                    console.log(err);
+                    alert('Failed To Create Trip big error');
         }; 
   	};
 
@@ -76,6 +83,7 @@ const newTripPage = () => {
     return (
         // *** QUESTION: is the action leading to the correct page?
         <main className='new-trip-page'>
+            <p className='title'>Start Planning Your Dream Trip!</p>
             <p className='title'>Start Planning Your Dream Trip!</p>
             <div className='container'>
                 <Form onSubmit={handleSubmit}>
@@ -88,9 +96,11 @@ const newTripPage = () => {
                         <input className='new-trip-text' type="text" value={date} name="date" onChange={handleDate} placeholder='date'/>
                     </label>
                     {/* <label>
+                       <label>
                         <span className='question'>What are you planning for?</span>
                         <input className='new-trip-text' type="text" value={tripType} name="tripType" onChange={handleTripType} placeholder='tell us about it!'/>
-                    </label> */}
+                    </label> 
+                    </label>*/}
                     <label>
                         <span className='question'>What will you call this Epic Adventure?</span>
                         <input className='new-trip-text' type="text" value={tripName} name="tripName" onChange={handleTripName} placeholder='get creative!'/>
@@ -109,6 +119,19 @@ const newTripPage = () => {
 };
 
 export default newTripPage;
+
+
+
+
+/*
+					// this responses should have the _id of the new trips' database
+					// id --> _id
+					// reset the state of the page to force re-render
+					setLocation('');
+					setDate('');
+					// setTripType('');
+					setTripName('');
+*/
 
 
 

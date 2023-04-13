@@ -12,12 +12,12 @@ import UserSettingsPage from './pages/UserHome/UserSettingsPage.jsx';
 import RootLayout from './layouts/rootLayout';
 
 // Loader functions
-import { userLoader } from './loaders.js';
+import { userLoader, tripLoader } from './loaders.js';
 
 // ROUTE PROVIDER Component to 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<RootLayout />}>
+    <Route path='/' element={<RootLayout />} loader={userLoader}>
       <Route index element={<LoginPage key='login'/>} />
       <Route
         path='/signup'
@@ -31,16 +31,15 @@ const router = createBrowserRouter(
       <Route
         path='/user_settings/'
         element={<UserSettingsPage key='user_settings' />}
-        // loader={userLoader}
       />
       <Route
         path='/new_trip'
         element={<NewTripPage key='new_trip' />}
       />
       <Route
-        path='/:id'
+        path='/trip/:trip_id'
         element={<TripHomePage key='trip_home' />}
-        // loader={tripLoader}
+        loader={tripLoader}
       />
     </Route>
   )
@@ -50,6 +49,7 @@ const App = () => {
 
   const [ user, setUser ] = useState('null');
   const [ currentTrip, setCurrentTrip ] = useState(null);
+
   const userValue = { user, setUser }
   const currentTripValue = {currentTrip, setCurrentTrip}
   // const tripContext = createContext({ currentTrip: null, setCurrentTrip: () => { } });

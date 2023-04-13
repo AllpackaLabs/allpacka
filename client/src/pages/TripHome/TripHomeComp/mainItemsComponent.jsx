@@ -1,71 +1,25 @@
-import React, {useState} from "react";
+import React, {useEffect} from "react";
 import './MainItemsComponent.scss'
 // child component of mainItemsComponent && parent componet of itemsDisplayComponet
 import CategoryComponent from "./CategoryComponent";
 import AddCategoryComp from "./AddCategoryComp.jsx";
 
 
-const MainItemsComponent = ({ tripData, showCat, setShowCat }) => {
+const MainItemsComponent = ({ currentTrip, setCurrentTrip, showCat, setShowCat }) => {
     // State
 
-    const currentTrip = {
-        categories: [
-            {name: 'food', 
-                items:[
-                    {name:'oat meal',
-                    user: 'Mark',
-                    number: 10000,
-                    },
-                    {name:'trail mix',
-                    user: 'Billy',
-                    number: Infinity,
-                    },
-                    {name:'Vegetables',
-                    user: 'Sophia',
-                    number: 10000,
-                    },
-                    {name:'Chocolate',
-                    user: 'Jackie',
-                    number: 10000,
-                    },
-        ]}, 
-            {name: 'shelter', 
-                items:[
-                    {name:'tent',
-                    user: 'Mark',
-                    number: 1,
-                    },
-                    {name:'tarp',
-                    user: 'Billy',
-                    number: 1,
-                    },
-                    {name:'RainFly',
-                    user: 'Sophia',
-                    number: 10000,
-                    },
-        ]},
-        {name: 'misc', 
-            items:[
-                {name:'speaker',
-                user: 'Jackie',
-                number: 1,
-                }
-        ]},
-    ]}
-
-
     const categories = currentTrip.categories.map(category => {
-        return <CategoryComponent items={category.items} category={category.name} key={category.name}/>
+        return <CategoryComponent items={category.items} 
+                                    category={category.name} 
+                                    key={category.name}
+                                    currTrip={currentTrip}
+                                    setCurrentTrip={setCurrentTrip}
+                                    />
     })
-
-    // Parsing tripData
-    // const categories = tripData.categories.map(category => {
-    //     return <CategoryComponent items={category.items} category={category.name} key={category.name}/>
-    // })
-    console.log(categories)
 
     return (
         <div className='mainItemDisplay'>
+            {/* {currentTrip.categories[0].name} */}
             <div className='items-legend'>
                 <div id='item-legend-number'>
                     Checklist
@@ -79,7 +33,10 @@ const MainItemsComponent = ({ tripData, showCat, setShowCat }) => {
             </div>
             <div className='displayedItems'>
                {categories}
-               {showCat && <AddCategoryComp show={setShowCat} trip={tripData}/>}
+               {showCat && <AddCategoryComp show={setShowCat} 
+                                            currTrip={currentTrip}
+                                            setCurrentTrip={setCurrentTrip}
+                                            />}
             </div>
         </div>
     )
