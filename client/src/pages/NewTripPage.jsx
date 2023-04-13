@@ -97,7 +97,12 @@ const newTripPage = () => {
                     </label>
                     <label>
                         <span className='question'>When are you going?</span>
-                        <input className='new-trip-text' type="text" value={date} name="date" onChange={handleDate} placeholder='date'/>
+                        <input className='new-trip-text' 
+                                type="text" 
+                                value={date} 
+                                name="date" 
+                                onChange={handleDate} 
+                                placeholder='date'/>
                     </label>
                     {/* <label>
                         <span className='question'>What are you planning for?</span>
