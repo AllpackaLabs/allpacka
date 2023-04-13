@@ -29,7 +29,6 @@ const SignUpPage = () => {
 		const res = await response.json();
 		console.log('this is a new user?', res.verified)
 			if (res.verified) {
-
 				setUser(res.user);
 				console.log('Signup successful!');
 				return navigate(`/user_home/${res.user._id}`);
