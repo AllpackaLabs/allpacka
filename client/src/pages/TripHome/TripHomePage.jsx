@@ -1,5 +1,5 @@
 // *****************************    SB edits   *****************************
-import React, {useState, useContext, useReducer} from "react";
+import React, {useState, useContext, useEffect} from "react";
 import { useNavigate, useLoaderData } from "react-router-dom";
 import MainItemsComponent from "./TripHomeComp/MainItemsComponent.jsx";
 import { userContext, tripContext } from '../../context.js';
@@ -7,19 +7,65 @@ import { userContext, tripContext } from '../../context.js';
 import './TripHome.scss';
 
 
+const testTrip = {
+  categories: [
+      {name: 'food', 
+          items:[
+              {name:'oat meal',
+              user: 'Mark',
+              number: 10000,
+              },
+              {name:'trail mix',
+              user: 'Billy',
+              number: Infinity,
+              },
+              {name:'Vegetables',
+              user: 'Sophia',
+              number: 10000,
+              },
+              {name:'Chocolate',
+              user: 'Jackie',
+              number: 10000,
+              },
+  ]}, 
+      {name: 'shelter', 
+          items:[
+              {name:'tent',
+              user: 'Mark',
+              number: 1,
+              },
+              {name:'tarp',
+              user: 'Billy',
+              number: 1,
+              },
+              {name:'RainFly',
+              user: 'Sophia',
+              number: 10000,
+              },
+  ]},
+  {name: 'misc', 
+      items:[
+          {name:'speaker',
+          user: 'Jackie',
+          number: 1,
+          }
+  ]},
+]}
+
+
 const TripHomePage = () => {
   // trip data from Loader Function
   const tripData = useLoaderData();
 
   // getting currentTrip and setCurrentTrip context to render for trip data
-  const { currentTrip, setCurrentTrip } = useContext(tripContext);
-  setCurrentTrip(tripData)
+  // const { currentTrip, setCurrentTrip } = useContext(tripContext);
+  // setCurrentTrip(testTrip)
+
 
   const { user } = useContext(userContext);
 
-  //State
-
   // triggers rendering the a new Catagory Componenet 
+  const [currTrip, setCurrentTrip] = useState(tripData)
   const [showCatComponent, setShowCatComponent] = useState(false);
   const navigate = useNavigate();
   
@@ -52,6 +98,7 @@ const TripHomePage = () => {
 
   return(
     <main className='trip-home-page'> 
+ 
       <header className='header'>
         <div>
           <div>
@@ -68,10 +115,11 @@ const TripHomePage = () => {
         </div>
       </header>
       <div className='main-display'>
-        <MainItemsComponent currtTrip={currentTrip}
+        <MainItemsComponent currTrip={currTrip}
                             setCurrentTrip={setCurrentTrip} 
                             showCat={showCatComponent} 
-                            setShowCat={setShowCatComponent}/>
+                            setShowCat={setShowCatComponent}
+                            />
       </div>
       <div>
         {/* <div className='share-trip-link'>

@@ -1,15 +1,13 @@
-import {useState} from "react";
+import {useState, useContext} from "react";
 import { tripContext } from '../../../context.js';
 
 const AddCategoryComp = ({ show, currTrip, updateTrip }) => {
 
-  const { currentTrip, setCurrentTrip } = useContext(tripContext);
-
   // update the current trip's category here?
-
   const [newCategory, setCategory] = useState('')
 
   const handleSubmit = () => {
+    update(currTrip.categories.push(newCategory))
     show(false)
   }
 
@@ -28,14 +26,6 @@ const AddCategoryComp = ({ show, currTrip, updateTrip }) => {
                     className="input-field"
                     />
         </div>
-      </div>
-      <div>
-        {/* {itemsArray}
-        {showComponent && <AddItemsComp list={itemsArray} 
-                                        show={setShowComponent}
-                                        category={category}
-                                        
-                          />} */}
       </div>
     </div>
   )
