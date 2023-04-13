@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate, Form } from "react-router-dom";
 import { tripContext } from "../context";
+import { userContext } from '../context';
 import '../scss/NewTripPage.scss';
 
 //Will have access to userId
@@ -17,44 +18,46 @@ const newTripPage = () => {
         setLocation(e.target.value);
     }
     // const handleTripType = (e) => {
-    //     setTripType(e.target.value);
-    // }
+    //     setTripType(e.target.value);}
     const handleDate = (e) => {
         setDate(e.target.value);
     }
     const handleTripName = (e) => {
         setTripName(e.target.value);
     }
-    // this functioin send a post request to the data base to grab the _id of
-    // of the new trip that was created in the database and redirects the user
-    // to the tripsHome page. From there you can add items and uers, etc with put/patch requests 
+    
+		const { user, setUser } = useContext(userContext);
+		const { _id, trips, username } = user;
+		const user_id = _id; //rename for middleware usage
+		// console.log('userhomepage id, trips, username', _id, trips, username);
+		
     async function handleSubmit(e) {
         try {
 					e.preventDefault();
+					console.log('IS THIS EVEN WORKING?')
+					console.log('userhomepage id, trips, username', user_id, trips, username);
 					// post request to server
-					const response = await fetch(`/trips/${user._id}`, { //make sure we are getting this user._id
+					const response = await fetch(`/api/trip/new_trip`, { //make sure we are getting this user._id
 							method: "POST",
 							headers: {
 									"Content-Type": "application/json"
 							},
-							body: JSON.stringify({location, tripType, date, tripName})
+							body: JSON.stringify({location, date, tripName, user_id})
 					})
 					const res = await response.json();
 					console.log('THIS IS THE RES.BODY', res);
 
-					const { _id } = res.body; //? res.trip? No se console log it
-
-					if (res) {
-						setTrip(res.trip/*something idk maybe trip*/);
-						const userUpdate = await findOneAndUpdate({_id: user._id}, {trips: [...user.trips, _id]});
-						//save() ???
-						return navigate(`/trip_home/${res.trip._id}`);
-					} else {
-						alert ('Failed To Create Trip');
-					}
+					// if (res) {
+					// 	setTrip(res.trip/*something idk maybe trip*/);
+					// 	const userUpdate = await findOneAndUpdate({_id: _id}, {trips: [...user.trips, _id]});
+					// 	//save() ???
+					// 	return navigate(`/trip_home/${res.trip._id}`);
+					// } else {
+					// 	alert ('Failed To Create Trip');
+					// }
 				} catch(err) {
             console.log(err);
-            alert('Failed To Create Trip');
+            alert('Failed To Create Trip big error');
         }; 
   	};
 
