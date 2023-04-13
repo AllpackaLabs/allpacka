@@ -52,6 +52,36 @@ $primary-font-color: rgb(78, 76, 76);
 .settings-btn{
 	// display: contents;
 	background-color: white;
+	border-radius: 6rem;
+	border: none;
+	outline: none;
+	
+	height: 2rem;
+	background: white;
+	color: $primary-font-color;
+	cursor: pointer;
+	width: 50%;
+	margin: 0.25rem auto;
+	line-height: 1rem;
+	letter-spacing: 0.05rem;
+	transition: filter 100ms linear;
+
+	&.icon-button {
+		display: inline-flex;
+
+		padding: 0;
+
+		justify-content: center;
+		align-items: center;
+	}
+	&:hover,
+	&:focus {
+		filter: brightness(0.9);
+		background: #ffef00
+	}
+	&:active {
+		filter: brightness(0.8);
+	}
 }
 
 .past-trips {
