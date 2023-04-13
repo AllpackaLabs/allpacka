@@ -10,11 +10,11 @@ const newTripPage = () => {
     const [location, setLocation] = useState('');
     // const [tripType, setTripType] = useState('');
     const [tripName, setTripName] = useState('');
-		const { currentTrip, setCurrentTrip } = useContext(tripContext);
+    const { currentTrip, setCurrentTrip } = useContext(tripContext);
     const navigate = useNavigate();
-		const { user, setUser } = useContext(userContext);
-		const { _id, trips, username } = user;
-		const user_id = _id; //rename for middleware usage
+    const { user, setUser } = useContext(userContext);
+    const { _id, trips, username } = user;
+    const user_id = _id; //rename for middleware usage
 		// console.log('userhomepage id, trips, username', _id, trips, username);
 
     // handler function for the input fields
@@ -51,13 +51,13 @@ const newTripPage = () => {
 						console.log('This is trip from the useContext tripContext', currentTrip)
 						//BELOW IS MAYBE NOT IT?
 						// res.locals.id = res.trip._id;
-						return navigate(`/${res.trip._id}`);
+						return navigate(`/trip/${res.trip._id}`);
 					} else {
 						alert ('Failed To Create Trip');
 					}
 				} catch(err) {
-            console.log(err);
-            alert('Failed To Create Trip big error');
+                    console.log(err);
+                    alert('Failed To Create Trip big error');
         }; 
   	};
 

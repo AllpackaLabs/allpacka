@@ -13,10 +13,12 @@ export const userLoader = async ({ params }) => {
 }
 
 export const tripLoader = async ({ params }) => {
-    const { id } = params
+    const { trip_id } = params
     try {
-        const res = await fetch('/api/trip/' + id);
+        console.log(trip_id)
+        const res = await fetch('/api/trip/' + trip_id);
         const trip = await res.json()
+        console.lot(trip)
        return trip;
     } catch (err) {
         return null

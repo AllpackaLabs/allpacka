@@ -37,7 +37,7 @@ const router = createBrowserRouter(
         element={<NewTripPage key='new_trip' />}
       />
       <Route
-        path='/:id'
+        path='/trip/:trip_id'
         element={<TripHomePage key='trip_home' />}
         loader={tripLoader}
       />

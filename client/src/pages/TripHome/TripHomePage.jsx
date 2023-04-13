@@ -12,7 +12,7 @@ const testTrip = {
       {name: 'food', 
           items:[
               {name:'oat meal',
-              user: 'Mark',
+              user: 'Sam',
               number: '3lbs',
               },
               {name:'trail mix',
@@ -20,7 +20,7 @@ const testTrip = {
               number: '2lbs',
               },
               {name:'Apple',
-              user: 'Sophia',
+              user: 'Luke',
               number: 10,
               },
               {name:'Chocolate',
@@ -31,7 +31,7 @@ const testTrip = {
       {name: 'shelter', 
           items:[
               {name:'tent',
-              user: 'Mark',
+              user: 'Sam',
               number: 1,
               },
               {name:'tarp',
@@ -39,7 +39,7 @@ const testTrip = {
               number: 1,
               },
               {name:'RainFly',
-              user: 'Sophia',
+              user: 'Luke',
               number: 10000,
               },
   ]},
@@ -89,8 +89,8 @@ const TripHomePage = () => {
     e.preventDefault();
     //  const res = fetch('/api/trips/')
 
-    console.log(user._id)
-    navigate(`/${user._id}`)
+    console.log(tripData)
+    // navigate(`/${user._id}`)
 
   }
 
