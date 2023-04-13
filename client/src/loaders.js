@@ -1,17 +1,14 @@
-import { useNavigate, useParams, json } from 'react-router-dom';
+import { useNavigate, useParams, json, defer } from 'react-router-dom';
 
-// These Loaders are used to get the trip and user
-// data before rendering their respective home pages
-
-export const userLoader = async ({ params }) => {
-    const { id } = params
+export const userLoader = async (req) => {
+    const { id } = req.params
     try {
         const res = await fetch('/api/user/' + id);
-        const user = json({ res })
+        const user = await res.json()
         console.log('loader:', user)
-       return user;
+        return user
     } catch (err) {
-        return null
+        return {username: 'Bilbo Baggins', trips: [{date: Date.now(), tripName: 'There and Back again'}, {date: Date.now(), tripName: 'The Lord of the Rings'}]}
     }
 }
 
@@ -20,7 +17,7 @@ export const tripLoader = async ({ params }) => {
     try {
         const res = await fetch('/api/trip/' + id);
         // console.log(res)
-        const trip = json({ res })
+        const trip = await res.body.json()
        return trip;
     } catch (err) {
         return null

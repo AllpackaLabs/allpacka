@@ -17,7 +17,7 @@ import { userLoader } from './loaders.js';
 // ROUTE PROVIDER Component to 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<RootLayout/>}>
+    <Route path='/' element={<RootLayout />}>
       <Route index element={<LoginPage key='login'/>} />
       <Route
         path='/signup'
