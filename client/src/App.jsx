@@ -31,7 +31,6 @@ const router = createBrowserRouter(
       <Route
         path='/user_settings/'
         element={<UserSettingsPage key='user_settings' />}
-        // loader={userLoader}
       />
       <Route
         path='/new_trip'
