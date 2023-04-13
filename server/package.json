@@ -6,7 +6,7 @@
   "scripts": {
     "start": " node ."
   },
-  "authors": "William Murphy",
+  "authors": "William Murphy, Jackie Yuan, Samuel Lee, Luke Lauther",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.3.0",
