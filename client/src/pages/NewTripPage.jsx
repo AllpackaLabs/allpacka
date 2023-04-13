@@ -10,8 +10,12 @@ const newTripPage = () => {
     const [location, setLocation] = useState('');
     // const [tripType, setTripType] = useState('');
     const [tripName, setTripName] = useState('');
-		const { trip, setTrip } = useContext(tripContext);
+		const { currentTrip, setCurrentTrip } = useContext(tripContext);
     const navigate = useNavigate();
+		const { user, setUser } = useContext(userContext);
+		const { _id, trips, username } = user;
+		const user_id = _id; //rename for middleware usage
+		// console.log('userhomepage id, trips, username', _id, trips, username);
 
     // handler function for the input fields
     const handleLocation = (e) => {
@@ -25,11 +29,6 @@ const newTripPage = () => {
     const handleTripName = (e) => {
         setTripName(e.target.value);
     }
-    
-		const { user, setUser } = useContext(userContext);
-		const { _id, trips, username } = user;
-		const user_id = _id; //rename for middleware usage
-		// console.log('userhomepage id, trips, username', _id, trips, username);
 		
     async function handleSubmit(e) {
         try {
@@ -43,17 +42,19 @@ const newTripPage = () => {
 							},
 							body: JSON.stringify({location, date, tripName, user_id})
 					})
+					//this is the new trip that was created
 					const res = await response.json();
-					console.log('THIS IS THE RES.BODY', res);
-
-					// if (res) {
-					// 	setTrip(res.trip/*something idk maybe trip*/);
-					// 	const userUpdate = await findOneAndUpdate({_id: _id}, {trips: [...user.trips, _id]});
-					// 	//save() ???
-					// 	return navigate(`/trip_home/${res.trip._id}`);
-					// } else {
-					// 	alert ('Failed To Create Trip');
-					// }
+					console.log('THIS IS THE RES.BODY', res.trip);
+					
+					if (res) {
+						setCurrentTrip(res);
+						console.log('This is trip from the useContext tripContext', currentTrip)
+						//BELOW IS MAYBE NOT IT?
+						// res.locals.id = res.trip._id;
+						return navigate(`/${res.trip._id}`);
+					} else {
+						alert ('Failed To Create Trip');
+					}
 				} catch(err) {
             console.log(err);
             alert('Failed To Create Trip big error');
