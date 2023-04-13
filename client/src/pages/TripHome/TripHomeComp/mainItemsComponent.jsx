@@ -5,7 +5,7 @@ import CategoryComponent from "./CategoryComponent";
 import AddCategoryComp from "./AddCategoryComp.jsx";
 
 
-const MainItemsComponent = ({ tripData, showCat, setShowCat }) => {
+const MainItemsComponent = ({ currTrip, setCurrentTrip, showCat, setShowCat }) => {
     // State
 
     const currentTrip = {
@@ -53,16 +53,27 @@ const MainItemsComponent = ({ tripData, showCat, setShowCat }) => {
         ]},
     ]}
 
+    // this is the trip's state that will
+
 
     const categories = currentTrip.categories.map(category => {
-        return <CategoryComponent items={category.items} category={category.name} key={category.name}/>
+        return <CategoryComponent   items={category.items} 
+                                    category={category.name} 
+                                    key={category.name}
+
+                                    />
     })
 
-    // Parsing tripData
-    // const categories = tripData.categories.map(category => {
-    //     return <CategoryComponent items={category.items} category={category.name} key={category.name}/>
+    // Parsing trip (pruduction function)
+    // const categories = trip.categories.map(category => {
+    //     return <CategoryComponent items={category.items} 
+    //                                  category={category.name} 
+    //                                  key={category.name}
+    //                                  />
     // })
-    console.log(categories)
+
+
+    // console.log(categories)
 
     return (
         <div className='mainItemDisplay'>
@@ -79,7 +90,10 @@ const MainItemsComponent = ({ tripData, showCat, setShowCat }) => {
             </div>
             <div className='displayedItems'>
                {categories}
-               {showCat && <AddCategoryComp show={setShowCat} trip={tripData}/>}
+               {showCat && <AddCategoryComp show={setShowCat} 
+                                            currTrip={currTrip}
+                                            updateTrip={setCurrentTrip}
+                                            />}
             </div>
         </div>
     )
