@@ -1,7 +1,13 @@
-// import React from "react";
+import { useContext } from "react";
 import { NavLink, Outlet, useLoaderData, useParams } from "react-router-dom";
-
+import { userContext } from '../context';
 const RootLayout = () => {
+  const userData = useLoaderData()
+
+  const user = useContext(userContext)
+  const { setUser } = user
+
+  setUser(userData)
   
   // pass in trip obj
   // const [currentTrip, setCurrentTrip] = useState(null);
