@@ -17,7 +17,7 @@ import { userLoader, tripLoader } from './loaders.js';
 // ROUTE PROVIDER Component to 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path='/' element={<RootLayout />}>
+    <Route path='/' element={<RootLayout />} loader={userLoader}>
       <Route index element={<LoginPage key='login'/>} />
       <Route
         path='/signup'
@@ -49,6 +49,7 @@ const App = () => {
 
   const [ user, setUser ] = useState('null');
   const [ currentTrip, setCurrentTrip ] = useState(null);
+
   const userValue = { user, setUser }
   const currentTripValue = {currentTrip, setCurrentTrip}
   // const tripContext = createContext({ currentTrip: null, setCurrentTrip: () => { } });

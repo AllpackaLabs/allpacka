@@ -2,6 +2,12 @@
 import { NavLink, Outlet, useLoaderData } from "react-router-dom";
 
 const RootLayout = () => {
+  // const userData = useLoaderData()
+
+  // const user = useContext(userContext)
+  // const { setUser } = user
+
+  // setUser(userData)
   
   // pass in trip obj
   // const [currentTrip, setCurrentTrip] = useState(null);
