@@ -5,16 +5,16 @@ import '../scss/NewTripPage.scss';
 const newTripPage = () => {
     const [date, setDate] = useState('');
     const [location, setLocation] = useState('');
-    const [tripType, setTripType] = useState('');
+    // const [tripType, setTripType] = useState('');
     const [tripName, setTripName] = useState('');
 
     // handler function for the input fields
     const handleLocation = (e) => {
         setLocation(e.target.value);
     }
-    const handleTripType = (e) => {
-        setTripType(e.target.value);
-    }
+    // const handleTripType = (e) => {
+    //     setTripType(e.target.value);
+    // }
     const handleDate = (e) => {
         setDate(e.target.value);
     }
@@ -72,10 +72,10 @@ const newTripPage = () => {
                         <span className='question'>When are you going?</span>
                         <input className='new-trip-text' type="text" value={date} name="date" onChange={handleDate} placeholder='date'/>
                     </label>
-                    <label>
+                    {/* <label>
                         <span className='question'>What are you planning for?</span>
                         <input className='new-trip-text' type="text" value={tripType} name="tripType" onChange={handleTripType} placeholder='tell us about it!'/>
-                    </label>
+                    </label> */}
                     <label>
                         <span className='question'>What will you call this Epic Adventure?</span>
                         <input className='new-trip-text' type="text" value={tripName} name="tripName" onChange={handleTripName} placeholder='get creative!'/>
