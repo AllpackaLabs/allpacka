@@ -12,8 +12,6 @@ const TripHomePage = () => {
   // trip data from Loader Function
   const tripData = useLoaderData();
 
-  // Setting the context
-  setCurrentTrip(tripData)
 
   // State
 
