@@ -12,11 +12,11 @@ const userSchema = new Schema({
   trips: [{
     date: Date,
     tripName: String, // the is the name the user decides, not the name of the trip (default should is trip name)
-    trip_id: {
+    trip_id: [{
       type: Schema.Types.ObjectId,
       ref: 'trip', 
-    }
     }]
+  }]
 });
 
 // // This is a pre-save hook that will hash the password before saving it to the database
