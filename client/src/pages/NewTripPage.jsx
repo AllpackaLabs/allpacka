@@ -29,7 +29,10 @@ const newTripPage = () => {
     const handleTripName = (e) => {
         setTripName(e.target.value);
     }
-		
+	const returnHome = () => {
+        return navigate(`/${user_id}`);
+    }
+
     async function handleSubmit(e) {
         try {
 					e.preventDefault();
@@ -66,6 +69,9 @@ const newTripPage = () => {
         // *** QUESTION: is the action leading to the correct page?
         <main className='new-trip-page'>
             <p className='title'>Start Planning Your Dream Trip!</p>
+            <div className="trip-button">
+                 <button type="submit" onClick={returnHome}>Back to Home Page</button>
+            </div>
             <div className='container'>
                 <Form onSubmit={handleSubmit}>
                     <label>
