@@ -67,7 +67,7 @@ const SignUpPage = () => {
 					/>
 				</div>
 				<div className='signup-btn-div'>
-					<button id='signup-btn' type='submit'>Create Account!</button>
+					<button id='signup-btn' type='submit'>Create Account</button>
 				</div>
 			</Form>
 			</div>
