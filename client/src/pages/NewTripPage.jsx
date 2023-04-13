@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { redirect, Form } from "react-router-dom";
+import { userContext } from '../../context'; // <-- for accessing userData (etc: id)
 import '../scss/NewTripPage.scss';
 //Will have access to userId
 const newTripPage = () => {

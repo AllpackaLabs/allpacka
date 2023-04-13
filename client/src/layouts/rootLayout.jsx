@@ -1,5 +1,5 @@
 // import React from "react";
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { NavLink, Outlet, useLoaderData, useParams } from "react-router-dom";
 
 const RootLayout = () => {
   // const [username, setUsername] = useState(null);
@@ -23,6 +23,7 @@ const RootLayout = () => {
         </nav>
       </header>
       <main>
+        {id}
         <Outlet />
       </main>
     </div>
