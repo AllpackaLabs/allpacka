@@ -22,7 +22,7 @@ tripRouter.get('/:trip_id',
 // this :_id is the user's _id
 tripRouter.post('/new_trip',
   tripController.createTrip,
-  userController.updateUserTrips,
+  // userController.updateUserTrips,
   (req, res) => {
     console.log('--Sending data from tripRouter.POST\'s anonymous func--');
     //res.locals keys
