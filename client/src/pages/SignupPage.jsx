@@ -18,26 +18,24 @@ const SignUpPage = () => {
 	try {
         e.preventDefault();
 
-		const res = await fetch('/api/user/signup', {
+		const response = await fetch('/api/user/signup', {
 			method: 'POST',
 			headers: {
 			'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({ username: username, password: password })
+			body: JSON.stringify({ username, password })
 		});
         // **checking to see if user is already in database
-		console.log(res)
-		if (res.status === 200) { 
-			console.log(res.verified)
+		const res = await response.json();
+		console.log('this is a new user?', res.verified)
 			if (res.verified) {
-				setUsername('');
-				setPassword('');
+
 				setUser(res.user);
 				console.log('Signup successful!');
-				return navigate(`/user_home`);
-			} else alert('Username already taken, please choose another username');
-		}
-		} catch (error) {
+				return navigate(`/user_home/${res.user._id}`);
+			} else if (!res.verified) alert('Username already taken, please choose another username');
+	}
+		 catch (error) {
 		console.error(error);
 		}
 	}
