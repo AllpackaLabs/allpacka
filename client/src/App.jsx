@@ -12,7 +12,7 @@ import UserSettingsPage from './pages/UserHome/UserSettingsPage.jsx';
 import RootLayout from './layouts/rootLayout';
 
 // Loader functions
-import userLoader from './pages/UserHome/UserHomePage.jsx';
+// import userLoader from './pages/UserHome/UserHomePage.jsx';
 
 // ROUTE PROVIDER Component to 
 const router = createBrowserRouter(
@@ -27,7 +27,7 @@ const router = createBrowserRouter(
       <Route
         path='/user_home'
         element={<UserHomePage key='user' />}
-        loader={userLoader}
+        // loader={userLoader}
       />
       <Route
         path='/user_settings'
