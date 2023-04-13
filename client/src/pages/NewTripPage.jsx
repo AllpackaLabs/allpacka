@@ -2,10 +2,10 @@ import React, { useState, useContext } from "react";
 import { useNavigate, Form } from "react-router-dom";
 import { tripContext } from "../context";
 import { userContext } from '../context';
-import React, { useState, useContext } from "react";
-import { useNavigate, Form } from "react-router-dom";
-import { tripContext } from "../context";
-import { userContext } from '../context';
+// import React, { useState, useContext } from "react";
+// import { useNavigate, Form } from "react-router-dom";
+// import { tripContext } from "../context";
+// import { userContext } from '../context';
 import '../scss/NewTripPage.scss';
 
 //Will have access to userId

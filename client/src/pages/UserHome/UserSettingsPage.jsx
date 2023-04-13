@@ -90,7 +90,7 @@ const UserSettingsPage = () => {
         //     return navigate(`/${response.user._id}`)
         // })
         // .catch(error => console.log('Error, ', error))
-        return navigate(`/${updateUser._id}`)
+        return navigate(`/${user._id}`)
     }
 
     // function to log the current state, used for testing
