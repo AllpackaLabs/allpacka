@@ -29,16 +29,19 @@ const UserSettingsPage = () => {
 
     // console.log('-- TEST USER --', testUser)
 
-    // const { user, setUser } = useContext(userContext);
-    const [user, setUser] = useState(testUser)
+    const { user } = useContext(userContext);
+    const [updateUser, setUpdateUser] = useState(user)
+    // const [user, setUser] = useState(testUser)
     const [newUserName, setNewUsername] = useState(testUser.username);
     const [newPassword, setNewPassword] = useState(testUser.password);
     const [newTripsArr, setNewTripsArr] = useState(testUser.trips)
 
+    const navigate = useNavigate();
+
     // function to handle updates to the usernam or password
     function handleSubmit(e) {
         e.preventDefault()
-        window.alert('Account information has been updated.')
+        window.alert('Account information has been updated. Please save changes to continue.')
         // update the user state with the new information
         setUser({ username: newUserName, password: newPassword, trips: newTripsArr})
     }
@@ -61,10 +64,10 @@ const UserSettingsPage = () => {
     function handleDelete() {
         if (window.confirm('Are you sure you want to delete your account?')) {
             // DELETE FETCH REQUEST WITH USER INFORMATION
-            // fetch('/user/:_id', {
+            // fetch('/user/:_id', {  // OR `/users/${_id}`
             //     method: 'DELETE'
             // })
-            // <Navigate to={'/signup'} />
+            return navigate('/signup')
         } else {
             return 
         }
@@ -82,22 +85,23 @@ const UserSettingsPage = () => {
         // })
         // .then(data => data.json())
         // .then(response => {
-        //     console.log(response)
+        //     console.log(response);
+        //     return navigate(`/${response.user._id}`)
         // })
         // .catch(error => console.log('Error, ', error))
     }
 
     // function to log the current state, used for testing
-    // function logState() {
-    //     console.log('test user', user)
-    // }
+    function logState() {
+        console.log('test user', updateUser)
+    }
 
     return (
         <main className='settings-page'>
             <div className='user-settings'>
                 <div className="update-username">
                     {/* button to check state... used for testing */}
-                    {/* <button onClick={logState}>Log State</button> */}
+                    <button onClick={logState}>Log State</button>
                     <h2>Update Username</h2>
                     <input type='text' placeholder='new username' onChange={(e) => setNewUsername(e.target.value)}/>
                     <button className='username-update' onClick={handleSubmit}>update username</button>
