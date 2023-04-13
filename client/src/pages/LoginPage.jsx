@@ -40,15 +40,14 @@ const LoginPage = () => {
         setUsername(''); // does this  match with the userSchema (the word User)
         setPassword('');
         setUser(res.user);
-        console.log(res.user.trips)
+        console.log(res.user)
         // return redirect(`/UserHomePage/${res.user_id}`); //!!! either user_id or username
-        return navigate(`/user`);
+        return navigate(`/user_home/${res.user._id}`);
       } else {
         console.log(res.verified)
         alert('Invalid Credentials');
         return <Navigate to='/' replace={true} />
       }
-			// return redirect(`/SignUpPage`); // TOD redirect
     } else {
       alert('Server fail')
     }
@@ -100,11 +99,11 @@ const LoginPage = () => {
             </div>
             <div className='outer-btn-div'>
               <div className='button-div'>
-                <button type='submit'>Login!</button>
+                <button id='login-btn' type='submit'>Login!</button>
               </div>
               {/* redirect to sign up page with the this button */}
               <div className='button-div'>
-                <button onClick={redirectToSignupPage}>Sign-Up!</button>
+                <button id='signup-btn' onClick={redirectToSignupPage}>Sign-Up!</button>
               </div>
             </div>
           </Form>

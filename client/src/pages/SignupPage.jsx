@@ -1,40 +1,40 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate, Form } from 'react-router-dom';
 import { userContext } from '../context';
-import '../scss/SignupPage.scss';
-
+import '../scss/SignUpPage.scss'
 
 const SignUpPage = () => {
 
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
+	const { user, setUser } = useContext(userContext);
 	const navigate = useNavigate()
 
 	////////////////////////////////////////////
+
 	async function handleSubmit(e) {
 	
 	// make the fetch to the backend to authenticate the credentials
 	try {
         e.preventDefault();
 
-		const res = await fetch('/api/users/signup', {
+		const response = await fetch('/api/user/signup', {
 			method: 'POST',
 			headers: {
 			'Content-Type': 'application/json'
 			},
-			body: JSON.stringify({ username: username, password: password })
+			body: JSON.stringify({ username, password })
 		});
         // **checking to see if user is already in database
-		console.log(res)
-		if (res.status) { 
-			console.log('Signup successful!');
-			const id = 1234
-			// return navigate(`/LoginPage`);  //where do you guys want to redirect this to
-			return navigate(`/user_home`);
-		} else {
-			alert('Username already taken or server error');
-		}
-		} catch (error) {
+		const res = await response.json();
+		console.log('this is a new user?', res.verified)
+			if (res.verified) {
+				setUser(res.user);
+				console.log('Signup successful!');
+				return navigate(`/user_home/${res.user._id}`);
+			} else if (!res.verified) alert('Username already taken, please choose another username');
+	}
+		 catch (error) {
 		console.error(error);
 		}
 	}
@@ -66,8 +66,8 @@ const SignUpPage = () => {
 						}}
 					/>
 				</div>
-				<div id='signup-btn' className='button-div'>
-					<button type='submit'>Create Account</button>
+				<div className='signup-btn-div'>
+					<button id='signup-btn' type='submit'>Create Account!</button>
 				</div>
 			</Form>
 			</div>

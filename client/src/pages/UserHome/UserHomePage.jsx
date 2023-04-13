@@ -59,19 +59,13 @@ const UserHomePage = () => {
             </div>
             <div className="user-display">
                 <div className='join-trip'>
-                    {/* <input  type="text" 
-                            value={joinTripCode} 
-                            onChange={(e) => setJoinTripCode(e.target.value)}
-                            placeholder='Add trip code here...'
-                            />
-                    <button onClick={handleJoinTrip}>Add Trip</button> */}
                     <div className='create-trip'>
                         <button onClick={handleCreateTrip}>Create New Trip</button>
                     </div>
                 </div>
                 <div className='trips'>
                     <h2>Trips</h2>
-                    <UserTripsDisplay userobj={ testUser } />
+                    <UserTripsDisplay userobj={ user } />
                 </div>
             </div>
         </div>

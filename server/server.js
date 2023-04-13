@@ -35,7 +35,7 @@ mongoose.connect(MONGO_URI, {
   .catch(err => console.log(err)); // super nice for de-bugging
   
 // define route handlers 
-app.use('/api/user', (req, res) => {console.log(req.url)}, userRouter) // Access to trips from here
+app.use('/api/user', userRouter) // Access to trips from here
 
 app.use('/api/trip', tripRouter); // The main infographic page
 

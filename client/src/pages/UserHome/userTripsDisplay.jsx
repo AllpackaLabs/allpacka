@@ -3,17 +3,18 @@ import React, { useState } from 'react';
 const UserTripsDisplay = ({ userobj }) => {
 
 
-    const trips = userObj.trips.map(trip => {
+    const trips = userobj && userobj.trips? userobj.trips.map(trip => {
     return (
     <div className='userTrips'>
         {trip.tripName} ${trip.date}
     </div>
         )
-    })
+    }) : null;
 
-return(
-
-    {trips}
+    return(
+		<div>
+			{ trips }
+		</div>
     )
 }
 

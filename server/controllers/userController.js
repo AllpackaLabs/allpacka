@@ -24,18 +24,15 @@ userController.createUser = (req, res, next) => {
   const { username, password } = req.body; // verification will hash the password in DB
   // leaving it as user object in hopes that we add a nickname, and then put that in the object too
   // otherwise we could just send back res.locals.username = username
-  res.locals.user = { username };
 
   const newUser = new User({ username, password });
 
   newUser.save()
     .then(savedUser => {
       res.locals.verified = true;
-        // I'm guessing this was here as a redundancy check, but I also wanted to send the username in 
-        // res.locals if verified = false in the error catch below, so I moved res.locals.user = username higher.
-        // const { username } = savedUser;
-        // res.locals.user = { username }; // removed sending password back, wouldn't want that unless you've got another thought in mind
-        return next();
+			const { username, _id } = savedUser;
+			res.locals.user = { username, _id };
+  		return next();
     })
     .catch((err) => {
       // Non-unique usernames will return promise status rejected and the error.name will match this string. 
@@ -123,8 +120,8 @@ userController.verifyUser = async (req, res, next) => {
 			// console.log('match: ', match);
 			if (match) {
 				res.locals.verified = true;
-				const { username, trips } = foundUser;
-				res.locals.user = { username, trips };
+				const { username, trips, _id } = foundUser;
+				res.locals.user = { username, trips, _id };
 				console.log('THIS IS RES>LOCALS>USER', res.locals.user);
 				// Set JWT token for logged-in users
 				const payload = {
