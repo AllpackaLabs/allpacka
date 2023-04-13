@@ -19,20 +19,19 @@ $primary-font-color: rgb(78, 76, 76);
     background-image: url('https://images.unsplash.com/photo-1504697570352-47c3bbc09af9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2944&q=80');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 75rem;
+    background-size: 77rem;
 }
 
 .user-settings {
     background-color: rgb(255, 255, 255, 0.8);
-    margin: auto;
-    padding: 1rem 0;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
     border-radius: 3.4rem;
     width: 50%;
-    // padding: 1rem 15rem;
+    height: 85%;
+    padding: 1rem 1rem;
 }
 
 .update-username,
@@ -45,9 +44,17 @@ $primary-font-color: rgb(78, 76, 76);
     // margin: 0 6.5rem;
 }
 
+.update-username h2, 
+.update-password h2,
+.update-trips h2, 
+.delete-account h2 {
+    margin: 0.7rem 0;
+}
+
 .update-username input,
 .update-password input,
 .delete-account input {
+    margin: 0.2rem 0;
     border-radius: 6rem;
     width: 35%;
 }
@@ -70,7 +77,9 @@ $primary-font-color: rgb(78, 76, 76);
 	transition: filter 100ms linear;
 }
 
-.update-username button:hover {
+.update-username button:hover,
+.update-password button:hover,
+.save-changes:hover {
     background-color: rgba(6, 156, 11, 0.6);
 }
 
@@ -94,11 +103,20 @@ $primary-font-color: rgb(78, 76, 76);
 //     width: 45%
 // }
 
+.trip-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem 0;
+}
+
 .update-trips {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    height: 220px;
+    overflow: scroll;
 }
 
 .trip-log {
@@ -106,20 +124,26 @@ $primary-font-color: rgb(78, 76, 76);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 90%;
 }
 
 .trip {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0.5rem 0;
     padding: 0.6rem;
     font-size: 16px;
     width: 70%;
+    border-radius: 6rem;
+    border: rgba(255, 255, 255, 0.8);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
+
 
 .trip:hover {
     background-color: rgba(219, 12, 12, 0.6);
+    cursor: pointer;
 }
 
 .trip:hover:before {
@@ -130,4 +154,21 @@ $primary-font-color: rgb(78, 76, 76);
 
 .trip-delete {
     width: 20%;
+}
+
+.save-account {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 0.7rem 0;
+}
+
+.save-changes {
+    width: 40%;
+    margin: 0.3rem 0;
+    padding: 0.6rem;
+    border-radius: 6rem;
+	border: none;
+	outline: none;
+    cursor: pointer;
 }
