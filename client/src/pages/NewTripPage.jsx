@@ -84,7 +84,6 @@ const newTripPage = () => {
         // *** QUESTION: is the action leading to the correct page?
         <main className='new-trip-page'>
             <p className='title'>Start Planning Your Dream Trip!</p>
-            <p className='title'>Start Planning Your Dream Trip!</p>
             <div className='container'>
                 <Form onSubmit={handleSubmit}>
                     <label>
@@ -95,14 +94,8 @@ const newTripPage = () => {
                         <span className='question'>When are you going?</span>
                         <input className='new-trip-text' type="text" value={date} name="date" onChange={handleDate} placeholder='date'/>
                     </label>
-                    {/* <label>
-                       <label>
-                        <span className='question'>What are you planning for?</span>
-                        <input className='new-trip-text' type="text" value={tripType} name="tripType" onChange={handleTripType} placeholder='tell us about it!'/>
-                    </label> 
-                    </label>*/}
                     <label>
-                        <span className='question'>What will you call this Epic Adventure?</span>
+                        <span className='question'>Enter a fun trip name</span>
                         <input className='new-trip-text' type="text" value={tripName} name="tripName" onChange={handleTripName} placeholder='get creative!'/>
                     </label>
                     <div className="trip-button">
