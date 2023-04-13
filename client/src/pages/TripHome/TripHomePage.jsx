@@ -1,28 +1,24 @@
 // *****************************    SB edits   *****************************
 import React, {useState} from "react";
-import { redirect, BrowserRouter, Router, Link, Route } from "react-router-dom";
+import { useNavigate, BrowserRouter, Router, Link, Route, useLoaderData } from "react-router-dom";
 import MainItemsComponent from "./TripHomeComp/MainItemsComponent.jsx";
 import './TripHome.scss';
 // import 
 //QUESTIONS: are className "simpe-sections" labeled that way on purpose? I edited some
 
-const TripHomePage = ({ currentTrips }) => {
+const TripHomePage = () => {
 
-  // const tripData = useBroswerLoader();
+  const tripData = useLoaderData();
+  // const tripsData = null;
 
-  // const tripLoader = () => {
-  //   //fetch trip data from trip collection
-  //   //retrun data.json
-  // }
-
-  // copy to clipboard
+  // copy url for sharing... (for TODO)
   const copyTrip = async () => {
     await navigator.clipboard(URL);
     alert('Trip URL copied!');
   }
 
 
-// buttons--------------------------------------------------------------------------------------------
+  // handlers for header buttons
   const handleAddItemCategory = (e) => {
     e.preventDefault();
     // add item schema
@@ -33,51 +29,36 @@ const TripHomePage = ({ currentTrips }) => {
     e.preventDefault();
   }
 
-  // return function-------------------------------------------------------------------------------------------
   // drag and drop info: https://react.dev/reference/react-dom/components/common#dragevent-handler
 
   return(
-    // * one main div containing with 3 major branched divs
-    // * div branch 1 = upper display of trip info + 4 buttons for 
-    //     (add category, show user cards, all items checked, and edit trip) 
-    // * div branch 2 = major box of items list/assignments with small divs inside
-    //      will include multiple components, 
-    // * div branch 3 = small button for "share trip with friends with this link"
-
-    // main div
     <main className='trip-home-page'> 
       <header className='header'>
         <div>
           <div>
             <button className='header-btns' onClick={handleAddItemCategory}>Add Item Category</button>
           </div>
-          {/* <div>
-            <button onClick={handleShowUserCards}>Show User Cards</button>
-          </div> */}
         </div>
         <div className='Trip-details'>
           <h1>DISPLAY TRIP NAME</h1>
         </div>
         <div>
-          {/* <div>
-              <button onClick={handleAllItemsChecked}>All Items Checked</button>
-          </div> */}
           <div>
               <button className='header-btns' onClick={handleEditTrip}>Edit Trip</button>
           </div>
         </div>
       </header>
       <div className='main-display'>
-        <MainItemsComponent/>
+        <MainItemsComponent trips={tripData}/>
       </div>
       <div>
-        <div className='share-trip-link'>
+        {/* <div className='share-trip-link'>
           <button onClick={copyTrip}>Share trip with this link</button>
-        </div>
+        </div> */}
       </div> 
     </main>
-  
   )
 }
+
 
 export default TripHomePage;

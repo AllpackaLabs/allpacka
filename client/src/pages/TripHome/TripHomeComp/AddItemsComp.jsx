@@ -54,7 +54,7 @@ const AddItemsComp = ({ list, show, category}) => {
         <div className='input-name'>
             <input  type="text" 
                     value={itemName} 
-                    placeholder="What are you bringing?"
+                    placeholder="Item"
                     onChange={handleSetItemName}
                     className="input-field"
                     />
@@ -62,7 +62,7 @@ const AddItemsComp = ({ list, show, category}) => {
         <div className='input-user'>
             <input  type="text" 
                     value={claimedBy} 
-                    placeholder="Who's Bring it?"
+                    placeholder="Who's bringing it?"
                     onChange={handleSetClaimedBy}
                     className="input-field"
                     />

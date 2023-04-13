@@ -66,11 +66,13 @@ userController.createUser = (req, res, next) => {
 userController.getUser = (req, res, next) => {
   console.log('---We are in getUser in userController.js--');
 
-  const { username } = req.body;
-  // const { _id } = req.params;
-  User.findOne({username: username})
-  // User.findOneById(_id)
+  // const { username } = req.body;
+  // User.findOne({username: username})
+  const { _id } = req.params;
+  console.log(_id)
+  User.findById(_id)
     .then(foundUser => {
+      console.log(foundUser)
       if (foundUser === null) {
         return next(createErr({
             method: 'addUser',
@@ -84,6 +86,7 @@ userController.getUser = (req, res, next) => {
       return next();
     })
     .catch((err) => {
+      console.log('error fetching')
       return next(createErr({
         method: 'getUser',
         type: 'retrieving mongoDB user data',

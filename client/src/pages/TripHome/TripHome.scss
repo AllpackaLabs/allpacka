@@ -12,10 +12,6 @@ $primary-font-color: rgb(78, 76, 76);
 
 $primary-background-color: rgba(255, 255, 255, 0.808);
 
-* {
-	font-family: $primary-font-stack;
-	// color: $primary-font-color;
-}
 
 .trip-home-page {
     display: flex;
@@ -42,6 +38,20 @@ $primary-background-color: rgba(255, 255, 255, 0.808);
 }
 
 .header-btns {
+
+	border-radius: 6rem;
+	border: none;
+	outline: none;
+	
+	height: 2rem;
+	background: white;
+	color: $primary-font-color;
+	cursor: pointer;
+	width: 100%;
+	margin: 0.25rem auto;
+	line-height: 1rem;
+	letter-spacing: 0.05rem;
+	transition: filter 100ms linear;
 	height: 3rem;
 	padding: 1rem;
 	font-size: medium;
@@ -57,6 +67,11 @@ $primary-background-color: rgba(255, 255, 255, 0.808);
 	}
 }
 
+h1 {
+	color: antiquewhite !important;
+	font-weight: bold;
+}
+
 
 //////////// Input and buttons /////////
 .main-display{
@@ -70,22 +85,6 @@ $primary-background-color: rgba(255, 255, 255, 0.808);
 	margin: 0 auto;
 }
 
-
-// input {
-// 	text-align: center;
-// 	height: 2rem;
-// 	display: flex;
-// 	align-content: center;
-// 	align-items: center;
-// 	align-content: center;
-// 	margin: 1rem auto;
-// 	border-radius: 0.5rem;
-// 	border: 1px solid #ccc;
-// 	font-size: 1rem;
-// 	width: 100%;
-//   }
-
-  /////////////////////
 
 
 

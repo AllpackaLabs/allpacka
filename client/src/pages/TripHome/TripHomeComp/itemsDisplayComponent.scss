@@ -32,6 +32,20 @@ $primary-font-color: rgb(78, 76, 76);
     width: 10%;
 }
 .item-btn{
+    border-radius: 6rem;
+	border: none;
+	outline: none;
+	
+	height: 1.25rem;
+	background: white;
+	color: $primary-font-color;
+	cursor: pointer;
+	width: 100%;
+	margin: 0.25rem auto;
+	// line-height: 1rem;
+	letter-spacing: 0.05rem;
+	transition: filter 100ms linear;
+
     // border: 0.1px solid;
     border-radius: 0.5rem;
     border-color: black;
@@ -40,15 +54,14 @@ $primary-font-color: rgb(78, 76, 76);
 
     &:hover,
 	&:focus {
-		background-color: lightgreen;
+		background-color: #ffbd03;
 		filter: brightness(0.9);
 	}
 	&:active {
 		filter: brightness(0.8);
 	}
-
-
 }
+
 
 .item-num {
     display: flex;

@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useEffect } from 'react';
 import { useNavigate, Form, Navigate } from 'react-router-dom';
 import { userContext } from '../../context.js';
-import '../../scss/UserSettingsPage.scss'
+import './UserSettingsPage.scss'
 
 const testArray = [
     {date: '1/2/2022', name: 'Yellowstone'},

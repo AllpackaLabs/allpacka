@@ -1,8 +1,9 @@
 // import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useParams } from "react-router-dom";
 
 const RootLayout = () => {
   // const [username, setUsername] = useState(null);
+  const { id } = useParams();
 
   // pass in trip obj
   // const [currentTrip, setCurrentTrip] = useState(null);
@@ -15,7 +16,7 @@ const RootLayout = () => {
           {/* <h1>I'm for testing page navigation</h1> */}
           <NavLink to='/' className='nav-link'> Login </NavLink>
           <NavLink to='/signup'className='nav-link'> Sign-up </NavLink>
-          <NavLink to='/user_home'className='nav-link'> Home </NavLink>
+          {/* <NavLink to={id} className='nav-link'> Home </NavLink> */}
           <NavLink to='/user_settings'className='nav-link'> User Settings </NavLink>
           <NavLink to='/new_trip'className='nav-link'> New Trip </NavLink>
           <NavLink to='/trip_home'className='nav-link'> Trip Home Page </NavLink>

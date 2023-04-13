@@ -44,10 +44,10 @@ app.use((req,res) => res.status(404).send("Big ol' fail"));
 
 app.use((err, req, res, next) => {
     // this is the default error obj
-    console.log('We have entered the twightlight Zone!');
+    // console.log('We have entered the twightlight Zone!');
     res.locals.message = err.message;
     console.log('Our error log is: ', err.log)
-    // console.log('Our error message is: ', err.message);
+    console.log('Our error message is: ', err.message);
     const errorStatus = err.status || 500;
     return res.status(errorStatus).send(res.locals.message);
   });
