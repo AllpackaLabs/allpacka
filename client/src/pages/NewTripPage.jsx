@@ -35,38 +35,38 @@ const newTripPage = () => {
 
     async function handleSubmit(e) {
         try {
-					e.preventDefault();
-					// console.log('userhomepage id, trips, username', user_id, trips, username);
-					// post request to server
-					const response = await fetch(`/api/trip/new_trip`, { //make sure we are getting this user._id
-							method: "POST",
-							headers: {
-									"Content-Type": "application/json"
-							},
-							body: JSON.stringify({location, date, tripName, user_id})
-					})
-					//this is the new trip that was created
-					const res = await response.json();
-					console.log('THIS IS THE RES.BODY', res.trip);
-					
-					if (res) {
-						setCurrentTrip(res);
-						console.log('This is trip from the useContext tripContext', currentTrip);
-						const newTrip = {
-							trip_id: res.trip._id,
-							date: res.trip.date,
-							tripName: res.trip.tripName
-						}
-						user.trips = [...trips, newTrip];
-						setUser({...user});
-						// console.log('THIS IS THE UPDATED USER AFTER MAKING A TRIP', user)
-						//BELOW IS MAYBE NOT IT?
-						// res.locals.id = res.trip._id;
-						return navigate(`/${res.trip._id}`);
-					} else {
-						alert ('Failed To Create Trip');
-					}
-				} catch(err) {
+            e.preventDefault();
+            // console.log('userhomepage id, trips, username', user_id, trips, username);
+            // post request to server
+            const response = await fetch(`/api/trip/new_trip`, { //make sure we are getting this user._id
+                    method: "POST",
+                    headers: {
+                            "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({location, date, tripName, user_id})
+            })
+            //this is the new trip that was created
+            const res = await response.json();
+            console.log('THIS IS THE RES.BODY', res.trip);
+            
+            if (res) {
+                setCurrentTrip(res);
+                console.log('This is trip from the useContext tripContext', currentTrip);
+                const newTrip = {
+                    trip_id: res.trip._id,
+                    date: res.trip.date,
+                    tripName: res.trip.tripName
+                }
+                user.trips = [...trips, newTrip];
+                setUser({...user});
+                // console.log('THIS IS THE UPDATED USER AFTER MAKING A TRIP', user)
+                //BELOW IS MAYBE NOT IT?
+                // res.locals.id = res.trip._id;
+                return navigate(`/trip/${res.trip._id}`);
+            } else {
+                alert ('Failed To Create Trip');
+            }
+        } catch(err) {
             console.log(err);
             alert('Failed To Create Trip big error');
         }; 

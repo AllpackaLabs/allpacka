@@ -241,7 +241,7 @@ tripController.updateTripUsers = async (req, res, next) => {
 
 //Tested and it works!
 tripController.updateTripDetails = async (req, res, next) => {
-
+  console.log('---We are in updateTripDetails in tripController.js--');
   const { trip_id, trip } = req.body
 
   const filter = { _id: trip_id };

@@ -1,6 +1,6 @@
 // *****************************    SB edits   *****************************
-import React, {useState, useContext, useEffect} from "react";
-import { useNavigate, useLoaderData } from "react-router-dom";
+import React, {useState, useContext} from "react";
+import { useNavigate, useLoaderData, useParams } from "react-router-dom";
 import MainItemsComponent from "./TripHomeComp/MainItemsComponent.jsx";
 import { userContext, tripContext } from '../../context.js';
 
@@ -10,7 +10,7 @@ import './TripHome.scss';
 const TripHomePage = () => {
   // trip data from Loader Function
   const tripData = useLoaderData();
-
+  const { trip_id } = useParams();
   const { user } = useContext(userContext);
 
   // triggers rendering the a new Catagory Componenet 
@@ -36,10 +36,28 @@ const TripHomePage = () => {
   // This will make the fetch request!!
   const handleHome = async (e) => {
     e.preventDefault();
-    //  const res = fetch('/api/trips/')
+  try {
+    const res = await fetch(`/api/trip/new_trip`, { //make sure we are getting this user._id
+      method: "PUT",
+      headers: {
+              "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ trip_id: id, 
+                          trip: {tripName: currTrip.tripName, 
+                          location: currTrip.location, 
+                          date:currTrip.date,
+                          items: currTrip.items,
+                          categories: currTrip.categories,
+                          photos: currTrip.photos,
+                          users: currTrip.users}
+                          })
+      })
+      console.log(res)
+      navigate(`/${user._id}`)
+      } catch(err) {
 
-    console.log(tripData)
-    // navigate(`/${user._id}`)
+        navigate(`/${user._id}`)
+      }
 
   }
 
