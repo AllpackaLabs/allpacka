@@ -19,6 +19,8 @@ const UserSettingsPage = () => {
     const [newTripsArr, setNewTripsArr] = useState(testUser.trips)
     const [body, setBody] = useState({});
 
+    setUser(null)
+
     function handleSubmit(e) {
         e.preventDefault()
         console.log('user? ', user)
