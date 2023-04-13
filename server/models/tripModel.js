@@ -9,14 +9,9 @@ const tripSchema = new Schema({
     // tripType: String, // example: car camping backpacking, etc These can later be refactored to their own schema but int he interest in time... -|_:)_/-
     date: Date, // not sure if there is a date type, look into
 		items: Array, // This is an array of objects that hold the items for the trip
-    users: [{
-      user_id: {
-        type: Schema.Types.ObjectId,
-        ref: 'user'
-      }
-    }], // this is an array of use _id's refrencing the user schema
+    users: Array, // this is an array of use _id's refrencing the user schema
     categories: Array,
-    review: String, // Could be comments. Possibly an array 
+    // review: String, // Could be comments. Possibly an array 
     photos: Array, // urls of photos stretch feature
   });
 
