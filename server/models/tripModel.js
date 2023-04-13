@@ -7,7 +7,7 @@ const tripSchema = new Schema({
     tripName: String,
     location: String,
     // tripType: String, // example: car camping backpacking, etc These can later be refactored to their own schema but int he interest in time... -|_:)_/-
-    date: Date, // not sure if there is a date type, look into
+    date: String, // not sure if there is a date type, look into
 		items: Array, // This is an array of objects that hold the items for the trip
     users: Array, // this is an array of use _id's refrencing the user schema
     categories: Array,
