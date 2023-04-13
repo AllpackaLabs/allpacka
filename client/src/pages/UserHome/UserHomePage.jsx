@@ -11,13 +11,11 @@ const UserHomePage = () => {
     // data from use loader data
     const userData = useLoaderData()
 
-    // set userData to (IF WORKS!!)
-    // setUser(userData);
+    // getting user and setUser context to render for userSettings
+    const { user, setUser } = useContext(userContext);
+    setUser(userData)
 
-    // const [joinTripCode, setJoinTripCode] = useState('');
-    // const [tripsArray, setTripsArray] = useState(null)
     const navigate = useNavigate();
-    // const { user, setUser } = useContext(userContext);
 
     // where do I input the userId from rootLayout and update the setCurrentTrips
     const handleCreateTrip = (e) => {

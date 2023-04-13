@@ -17,6 +17,7 @@ const testArray = [
 
 const UserSettingsPage = () => {
 
+
     /////////////////////////////////////////////////////////////
                     // HARD CODED USER
     const testUser = {
@@ -29,8 +30,8 @@ const UserSettingsPage = () => {
 
     // console.log('-- TEST USER --', testUser)
 
-    // const { user, setUser } = useContext(userContext);
-    const [user, setUser] = useState(testUser)
+    const { user, setUser } = useContext(userContext);
+
     const [newUserName, setNewUsername] = useState(testUser.username);
     const [newPassword, setNewPassword] = useState(testUser.password);
     const [newTripsArr, setNewTripsArr] = useState(testUser.trips)
