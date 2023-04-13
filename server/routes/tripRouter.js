@@ -10,11 +10,11 @@ const tripRouter = express.Router();
 
 // get a trip's info
 tripRouter.get('/:trip_id',
-		sessionController.isLoggedIn, //Protect route
+		// sessionController.isLoggedIn, //Protect route
     tripController.getTrip,
     (req, res) => {
     console.log('--Sending data from tripRouter.GET\'s anonymous func--');
-    return res.status(200).json(res.locals); //
+    return res.status(200).json(res.locals.trip); //
     }
 );
 

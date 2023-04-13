@@ -7,65 +7,14 @@ import { userContext, tripContext } from '../../context.js';
 import './TripHome.scss';
 
 
-const testTrip = {
-  categories: [
-      {name: 'food', 
-          items:[
-              {name:'oat meal',
-              user: 'Sam',
-              number: '3lbs',
-              },
-              {name:'trail mix',
-              user: 'Billy',
-              number: '2lbs',
-              },
-              {name:'Apple',
-              user: 'Luke',
-              number: 10,
-              },
-              {name:'Chocolate',
-              user: 'Jackie',
-              number: 10000,
-              },
-  ]}, 
-      {name: 'shelter', 
-          items:[
-              {name:'tent',
-              user: 'Sam',
-              number: 1,
-              },
-              {name:'tarp',
-              user: 'Billy',
-              number: 1,
-              },
-              {name:'RainFly',
-              user: 'Luke',
-              number: 10000,
-              },
-  ]},
-  {name: 'misc', 
-      items:[
-          {name:'speaker',
-          user: 'Jackie',
-          number: 1,
-          }
-  ]},
-]}
-
-
 const TripHomePage = () => {
   // trip data from Loader Function
   const tripData = useLoaderData();
 
-  // getting currentTrip and setCurrentTrip context to render for trip data
-  // const { currentTrip, setCurrentTrip } = useContext(tripContext);
-  // setCurrentTrip(testTrip)
-
-
   const { user } = useContext(userContext);
 
   // triggers rendering the a new Catagory Componenet 
-  const [currTrip, setCurrentTrip] = useState(testTrip)
+  const [currTrip, setCurrentTrip] = useState(tripData)
   const [showCatComponent, setShowCatComponent] = useState(false);
   const navigate = useNavigate();
   
@@ -98,6 +47,7 @@ const TripHomePage = () => {
 
   return(
     <main className='trip-home-page'> 
+    
       <header className='header'>
         <div>
           <div>
@@ -105,7 +55,7 @@ const TripHomePage = () => {
           </div>
         </div>
         <div className='Trip-details'>
-          <h1>DISPLAY TRIP NAME</h1>
+          <h1>{tripData.tripName}</h1>
         </div>
         <div>
           <div>

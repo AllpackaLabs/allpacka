@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate, Form } from 'react-router-dom';
-import { userContext } from '../context';
+
 import '../scss/LoginPage.scss';
 import alpaca from '../assets/alpaca_cool.jpg';
 import yosemite from '../assets/yosemite.jpg';

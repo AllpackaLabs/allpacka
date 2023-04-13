@@ -1,11 +1,11 @@
-import React, { useState, Suspence, Suspense } from "react";
+import React, { useState } from "react";
 import ItemsDisplayComponent from "./itemsDisplayComponent.jsx";
 import AddItemsComp from './AddItemsComp.jsx'
 import './CategoryComponent.scss';
 
 
 
-const CategoryComponent = ({ items, category }) => {
+const CategoryComponent = ({ items, category, setCurrentTrip, currTrip }) => {
   // State 
   const [showComponent, setShowComponent] = useState(false);
 
@@ -38,11 +38,12 @@ const CategoryComponent = ({ items, category }) => {
       </div>
       <div>
         {itemsArray}
-        {showComponent && <AddItemsComp list={itemsArray} 
+        {showComponent && <AddItemsComp list={items} 
                                         show={setShowComponent}
                                         category={category}
-                                        
-                          />}
+                                        setCurrentTrip={setCurrentTrip}
+                                        currentTrip={currTrip}
+                                        />}
       </div>
     </div>
    )

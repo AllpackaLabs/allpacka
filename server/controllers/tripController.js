@@ -34,13 +34,13 @@ tripController.getTrip = (req, res, next) => {
         const { 
           tripName, location,
           tripType, date, items,
-          users, catagories, review,
+          users, categories, review,
           photos, id } = foundTrip
 
         res.locals.trip = { 
           tripName, location,
           tripType, date, items,
-          users, catagories, review,
+          users, categories, review,
           photos, id };
 
         return next();

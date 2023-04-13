@@ -15,6 +15,7 @@ const AddCategoryComp = ({ show, currTrip, setCurrentTrip }) => {
     show(false)
   }
 
+  
   return (
       <div className='category'>
       <div className='category-label'>
