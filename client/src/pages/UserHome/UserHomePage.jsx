@@ -43,6 +43,9 @@ const UserHomePage = () => {
             <div className='settings'>
                 <button onClick={handleSettings} className='settings-btn'>{svg}</button>
             </div>
+            {/* <div>
+                <input type="text" placeholder='enter trip id' />
+            </div> */}
             <div className="user-display">
                 <div className='join-trip'>
                     <div className='create-trip'>

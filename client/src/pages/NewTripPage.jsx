@@ -51,7 +51,15 @@ const newTripPage = () => {
 					
 					if (res) {
 						setCurrentTrip(res);
-						console.log('This is trip from the useContext tripContext', currentTrip)
+						console.log('This is trip from the useContext tripContext', currentTrip);
+						const newTrip = {
+							trip_id: res.trip._id,
+							date: res.trip.date,
+							tripName: res.trip.tripName
+						}
+						user.trips = [...trips, newTrip];
+						setUser({...user});
+						// console.log('THIS IS THE UPDATED USER AFTER MAKING A TRIP', user)
 						//BELOW IS MAYBE NOT IT?
 						// res.locals.id = res.trip._id;
 						return navigate(`/${res.trip._id}`);
