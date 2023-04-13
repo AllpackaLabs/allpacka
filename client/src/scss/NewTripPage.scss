@@ -35,10 +35,25 @@ $primary-font-color: rgb(78, 76, 76);
     align-items: center;
 }
 
+.trip-button {
+	border-radius: 6rem;
+	border: none;
+	outline: none;
+	
+	height: 2rem;
+	color: $primary-font-color;
+	cursor: pointer;
+	width: 100%;
+	margin: 0.25rem auto;
+	line-height: 1rem;
+	letter-spacing: 0.05rem;
+	transition: filter 100ms linear;
+}
 
 .container {
     display: flex;
     // flex-direction: column;
+		flex-direction: column;
     border-radius: 8px;
     border-color: lightgray;
     align-items: center;
