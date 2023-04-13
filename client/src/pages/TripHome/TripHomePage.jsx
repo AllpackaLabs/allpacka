@@ -8,7 +8,7 @@ import './TripHome.scss';
 
 const TripHomePage = () => {
 
-  // const tripData = useLoaderData();
+  const tripData = useLoaderData();
   // const tripsData = null;
 
   // copy url for sharing... (for TODO)
@@ -60,18 +60,5 @@ const TripHomePage = () => {
   )
 }
 
-// /// User Data Loader
-// const tripLoader = async ({ params }) => {
-//   const { id } = params
-//   try {
-//       const res = await fetch('/trips/' + id)
-//       res.json()
-//   } catch (err) {
-//       alert('something...')
-//   }
-// }
 
-export default {
-  TripHomePage,
-  // tripLoader,
-};
+export default TripHomePage;

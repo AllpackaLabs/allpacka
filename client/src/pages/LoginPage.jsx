@@ -9,7 +9,7 @@ const LoginPage = () => {
 
 	const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { user, setUser } = useContext(userContext)
+  // const { user, setUser } = useContext(userContext)
  	const navigate = useNavigate();
 
   
@@ -39,10 +39,12 @@ const LoginPage = () => {
         // Send the username and password to the server for authentication 
         // setUsername(''); // does this  match with the userSchema (the word User)
         // setPassword('');
-        setUser(res.user);
-        console.log(res.user)
+        // setUser([...res.user]);
+  
+        // console.log(user)
+        console.log('res.user: ', res.user)
         // return redirect(`/UserHomePage/${res.user_id}`); //!!! either user_id or username
-        return navigate(`/user_home/${res.user._id}`);
+        return navigate(`/${res.user._id}`);
       } else {
         console.log(res.verified)
         alert('Invalid Credentials');

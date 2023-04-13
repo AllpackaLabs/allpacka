@@ -14,7 +14,7 @@ $primary-font-color: rgb(78, 76, 76);
     flex-direction: column;
     justify-content: center;
 
-    border: 0.1px  solid $primary-font-color;
+    border: 0.25px  solid $primary-font-color;
     border-radius: 1rem;
     margin: 1rem;
     padding: 1rem;
@@ -33,7 +33,7 @@ $primary-font-color: rgb(78, 76, 76);
 }
 
 .category-name {
-    margin: 0 0.75rem;
+    margin: 0 4rem;
 }
 
 .add-item {
@@ -42,13 +42,29 @@ $primary-font-color: rgb(78, 76, 76);
     justify-content: center;
 
     width: 3rem;
-    margin: 0 0.75rem;
+    margin: 0 0.5rem;
 }
 
 .add-item-btn {
+    border-radius: 6rem;
+	border: none;
+	outline: none;
+	
+	height: 1.5rem;
+    width: 3.5rem;
+	background: white;
+	color: $primary-font-color;
+	cursor: pointer;
+	margin: 0.25rem 0;
+	// line-height: 1rem;
+	letter-spacing: 0.05rem;
+	transition: filter 100ms linear;
+
+    // border: 0.1px solid;
+    border-radius: 0.5rem;
+    border-color: black;
     font-size: medium;
     font-weight: bold;
-    width: 2.5rem;
 
     &:hover,
 	&:focus {
@@ -56,6 +72,8 @@ $primary-font-color: rgb(78, 76, 76);
 		filter: brightness(0.9);
 	}
 	&:active {
-		filter: brightness(0.8);
+        background-color: rgb(4, 7, 4);
+        color:rgb(195, 146, 71);
+		// filter: brightness(0.8);
 	}
 }

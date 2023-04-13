@@ -1,5 +1,5 @@
-import React, { useContext, useState, useLoaderData, useParams } from 'react';
-import { useNavigate, Form } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { useNavigate, Form, useParams, useLoaderData } from 'react-router-dom';
 import { tripContext, userContext } from '../../context';
 import './UserHomePage.scss';
 // Child Components
@@ -54,6 +54,7 @@ const UserHomePage = () => {
 
     return (
         <div className="user-home-page">
+            {user}
             <div className='settings'>
                 <button onClick={handleSettings} className='settings-btn'>{svg}</button>
             </div>
@@ -72,19 +73,6 @@ const UserHomePage = () => {
     )
 }
 
-/// User Data Loader
-const userLoader = async ({ params }) => {
-    const { id } = params
-    try {
-        const res = await fetch('user/:_id')
-        res.json()
-    } catch (err) {
-        alert('somethiing...')
-    }
-}
 
 
-export default {
-    UserHomePage,
-    userLoader,
-};
+export default UserHomePage;
