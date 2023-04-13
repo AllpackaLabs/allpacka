@@ -1,13 +1,17 @@
 import {useState, useContext} from "react";
 import { tripContext } from '../../../context.js';
 
-const AddCategoryComp = ({ show, currTrip, updateTrip }) => {
+const AddCategoryComp = ({ show, currTrip, setCurrentTrip }) => {
 
   // update the current trip's category here?
   const [newCategory, setCategory] = useState('')
 
-  const handleSubmit = () => {
-    update(currTrip.categories.push(newCategory))
+  const handleSubmit = (e) => {
+    e.preventDefault;
+  
+    currTrip.categories.push({name: newCategory, items: []})
+    setCurrentTrip(currTrip)
+    console.log(currTrip)
     show(false)
   }
 

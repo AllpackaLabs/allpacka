@@ -13,15 +13,15 @@ const testTrip = {
           items:[
               {name:'oat meal',
               user: 'Mark',
-              number: 10000,
+              number: '3lbs',
               },
               {name:'trail mix',
               user: 'Billy',
-              number: Infinity,
+              number: '2lbs',
               },
-              {name:'Vegetables',
+              {name:'Apple',
               user: 'Sophia',
-              number: 10000,
+              number: 10,
               },
               {name:'Chocolate',
               user: 'Jackie',
@@ -65,7 +65,7 @@ const TripHomePage = () => {
   const { user } = useContext(userContext);
 
   // triggers rendering the a new Catagory Componenet 
-  const [currTrip, setCurrentTrip] = useState(tripData)
+  const [currTrip, setCurrentTrip] = useState(testTrip)
   const [showCatComponent, setShowCatComponent] = useState(false);
   const navigate = useNavigate();
   
@@ -98,7 +98,6 @@ const TripHomePage = () => {
 
   return(
     <main className='trip-home-page'> 
- 
       <header className='header'>
         <div>
           <div>
@@ -115,7 +114,7 @@ const TripHomePage = () => {
         </div>
       </header>
       <div className='main-display'>
-        <MainItemsComponent currTrip={currTrip}
+        <MainItemsComponent currentTrip={currTrip}
                             setCurrentTrip={setCurrentTrip} 
                             showCat={showCatComponent} 
                             setShowCat={setShowCatComponent}

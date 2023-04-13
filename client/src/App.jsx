@@ -12,7 +12,7 @@ import UserSettingsPage from './pages/UserHome/UserSettingsPage.jsx';
 import RootLayout from './layouts/rootLayout';
 
 // Loader functions
-import { userLoader } from './loaders.js';
+import { userLoader, tripLoader } from './loaders.js';
 
 // ROUTE PROVIDER Component to 
 const router = createBrowserRouter(
@@ -40,7 +40,7 @@ const router = createBrowserRouter(
       <Route
         path='/trip_home'
         element={<TripHomePage key='trip_home' />}
-        // loader={tripLoader}
+        loader={tripLoader}
       />
     </Route>
   )

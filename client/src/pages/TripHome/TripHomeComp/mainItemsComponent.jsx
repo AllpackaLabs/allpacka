@@ -5,7 +5,7 @@ import CategoryComponent from "./CategoryComponent";
 import AddCategoryComp from "./AddCategoryComp.jsx";
 
 
-const MainItemsComponent = ({ currTrip, setCurrentTrip, showCat, setShowCat }) => {
+const MainItemsComponent = ({ currentTrip, setCurrentTrip, showCat, setShowCat }) => {
     // State
 
     ////////////////////////////////////////////////////////////////
@@ -68,7 +68,7 @@ const MainItemsComponent = ({ currTrip, setCurrentTrip, showCat, setShowCat }) =
     ////////////////////////////////////////////////////////////////
     // Parsing trip (pruduction function)
 
-    const categories = currTrip.categories.map(category => {
+    const categories = currentTrip.categories.map(category => {
         return <CategoryComponent items={category.items} 
                                         category={category.name} 
                                         key={category.name}
@@ -80,6 +80,7 @@ const MainItemsComponent = ({ currTrip, setCurrentTrip, showCat, setShowCat }) =
 
     return (
         <div className='mainItemDisplay'>
+            {/* {currentTrip.categories[0].name} */}
             <div className='items-legend'>
                 <div id='item-legend-number'>
                     Checklist
@@ -94,8 +95,8 @@ const MainItemsComponent = ({ currTrip, setCurrentTrip, showCat, setShowCat }) =
             <div className='displayedItems'>
                {categories}
                {showCat && <AddCategoryComp show={setShowCat} 
-                                            currTrip={currTrip}
-                                            updateTrip={setCurrentTrip}
+                                            currTrip={currentTrip}
+                                            setCurrentTrip={setCurrentTrip}
                                             />}
             </div>
         </div>
