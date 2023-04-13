@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { useNavigate, Form, redirect } from 'react-router-dom';
+import { useNavigate, Form } from 'react-router-dom';
 import { userContext } from '../context';
 import '../scss/LoginPage.scss';
 import alpaca from '../assets/alpaca_cool.jpg';
@@ -46,7 +46,7 @@ const LoginPage = () => {
       } else {
         console.log(res.verified)
         alert('Invalid Credentials');
-        return <Navigate to='/' replace={true} />
+        return navigate('/')
       }
     } else {
       alert('Server fail')
