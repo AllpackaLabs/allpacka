@@ -34,13 +34,13 @@ tripController.getTrip = (req, res, next) => {
         const { 
           tripName, location,
           tripType, date, items,
-          users, catagories, review,
+          users, categories, review,
           photos, id } = foundTrip
 
         res.locals.trip = { 
           tripName, location,
           tripType, date, items,
-          users, catagories, review,
+          users, categories, review,
           photos, id };
 
         return next();
@@ -61,7 +61,7 @@ tripController.createTrip = (req, res, next) => {
     location,
     date,
     tripName,
-		user_id
+		user_id,
     } = req.body; 
   
   // to be used in next peice of middleware
