@@ -35,10 +35,25 @@ $primary-font-color: rgb(78, 76, 76);
     align-items: center;
 }
 
+.trip-button {
+	border-radius: 6rem;
+	border: none;
+	outline: none;
+	
+	height: 2rem;
+	color: $primary-font-color;
+	cursor: pointer;
+	width: 100%;
+	margin: 0.25rem auto;
+	line-height: 1rem;
+	letter-spacing: 0.05rem;
+	transition: filter 100ms linear;
+}
 
 .container {
     display: flex;
     // flex-direction: column;
+		flex-direction: column;
     border-radius: 8px;
     border-color: lightgray;
     align-items: center;
@@ -89,3 +104,19 @@ $primary-font-color: rgb(78, 76, 76);
 }
 
 // DO I NEED THIs???
+
+// .create-trip-button{
+//         // border-radius: 8px;
+//         // border: 1px solid transparent;
+//         // padding: 0.6em 1.2em;
+//         // font-size: 1em;
+//         // font-family: inherit;
+
+//     background-color: darkseagreen;
+//     width: 30%;
+//         // cursor: pointer;
+//         // transition: border-color 0.25s;
+// }  
+//       button:hover {
+//         border-color:  green;
+//       }
