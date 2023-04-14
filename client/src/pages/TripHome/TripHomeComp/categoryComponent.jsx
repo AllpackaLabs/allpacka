@@ -1,25 +1,18 @@
-import React, { useState, Suspence, Suspense } from "react";
+import React, { useState } from "react";
 import ItemsDisplayComponent from "./itemsDisplayComponent.jsx";
 import AddItemsComp from './AddItemsComp.jsx'
 import './CategoryComponent.scss';
 
 
 
-const CategoryComponent = ({ items, category }) => {
+const CategoryComponent = ({ items, category, setCurrentTrip, currTrip }) => {
   // State 
   const [showComponent, setShowComponent] = useState(false);
 
-
-  // Show the input fields for the items
   const showAddItemComp = () => {
     setShowComponent(true)
   }
-  
-  const handleAddItem = () => {
-    
-  }
 
-  // each catagory will render ismt's associated items will be rendered 
   let i = 0
   const itemsArray = items.map((it) => {
    return <ItemsDisplayComponent item={it} key={i++}/>
@@ -38,11 +31,12 @@ const CategoryComponent = ({ items, category }) => {
       </div>
       <div>
         {itemsArray}
-        {showComponent && <AddItemsComp list={itemsArray} 
+        {showComponent && <AddItemsComp list={items} 
                                         show={setShowComponent}
                                         category={category}
-                                        
-                          />}
+                                        setCurrentTrip={setCurrentTrip}
+                                        currentTrip={currTrip}
+                                        />}
       </div>
     </div>
    )

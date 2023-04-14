@@ -9,7 +9,7 @@ import "./AddItemsComp.scss";
 
 
 
-const AddItemsComp = ({ list, show, category }) => {
+const AddItemsComp = ({ list, show, category, setCurrentTrip, currentTrip }) => {
     // Getting use context into here is the next big challenge
 
     // this is the state of the component
@@ -18,12 +18,13 @@ const AddItemsComp = ({ list, show, category }) => {
     const [claimedBy, setClaimedBy] = useState('');
     
 
-    const handleSubmit = () => {
-        // unmount the input fields and reset 
-        
+    const handleSubmit = (e) => {
+        e.preventDefault;
+    
+        console.log(list.push({name: itemName, user: claimedBy, number: numItem}))
+        // console.log(currentTrip)
         show(false);
     }
-
 
     return (
     <div className='input-row'>
