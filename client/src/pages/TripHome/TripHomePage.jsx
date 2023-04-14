@@ -37,21 +37,22 @@ const TripHomePage = () => {
   const handleHome = async (e) => {
     e.preventDefault();
   try {
-    const res = await fetch(`/api/trip/new_trip`, { //make sure we are getting this user._id
-      method: "PUT",
-      headers: {
-              "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ trip_id: id, 
-                          trip: {tripName: currTrip.tripName, 
-                          location: currTrip.location, 
-                          date:currTrip.date,
-                          items: currTrip.items,
-                          categories: currTrip.categories,
-                          photos: currTrip.photos,
-                          users: currTrip.users}
-                          })
-      })
+    // const res = await fetch(`/api/trip/${trip_id}`, /{ /make sure we are getting this user._id
+    //   method: "PATCH",
+    //   headers: {
+    //           "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify({ trip_id: trip_id, 
+    //                       trip: {tripName: currTrip.tripName, 
+    //                       location: currTrip.location, 
+    //                       date:currTrip.date,
+    //                       items: currTrip.items,
+    //                       categories: currTrip.categories,
+    //                       photos: currTrip.photos,
+    //                       users: currTrip.users}
+    //                       })
+    //   })
+      const res = await fetch({})
       console.log(res)
       navigate(`/${user._id}`)
       } catch(err) {

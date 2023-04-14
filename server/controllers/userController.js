@@ -151,54 +151,38 @@ userController.verifyUser = async (req, res, next) => {
 }
 
 //UPDATE USER TRIPS
-// userController.updateUserTrips = async (req, res, next) => {
-//   console.log('---We are in updateUserTrips in userController.js--');
+userController.updateUserTrips = async (req, res, next) => {
+  console.log('---We are in updateUserTrips in userController.js--');
 
-//   const user_id = req.body.user_id || res.locals.user_id;
-//   const trip_id = req.body.trip_id || res.locals.trip_id; // grab the trip
-//   const date = req.body.date || res.locals.trip.date  // grabs date of trip
-//   const tripName = req.body.tripName || res.locals.trip.tripName // grabs the name of the trip
+  const { _id } = req.params
+  const trip_id = req.body.trip_id || res.locals.trip_id; // grab the trip
+  const date = req.body.date || res.locals.trip.date  // grabs date of trip
+  const tripName = req.body.tripName || res.locals.trip.tripName // grabs the name of the trip
   
-//   //TODO
-//   // Should either error check for trip_id, date, or tripName being undefined here or make them
-//   // required in the schema. We should at least check for trip_id, maybe the others are ok being null
+  //TODO
+  // Should either error check for trip_id, date, or tripName being undefined here or make them
+  // required in the schema. We should at least check for trip_id, maybe the others are ok being null
 
-//   const filter = user_id;
+  const filter = user_id;
 
-//   try {
-//     // find the user based on the Id
-//     const foundUser = await User.findById(filter).exec()
+  try {
+    // find the user based on the Id
+    const foundUser = await User.findById(filter).exec()
 
-//     if (foundUser === null) {
-//       return next(createErr({
-//           method: 'updateUserTrips',
-//           type: 'retrieving mongoDB user data',
-//           err: `findOneById(${user_id}) returned null`
-//       }));
-//     }
+    foundUser.trips.push({ tripName, date, trip_id})
+    const updatedUser = await foundUser.save();
 
-//     foundUser.trips.push({ tripName, date, trip_id})
-//     const updatedUser = await foundUser.save();
+    res.locals.updatedUser = updatedUser;
+    return next();
 
-//     if (updatedUser === null) {
-//       return next(createErr({
-//           method: 'updateUserTrips',
-//           type: 'updating mongoDB user trips data',
-//           err: `findById(${filter}) returned null`
-//       }))
-//     }
-
-//     res.locals.updatedUser = updatedUser;
-//     return next();
-
-//   } catch (err) {
-//     return next(createErr({
-//       method: 'updateUserTrips',
-//       type: 'retrieving mongoDB user data or updating mongoDB user trips data',
-//       err, 
-//       }));
-//   }
-// }
+  } catch (err) {
+    return next(createErr({
+      method: 'updateUserTrips',
+      type: 'retrieving mongoDB user data or updating mongoDB user trips data',
+      err, 
+      }));
+  }
+}
 
 // DELETE USER
 userController.deleteUser = (req, res, next) => {

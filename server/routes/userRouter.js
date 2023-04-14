@@ -41,12 +41,12 @@ userRouter.get('/:_id',
 
 
 
-// // update the trip's information
-// router.patch('/:_id',
-//   // middleware
+// update the trip's information
+// router.put('/:_id',
+//   userController.updateUserTrips,
 //   (req, res) => {
 //     console.log('--Sending data from userRouter.PATCH\'s aynonmouns func--');
-//     return res.status(200).json(); //
+//     return res.status(200).json(res.locals.updatedUser ); //
 //   }
 // );
 
