@@ -34,13 +34,13 @@ tripController.getTrip = (req, res, next) => {
         const { 
           tripName, location,
           tripType, date, items,
-          users, catagories, review,
+          users, categories, review,
           photos, id } = foundTrip
 
         res.locals.trip = { 
           tripName, location,
           tripType, date, items,
-          users, catagories, review,
+          users, categories, review,
           photos, id };
 
         return next();
@@ -61,7 +61,7 @@ tripController.createTrip = (req, res, next) => {
     location,
     date,
     tripName,
-		user_id
+		user_id,
     } = req.body; 
   
   // to be used in next peice of middleware
@@ -84,6 +84,36 @@ tripController.createTrip = (req, res, next) => {
       });
   // return next();
 };
+
+//Tested and it works!
+tripController.updateTripDetails = async (req, res, next) => {
+  console.log('---We are in updateTripDetails in tripController.js--');
+  const { trip_id, trip } = req.body
+  const filter = { _id: trip_id };
+  const update = trip;
+
+  try {
+    const replacedTrip = await Trip.findOneAndReplace(filter, update, { upsert: true, new: true })
+  
+    if (replacedTrip === null) {
+      return next(createErr({
+        method: 'updateTripDetails',
+        type: 'retrieving and updating Trip mongoDB data',
+        err: `findOneAndReplace(${trip_id}) returned null`
+    }));
+    }
+    
+    res.locals.replacedTrip = replacedTrip;
+    return next();
+    
+  } catch (err) {
+    return next(createErr({
+      method: 'updateTripDetails',
+      type: 'updating Trip to mongoDB data',
+      err, 
+      }));
+  }
+}
 
 
 // // ADD CATEGORIES TO TRIP
@@ -110,7 +140,6 @@ tripController.createTrip = (req, res, next) => {
 // 					err: `the category ${categoryName} already exists`
 // 				}))
 // 			}
-
 // 			//if the category doesn't exist, add it to the categories object with value of empty array
 // 			foundTrip.categories.categoryName = [];
 // 			const updatedTrip = await foundTrip.save();
@@ -172,8 +201,6 @@ tripController.createTrip = (req, res, next) => {
 			
 // 		})
 // }
-
-
 
 
 // Stretch Feature
@@ -239,36 +266,6 @@ tripController.updateTripUsers = async (req, res, next) => {
 // feel free to do this the less risky way by updating one property at a time after everything else is working.
 // https://www.mongodb.com/docs/manual/reference/operator/update/
 
-//Tested and it works!
-tripController.updateTripDetails = async (req, res, next) => {
-
-  const { trip_id, trip } = req.body
-
-  const filter = { _id: trip_id };
-  const update = trip;
-
-  try {
-    const replacedTrip = await Trip.findOneAndReplace(filter, update, { upsert: true, new: true })
-  
-    if (replacedTrip === null) {
-      return next(createErr({
-        method: 'updateTripDetails',
-        type: 'retrieving and updating Trip mongoDB data',
-        err: `findOneAndReplace(${trip_id}) returned null`
-    }));
-    }
-    
-    res.locals.replacedTrip = replacedTrip;
-    return next();
-    
-  } catch (err) {
-    return next(createErr({
-      method: 'updateTripDetails',
-      type: 'updating Trip to mongoDB data',
-      err, 
-      }));
-  }
-}
 
 // TODO
  // ADD MIDDLEWARE TO DELETE TRIP

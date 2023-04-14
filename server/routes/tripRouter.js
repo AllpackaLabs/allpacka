@@ -36,8 +36,8 @@ tripRouter.post('/new_trip',
 
 //Takes a trip_id and a trip in body params. This trip is the current state of the trip from the frontend
 // This route will replace the trip in the database with the trip provided in the params
-tripRouter.patch('/update',
-	sessionController.isLoggedIn, //Protect route
+tripRouter.patch('/:_id',
+	// sessionController.isLoggedIn, //Protect route
   tripController.updateTripDetails,
   (req, res) => {
     console.log('--Sending data from tripRouter.PATCH\'s anonymous func--');

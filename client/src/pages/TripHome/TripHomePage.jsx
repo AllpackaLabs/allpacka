@@ -131,3 +131,69 @@ const TripHomePage = () => {
 
 
 export default TripHomePage;
+
+
+
+// {
+//   "items": [],
+//   "users": [],
+//   "photos": [],
+//   "_id": "6438a84981c945c31e58216c",
+//   "categories": [
+//       {
+//           "name": "food",
+//           "items": [
+//               {
+//                   "name": "oat meal",
+//                   "user": "Mark",
+//                   "number": "3lbs"
+//               },
+//               {
+//                   "name": "trail mix",
+//                   "user": "Billy",
+//                   "number": "2lbs"
+//               },
+//               {
+//                   "name": "Apple",
+//                   "user": "Sophia",
+//                   "number": 10
+//               },
+//               {
+//                   "name": "Chocolate",
+//                   "user": "Jackie",
+//                   "number": 10000
+//               }
+//           ]
+//       },
+//       {
+//           "name": "shelter",
+//           "items": [
+//               {
+//                   "name": "tent",
+//                   "user": "Mark",
+//                   "number": 1
+//               },
+//               {
+//                   "name": "tarp",
+//                   "user": "Billy",
+//                   "number": 1
+//               },
+//               {
+//                   "name": "RainFly",
+//                   "user": "Sophia",
+//                   "number": 10000
+//               }
+//           ]
+//       },
+//       {
+//           "name": "misc",
+//           "items": [
+//               {
+//                   "name": "speaker",
+//                   "user": "Jackie",
+//                   "number": 1
+//               }
+//           ]
+//       }
+//   ]
+// }
