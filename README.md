@@ -24,55 +24,48 @@ Happy Hacking!
 
 ````
 .
-├── client
-│   ├── index.html
-│   ├── package-lock.json
-│   ├── package.json
-│   ├── src
-│   │   ├── App.css
-│   │   ├── App.jsx
-│   │   ├── assets
-│   │   │   ├── alpaca3.jpg
-│   │   │   ├── alpacaLogo.jpg
-│   │   │   ├── alpaca_cool.jpg
-│   │   │   ├── background.png
-│   │   │   └── yosemite.jpg
-│   │   ├── context.js
-│   │   ├── index.css
-│   │   ├── layouts
-│   │   │   └── rootLayout.jsx
-│   │   ├── main.jsx
-│   │   ├── pages
-│   │   │   ├── LoginPage.jsx
-│   │   │   ├── SignupPage.jsx
-│   │   │   ├── TripHome
-│   │   │   │   ├── NewTripPage.jsx
-│   │   │   │   ├── TripHomePage.jsx
-│   │   │   │   ├── addItemsComponent.jsx
+├── index.html
+├── package-lock.json
+├── package.json
+├── src
+│   ├── App.jsx
+│   ├── assets
+│   │   ├── alpaca3.jpg
+│   │   ├── alpacaLogo.jpg
+│   │   └── alpaca_cool.jpg
+│   ├── context.js
+│   ├── layouts
+│   │   └── rootLayout.jsx
+│   ├── loaders.js
+│   ├── main.jsx
+│   ├── pages
+│   │   ├── LoginPage.jsx
+│   │   ├── NewTripPage.jsx
+│   │   ├── SignupPage.jsx
+│   │   ├── TripHome
+│   │   │   ├── TripHomeComp
+│   │   │   │   ├── AddCategoryComp.jsx
+│   │   │   │   ├── AddItemsComp.jsx
 │   │   │   │   ├── categoryComponent.jsx
 │   │   │   │   ├── itemsDisplayComponent.jsx
 │   │   │   │   └── mainItemsComponent.jsx
-│   │   │   └── UserHome
-│   │   │       ├── UserHomePage.jsx
-│   │   │       └── userTripsDisplay.jsx
-│   │   └── scss
-│   │       ├── LoginPage.scss
-│   │       ├── NewTripPage.scss
-│   │       ├── SignupPage.scss
-│   │       ├── TripHome.scss
-│   │       └── UserHomePage.scss
-│   └── vite.config.js
-└── server
-    ├── controllers
-    │   ├── cookieController.js
-    │   ├── sessionController.js
-    │   ├── tripController.js
-    │   └── userController.js
-    ├── models.js
-    ├── package-lock.json
-    ├── package.json
-    ├── routes
-    │   ├── tripRouter.js
-    │   └── userRouter.js
-    └── server.js
+│   │   │   └── TripHomePage.jsx
+│   │   └── UserHome
+│   │       ├── UserHomePage.jsx
+│   │       ├── UserSettingsPage.jsx
+│   │       └── userTripsDisplay.jsx
+│   └── styles
+│       ├── _AddCategoryComp.scss
+│       ├── _AddItemsComponent.scss
+│       ├── _CategoryComponent.scss
+│       ├── _ItemsDisplayComponent.scss
+│       ├── _LoginPage.scss
+│       ├── _MainItemsComponent.scss
+│       ├── _NewTripPage.scss
+│       ├── _SignupPage.scss
+│       ├── _TripHomePage.scss
+│       ├── _UserHomePage.scss
+│       ├── _UserSettingsPage.scss
+│       └── index.scss
+└── vite.config.js
    ````
