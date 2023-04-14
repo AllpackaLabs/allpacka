@@ -14,29 +14,54 @@ $primary-font-color: rgb(78, 76, 76);
 
     font-family: $primary-font-stack;
     color: $primary-font-color;
+
+
+    .items-legend {
+        display: flex;
+        // justify-content: space-evenly;
+        padding: 0.5rem 0;
+        font-size: x-large;
+        font-family: $primary-font-stack;
+        color: $primary-font-color;
+    }
+    
+    #item-legend-number {
+        margin: 0 auto;
+        width: 30%;
+    }
+    
+    #item-legend-name {
+        margin: 0 auto;
+        width:  30%;
+    }
+    
+    #item-legend-who {
+        margin: 0 auto;
+        width: 30%;
+    }
 }
 
-.items-legend {
-    display: flex;
-    // justify-content: space-evenly;
-    padding: 0.5rem 0;
-    font-size: x-large;
-    font-family: $primary-font-stack;
-    color: $primary-font-color;
-}
+// .items-legend {
+//     display: flex;
+//     // justify-content: space-evenly;
+//     padding: 0.5rem 0;
+//     font-size: x-large;
+//     font-family: $primary-font-stack;
+//     color: $primary-font-color;
+// }
 
-#item-legend-number {
-    margin: 0 auto;
-    width: 30%;
-}
+// #item-legend-number {
+//     margin: 0 auto;
+//     width: 30%;
+// }
 
-#item-legend-name {
-    margin: 0 auto;
-    width:  30%;
-}
+// #item-legend-name {
+//     margin: 0 auto;
+//     width:  30%;
+// }
 
-#item-legend-who {
-    margin: 0 auto;
-    width: 30%;
-}
+// #item-legend-who {
+//     margin: 0 auto;
+//     width: 30%;
+// }
 
