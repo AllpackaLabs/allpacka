@@ -52,8 +52,6 @@ const App = () => {
 
   const userValue = { user, setUser }
   const currentTripValue = {currentTrip, setCurrentTrip}
-  // const tripContext = createContext({ currentTrip: null, setCurrentTrip: () => { } });
-  // const userContext = createContext({ user: null, setUser: () => { } });
 
   return (
     <userContext.Provider value={userValue}>
