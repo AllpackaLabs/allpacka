@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useNavigate, Form } from "react-router-dom";
 import { tripContext } from "../context";
 import { userContext } from '../context';
-import '../scss/NewTripPage.scss';
+// import '../scss/NewTripPage.scss';
 
 //Will have access to userId
 const newTripPage = () => {
@@ -51,7 +51,7 @@ const newTripPage = () => {
 						console.log('This is trip from the useContext tripContext', currentTrip)
 						//BELOW IS MAYBE NOT IT?
 						// res.locals.id = res.trip._id;
-						return navigate(`/${res.trip._id}`);
+						return navigate(`/trip/${res.trip._id}`);
 					} else {
 						alert ('Failed To Create Trip');
 					}

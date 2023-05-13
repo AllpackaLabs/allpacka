@@ -13,9 +13,9 @@ export const userLoader = async ({ params }) => {
 }
 
 export const tripLoader = async ({ params }) => {
-    const { id } = params
+    const { trip_id } = params
     try {
-        const res = await fetch('/api/trip/' + id);
+        const res = await fetch('/api/trip/' + trip_id);
         const trip = await res.json()
        return trip;
     } catch (err) {

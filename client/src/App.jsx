@@ -2,6 +2,9 @@ import { useState, useContext } from 'react';
 import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from "react-router-dom";
 import { tripContext, userContext } from './context.js';
 
+// Import styles
+import './styles/index.scss';
+
 // Pages to render
 import LoginPage from './pages/LoginPage.jsx';
 import SignUpPage from './pages/SignUpPage.jsx';
@@ -37,7 +40,7 @@ const router = createBrowserRouter(
         element={<NewTripPage key='new_trip' />}
       />
       <Route
-        path='/:id'
+        path='/trip/:trip_id'
         element={<TripHomePage key='trip_home' />}
         loader={tripLoader}
       />

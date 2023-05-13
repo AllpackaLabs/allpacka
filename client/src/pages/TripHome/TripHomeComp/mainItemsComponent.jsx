@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import './MainItemsComponent.scss'
+// import './MainItemsComponent.scss'
 // child component of mainItemsComponent && parent componet of itemsDisplayComponet
 import CategoryComponent from "./CategoryComponent";
 import AddCategoryComp from "./AddCategoryComp.jsx";

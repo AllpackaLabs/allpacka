@@ -10,11 +10,11 @@ const tripRouter = express.Router();
 
 // get a trip's info
 tripRouter.get('/:trip_id',
-		sessionController.isLoggedIn, //Protect route
+		// sessionController.isLoggedIn, //Protect route
     tripController.getTrip,
     (req, res) => {
     console.log('--Sending data from tripRouter.GET\'s anonymous func--');
-    return res.status(200).json(res.locals); //
+    return res.status(200).json(res.locals.trip); //
     }
 );
 
@@ -36,7 +36,7 @@ tripRouter.post('/new_trip',
 
 //Takes a trip_id and a trip in body params. This trip is the current state of the trip from the frontend
 // This route will replace the trip in the database with the trip provided in the params
-tripRouter.patch('/:_id',
+tripRouter.patch('/:trip_id',
 	// sessionController.isLoggedIn, //Protect route
   tripController.updateTripDetails,
   (req, res) => {

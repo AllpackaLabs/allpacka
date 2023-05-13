@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ItemsDisplayComponent from "./itemsDisplayComponent.jsx";
 import AddItemsComp from './AddItemsComp.jsx'
-import './CategoryComponent.scss';
+// import './CategoryComponent.scss';
 
 
 

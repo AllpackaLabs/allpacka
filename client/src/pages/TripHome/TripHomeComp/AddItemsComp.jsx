@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./AddItemsComp.scss";
+// import "./AddItemsComp.scss";
 
 // NOTE we need items state
 // category component is the parent

@@ -4,7 +4,7 @@ import { useNavigate, useLoaderData } from "react-router-dom";
 import MainItemsComponent from "./TripHomeComp/MainItemsComponent.jsx";
 import { userContext, tripContext } from '../../context.js';
 
-import './TripHome.scss';
+// import './TripHome.scss';
 
 
 const testTrip = {

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import './itemsDisplayComponent.scss'
+// import './itemsDisplayComponent.scss'
 
 // This component will render withing the category componet
 

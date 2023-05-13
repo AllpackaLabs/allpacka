@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useEffect } from 'react';
 import { useNavigate, Form, Navigate } from 'react-router-dom';
 import { userContext } from '../../context.js';
-import './UserSettingsPage.scss'
+// import './UserSettingsPage.scss'
 
 const testArray = [
     {date: '1/2/2022', name: 'Yellowstone'},
@@ -32,9 +32,14 @@ const UserSettingsPage = () => {
 
     const { user, setUser } = useContext(userContext);
 
-    const [newUserName, setNewUsername] = useState(testUser.username);
-    const [newPassword, setNewPassword] = useState(testUser.password);
-    const [newTripsArr, setNewTripsArr] = useState(testUser.trips)
+    // const [newUserName, setNewUsername] = useState(testUser.username);
+    // const [newPassword, setNewPassword] = useState(testUser.password);
+    // const [newTripsArr, setNewTripsArr] = useState(testUser.trips)
+    const [newUserName, setNewUsername] = useState(user.username);
+    const [newPassword, setNewPassword] = useState(user.password);
+    const [newTripsArr, setNewTripsArr] = useState(user.trips)
+    
+    const navigate = useNavigate()
 
     // function to handle updates to the usernam or password
     function handleSubmit(e) {
@@ -84,6 +89,7 @@ const UserSettingsPage = () => {
         // .then(data => data.json())
         // .then(response => {
         //     console.log(response)
+                navigate(`/${user._id}`)
         // })
         // .catch(error => console.log('Error, ', error))
     }

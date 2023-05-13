@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Poppins:wght@300;500;600;700;800&display=swap');
+
+
+// Primary font stack (sans-serif-based), for most UI elements
+$primary-font-stack: 'Merriweather Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+	Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+$primary-font-color: rgb(78, 76, 76);
+
+// * {
+//     font-family: $primary-font-stack;
+//     color: $primary-font-color;
+// }
+.input-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 3.5rem;
+}
+
+.input-field {
+    margin: 0;
+}
+
+// This is the items legend
+.add-btn-div {
+    display: flex;
+    text-align: center;
+
+    border-radius: 0.5rem;
+    margin: 0.1rem 0.5rem;
+
+    width: 10%;
+}
+
+
+.add-btn{
+
+    border-radius: 6rem;
+	border: none;
+	outline: none;
+	
+	height: 1.25rem;
+	background: white;
+	color: $primary-font-color;
+	// cursor: pointer;
+	width: 100%;
+	margin: 0.25rem auto;
+	line-height: 1rem;
+	letter-spacing: 0.05rem;
+	transition: filter 100ms linear;
+
+
+    // border: 0.1px solid;
+    border-radius: 0.5rem;
+    // border-color: black;
+    font-size: small;
+    font-weight: bold;
+
+    &:hover,
+	&:focus {
+		background-color: lightgreen;
+		filter: brightness(0.9);
+	}
+	&:active {
+		filter: brightness(0.8);
+	}
+
+
+}
+
+.input-num {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: x-small !important;
+
+    margin: 0.1rem 1rem;
+    width:10%;
+    height: 1.85rem;
+}
+
+.input-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    border-radius: 0.5rem;
+    width:80%;
+    height: 2rem;
+    margin: 0.1rem 0.35rem;
+}
+
+.input-user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    border-radius: 0.5rem;
+    width:80%;
+    height: 2rem;
+    margin: 0.1rem 0.35rem;
+}

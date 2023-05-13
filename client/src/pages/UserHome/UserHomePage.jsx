@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate, useParams, useLoaderData } from 'react-router-dom';
 import { userContext } from '../../context';
-import './UserHomePage.scss';
+// import './UserHomePage.scss';
 // Child Components
 import UserTripsDisplay from './UserTripsDisplay';
 
@@ -10,7 +10,7 @@ const svg = <svg fill="#000000" height="22px" width="25px" version="1.1" id="Cap
 const UserHomePage = () => {
     // data from use loader data
     const userData = useLoaderData();
-		const { user, setUser } = useContext(userContext);
+	const { user, setUser } = useContext(userContext);
     setUser(userData);
 		
     // const [joinTripCode, setJoinTripCode] = useState('');
@@ -29,14 +29,14 @@ const UserHomePage = () => {
     }
 
     // NOT built yet
-    const handleJoinTrip = (e) => {
-        e.preventDefault();
-        console.log('not built out yet');
-        // patch
-        // TODO make functionality in backend lol
-        // const URL = '/trips/' + res.trip_id;
-        // return redirect(URL);
-    }
+    // const handleJoinTrip = (e) => {
+    //     e.preventDefault();
+    //     console.log('not built out yet');
+    //     // patch
+    //     // TODO make functionality in backend lol
+    //     // const URL = '/trips/' + res.trip_id;
+    //     // return redirect(URL);
+    // }
 
     return (
         <div className="user-home-page">
@@ -51,7 +51,7 @@ const UserHomePage = () => {
                 </div>
                 <div className='trips'>
                     <h2>Trips</h2>
-                    <UserTripsDisplay userobj={ userData } />
+                    <UserTripsDisplay userObj={ userData } />
                 </div>
             </div>
         </div>

@@ -1,9 +1,6 @@
-import React, { useState, useContext } from 'react';
 import { useNavigate, Form } from 'react-router-dom';
-import { userContext } from '../context';
-import '../scss/LoginPage.scss';
+import { useState } from 'react';
 import alpaca from '../assets/alpaca_cool.jpg';
-import yosemite from '../assets/yosemite.jpg';
 
 const LoginPage = () => {
 
@@ -17,9 +14,9 @@ const LoginPage = () => {
 	async function handleSubmit(e) {
 	// make the fetch to the backend to authenticate the credentials
 	try {
-        e.preventDefault();
-        // will this be a post request?
-		const response = await fetch('/api/user/login', {
+      e.preventDefault();
+      // will this be a post request?
+		  const response = await fetch('/api/user/login', {
 			method: 'POST',
 			headers: {
 			'Content-Type': 'application/json'

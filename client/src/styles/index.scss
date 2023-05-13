@@ -1,0 +1,18 @@
+// Different pages
+@import './_LoginPage.scss';
+@import './_SignUpPage.scss';
+
+// User pages
+@import './_UserHomePage.scss';
+@import './_userSettingsPage.scss';
+
+//Trip pages
+@import './_TripHomePage.scss';
+@import'./_NewTripPage.scss';
+
+// Trip Home Page Comp
+@import './_AddCategoryComp.scss';
+@import './_AddItemsComponent.scss';
+@import './_CategoryComponent.scss';
+@import './_ItemsDisplayComponent.scss';
+@import './_MainItemsComponent.scss';
