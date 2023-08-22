@@ -1,12 +1,14 @@
 # allpacka
-A planning app for any and every event!
+Pack only what you need!
 
-Note the server and client have their own package.json
-to install the dependencies, run
+A planning app for any and every event! Use it to facilitate coordination and item organization within your group!
+
+Note the server and client have their own package.json.
+To install the dependencies, run
 
     npm install
     
-in both "/client" and "/server"
+in both "/client" and "/server".
 
 Once the node_modules are installed
 If you want to develop the client run...
