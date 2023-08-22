@@ -125,12 +125,9 @@ input {
 	line-height: 1rem;
 	letter-spacing: 0.05rem;
 	transition: filter 100ms linear;
-
 	&.icon-button {
 		display: inline-flex;
-
 		padding: 0;
-
 		justify-content: center;
 		align-items: center;
 	}

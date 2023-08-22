@@ -20,7 +20,7 @@ const RootLayout = () => {
           {/* <NavLink to='/home_page/' className='nav-link'> Home </NavLink> */}
           <NavLink to='/user_settings'className='nav-link'> User Settings </NavLink>
           <NavLink to='/new_trip'className='nav-link'> New Trip </NavLink>
-          <NavLink to='/trip_home'className='nav-link'> Trip Home Page </NavLink>
+          <NavLink to='/tripTest'className='nav-link'> Trip Home Page </NavLink>
         </nav>
       </header>
       <main>
